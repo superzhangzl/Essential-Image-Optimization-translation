@@ -903,8 +903,6 @@ Guetzli与MozJPEG相比如何？  -  Kornel的观点：
 
 [Butteraugli](https://github.com/google/butteraugli) 是Google的一个项目，它估计一个人可能注意到两个图像的视觉图像退化（心理视觉相似性）的时间点。它为那些在几乎看不到差异的领域中可靠的图像打分。Butteraugli不仅给出了一个标量分数，而且还计算了一个不同级别的空间地图。当ssim查看来自图像的错误集合时，Butteraugli查看的是最糟糕的部分。
 
-is a project by Google that estimates the point when a person may notice visual image degradation (the psychovisual similarity) of two images. It gives a score for the images that is reliable in the domain of barely noticeable differences. Butteraugli not only gives a scalar score, but also computes a spatial map of the level of differences. While SSIM looks at the aggregate of errors from an image, Butteraugli looks at the worst part.
-
 <figure>
 <picture>
 <source
@@ -913,7 +911,6 @@ is a project by Google that estimates the point when a person may notice visual 
 <source
         data-srcset="images/book-images/Modern-Image14-large.jpg"
         media="(max-width: 1024px)" />
-
 <source
         data-srcset="images/book-images/Modern-Image14-medium.jpg" />
 
@@ -925,11 +922,10 @@ is a project by Google that estimates the point when a person may notice visual 
   <img src="images/book-images/Modern-Image14-medium.jpg"/>
 </noscript>
 </picture>
-<figcaption>Above is an example that used Butteraugli to find the minimal JPEG quality threshold before visual degradation was bad enough for a user to notice something wasn’t clear. It resulted in a 65% reduction in total file size.</figcaption>
+<figcaption>上图是一个使用Butteraugli找到JPEG最小质量阈值的示例，处理之后视觉降低非常严重，用户甚至可以注意到某些区域并不太清楚。但是它使得文件总大小减少了65％。</figcaption>
 </figure>
 
-
-In practice, you would define a target goal for visual quality and then run through a number of different image optimisation strategies, looking at your Butteraugli scores, before choosing something that fits the best balance of file- size and level.
+在实践中，您需要为视觉质量定义一个目标，然后运行一系列不同的图像优化策略，查看您的Butteraugli分数，然后选择最适合文件大小和质量级别之间的平衡。
 
 <figure>
 <picture>
@@ -951,18 +947,20 @@ In practice, you would define a target goal for visual quality and then run thro
   <img src="images/book-images/Modern-Image15-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>All in all, it took me about 30m to setup Butteraugli locally after installing Bazel and getting a build of the C++ sources to correctly compile on my Mac. Using it is then relatively straight-forward: specify the two images to compare (a source and compressed version) and it will give you a score to work from.</figcaption>
+<figcaption>总而言之，安装Bazel后，大约花费了我30分钟，在本地安装了ButoGLI，并获得了一个C++源用于构建，以便在我的Mac上能正确编译。使用它是非常直接的：指定要比较的两个图像（源和压缩版本），它会给你一个分数。</figcaption>
 </figure>
 
-**How does Butteraugli differ to other ways of comparing visual similarity?**
+**Butteraugli与其他比较视觉相似性的方法有何不同？**
 
-[This comment](https://github.com/google/guetzli/issues/10#issuecomment-276295265) from a Guetzli project member suggests Guetzli scores best on Butteraugli, worst on SSIM and MozJPEG scores about as well on both. This is in line with the research I’ve put into my own image optimisation strategy. I run Butteraugli and a Node module like [img-ssim](https://www.npmjs.com/package/img-ssim) over images comparing the source to their SSIM scores before/after Guetzli and MozJPEG.
+Guetzli项目成员的这一[评论](https://github.com/google/guetzli/issues/10#issuecomment-276295265)表明，Guetzli在Butteraugli上的得分最高，在ssim和mozjpeg上的得分最低，两者都差不多。这与我在自己的图像优化策略中所做的研究是一致的。我在图像上运行Butteraugli和一个节点模块，比如[img-ssim](https://www.npmjs.com/package/img-ssim) ，将源代码与guetzli和mozjpeg前后的ssim得分进行比较。
 
-**Combining encoders?**
+**组合编码器？**
 
-For larger images, I found combining Guetzli with **lossless compression **in MozJPEG (jpegtran, not cjpeg to avoid throwing away the work done by Guetzli) can lead to a further 10-15% decrease in filesize (55% overall) with only very minor decreases in SSIM. This is something I would caution requires experimentation and analysis but has also been tried by others in the field like [Ariya Hidayat](https://ariya.io/2017/03/squeezing-jpeg-images-with-guetzli) with promising results.
+对于更大的图像，我发现在mozjpeg（jpegtran，而不是cjpeg）中将guetzli与**无损压缩**结合在一起可以进一步减少10-15%的文件大小（综合来说是55%），而ssim的减少非常小。这是我需要注意的，需要实验和分析，但也已经被其他领域的人，如 [Ariya Hidayat](https://ariya.io/2017/03/squeezing-jpeg-images-with-guetzli) 进行了尝试并得到了确认的的结果。
 
-MozJPEG is a beginner-friendly encoder for web assets that is relatively fast and produces good-quality images. As Guetzli is resource-intensive and works best on larger, higher-quality images, it’s an option I would reserve for intermediate to advanced users.
+Mozjpeg是一个初学者友好的Web资产编码器，速度相对较快，生成的图像质量较好。由于Guetzli是资源密集型的，在更大、更高质量的图像上效果最好，因此我将为中级到高级用户保留此选项。
+
+
 
 ## <a id="what-is-webp" href="#what-is-webp">What is WebP?</a>
 
