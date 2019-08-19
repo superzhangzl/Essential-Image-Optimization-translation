@@ -363,7 +363,6 @@ JPEG等格式最适合具有多个颜色区域的照片或图像。 大多数优
 接下来，让我们将讨论一下JPEG的压缩模式，因为这些模式对体验性能变化有很大的影响。
 
 <aside class="note"><b>Note:</b> 有时我们可能高估了用户对图像质量的需求。图像质量可以被视为与未压缩前理想的图像的偏差，这种偏差具有主观性。（100%图像质量可被理解为无偏差）</aside>
-
 ## <a id="jpeg-compression-modes" href="#jpeg-compression-modes">JPEG 压缩模式</a>
 
 JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimrod/Compression/JPEG/J5mods2007.pdf)。 三种流行的模式是基线方式（顺序），渐进式（PJPEG）和无损方式。
@@ -455,7 +454,6 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 对于超过10KB的图像，渐进式JPEG可以改善压缩能力，与基线/简单JPEG相比，带宽减少 [2-10%](http://www.bookofspeed.com/chapter5.html) 。 它们的压缩比更高，这要归功于JPEG中的每次扫描都能够使用自己专用的可选[Huffman 表](https://en.wikipedia.org/wiki/Huffman_coding)。 现代JPEG编码器（例如：[libjpeg-turbo](http://libjpeg-turbo.virtualgl.org/)，MozJPEG等）利用PJPEG的灵活性来更好地打包数据。
 
 <aside class="note"><b>Note:</b> 为什么渐进式JPEG压缩得更好？ 基线JPEG的数据库块一次编码一个。 利用渐进式JPEG，可以将多个数据块的类似[离散余弦变换](https://en.wikipedia.org/wiki/Discrete_cosine_transform) 系数编码在一起，从而实现更好的压缩。</aside>
-
 渐进式JPEG的另一个优点是在HTTP2上，页面和第一个扫描层同时加载，这[提高了用户查看初始图像内容的速度](https://calendar.perfplanet.com/2016/even-faster-images-using-http2-and-progressive-jpegs/)，并使浏览器能够更快地布局页面元素。 将其与渐进式JPEG的定制扫描层相结合，例如：通过[向mozjpeg提供自定义扫描文件](https://calendar.perfplanet.com/wp-content/uploads/2016/12/scans.txt)或使用[Cloudinary的自定义PJPEG选项](http://cloudinary.com/blog/progressive_jpegs_and_green_martians)，可以更快地为用户呈现真正有意义的图像内容。
 
 ### <a id="whos-using-progressive-jpegs-in-production" href="#whos-using-progressive-jpegs-in-production">谁在产品中使用渐进式JPEG？</a>
@@ -668,9 +666,7 @@ There are a number of common samples discussed when talking about subsampling. G
 Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG specification, so different decoders handle it differently. MozJPEG and libjpeg-turbo use the same scaling method. Older versions of libjpeg use a different method that adds ringing artifacts in colors.
 
 <aside class="note"><b>Note:</b> 使用“保存为网络图像”的功能时，Photoshop会自动设置色度子采样。 当图像质量设置在51-100之间时，不会使用子采样（`4:4:4`）。 当质量低于此值时，将使用`4:2:0`子采样。 这是当质量从51切换到50时可以显著观察到的文件大小降低的一个原因。</aside>
-
 <aside class="note"><b>Note:</b>在二次抽样讨论中，经常提到术语 [YCbCr](https://en.wikipedia.org/wiki/YCbCr)。 这是一个可以表示伽马校正的 [RGB](https://en.wikipedia.org/wiki/RGB_color_model) 色彩空间的模型。 Y是伽马校正的亮度，Cb是蓝色的色度分量，Cr是红色的色度分量。 当你观察ExifData时，你会看到YCbCr接近采样水平。</aside>
-
 有关色度子采样的进一步阅读，请参考[为什么您的图像不使用色度子采样？](https://calendar.perfplanet.com/2015/why-arent-your-images-using-chroma-subsampling/)
 
 （TODO，该章节涉及了好多图像显示方面的专业数据，翻译粗略的参考谷歌翻译以及部分博客，还需要对术语等进行校对调整）
@@ -724,19 +720,18 @@ Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG sp
 
 接下来，让我们谈谈当您无法有条件地提供不同图像格式时的可选方案：**优化JPEG编码器**。
 
-
 ### <a id="optimizing-jpeg-encoders" href="#optimizing-jpeg-encoders">优化JPEG编码器s</a>
 
-Modern JPEG encoders attempt to produce smaller, higher fidelity JPEG files while maintaining compatibility with existing browsers and image processing apps. They avoid the need to introduce new image formats or changes in the ecosystem in order for compression gains to be possible. Two such encoders are MozJPEG and Guetzli.
+现代JPEG编码器尝试生成更小，更高保真度的JPEG文件，同时保持与现有浏览器和图像处理应用程序的兼容性。 它们避免了在生态系统中引入新的图像格式或更改，来实现压缩增益。。 两个这样的编码器分别是是MozJPEG和Guetzli。
 
-***tl;dr Which optimising JPEG Encoder should you use?***
+***tl;dr 您应该使用哪个jpeg优化编码器？***
 
-* General web assets: MozJPEG
-* Quality is your key concern and you don’t mind long encode times: use Guetzli
-* If you need configurability:
- * [JPEGRecompress](https://github.com/danielgtaylor/jpeg-archive) (which uses MozJPEG under the hood)
- * [JPEGMini](http://www.jpegmini.com/). It’s similar to Guetzli – chooses best quality automatically. It’s not as technically sophisticated as Guetzli, but it’s faster, and aims at quality range more suitable for the web.
- * [ImageOptim API](https://imageoptim.com/api) (with free online interface [here](https://imageoptim.com/online)) – it’s unique in its handling of color. You can choose color quality separately from overall quality. It automatically chooses chroma subsampling level to preserve high-res colors in screenshots, but avoid waste bytes on smooth colors in natural photos.
+* 一般的Web资产：MozJPEG
+* 更关心质量甚于编码时长：使用Guetzli
+* 如果您需要可配置性：
+ * [JPEGRecompress](https://github.com/danielgtaylor/jpeg-archive) (which uses MozJPEG under the hood) //todo
+ * [JPEGMini](http://www.jpegmini.com/)。它类似于Guetzli——自动选择最佳质量。虽然技术上不如Guetzli复杂，但速度更快，而且目标是质量范围更适合网络使用。
+ * [ImageOptim API](https://imageoptim.com/api) (带有免费的在线界面](https://imageoptim.com/online)) 。它在颜色处理方面是独一无二的。您可以单独选择颜色质量和整体质量。它自动选择色度次采样级别，以保持屏幕截图中的高分辨率颜色，但与此同时还能避免在自然照片中的平滑颜色上浪费字节。
 
 
 ### <a id="what-is-mozjpeg" href="#what-is-mozjpeg">什么是MozJPEG？</a>
@@ -811,7 +806,6 @@ gulp.task('mozjpeg', () =>
 根据我的经验，MozJPEG是一个很好的选择，可以在高视觉效果的情况下压缩网络图像来减少文件大小。 对于中小尺寸的图像，我发现MozJPEG（质量= 80-85）可以节省30-40％的文件大小，同时保持可接受的SSIM，在jpeg-turbo上提供5-6％的提升。 它确实具有比基线JPEG具有[更高的编码成本](http://www.libjpeg-turbo.org/About/Mozjpeg)，但你可能不会发现显式的阻塞。（注：show stopper可理解为严重程度极高的硬件或[软件错误](https://en.wikipedia.org/wiki/Software_bug)，需要立即修复）
 
 <aside class="note"><b>Note:</b>如果您需要一个支持MozJPEG的工具以及一些额外的配置支持和一些免费的图像比较工具，请查看 [jpeg-recompress](https://github.com/danielgtaylor/jpeg-archive)。 Web Performance in Action的作者Jeremy Wagner在使用[此配置](https://twitter.com/malchata/status/884836650563579904) 时取得了一些成功。</aside>
-
 ### <a id="what-is-guetzli" href="#what-is-guetzli">什么是Guetzli？</a>
 
 [Guetzli](https://github.com/google/guetzli) 是一款很有发展情景的慢速可感知的JPEG编码器，谷歌尝试找到最小的JPEG，使得它在感知上与人眼无法区分。 它执行一系列测试，产生最终JPEG的方案，解释每个方案中心理视觉偏差。最终它选择得分最高的方案作为最终输出。
@@ -819,11 +813,9 @@ gulp.task('mozjpeg', () =>
 为了测量图像之间的差异，Guetzli使用[Butteraugli](https://github.com/google/butteraugli)，一种基于人类感知测量图像差异的模型（下面讨论）。 Guetzli可以考虑其他JPEG编码器没有的一些视觉属性。 例如，在所看到的绿光量和对蓝色的敏感度之间存在关系，因此可以稍微不那么精确地编码绿色附近的蓝色变化。
 
 <aside class="note"><b>Note:</b>图像文件大小**更多地取决于质量**的选择而不是**编解码器**的选择。与通过切换编解码器实现的文件大小节省相比，最低和最高质量JPEG之间的文件大小差异要大得多。 使用最低的可接受质量非常重要。 如果非必要，请避免将质量设置得过高。 </aside>
-
 与其他压缩方式相比，Guetzli[宣称](https://research.googleblog.com/2017/03/announcing-guetzli-new-open-source-jpeg.html ) 对于给定的Butteraugli分数，图像的数据大小减少了20-30％。 对于使用Guetzli的一个严重的警告是它非常非常慢，目前仅适用于静态内容。 从README，我们可以注意到Guetzli需要大量内存 - 每百万像素可能需要1分钟+ 200MB RAM。 在这个GitHub的一个[issue](https://github.com/google/guetzli/issues/50)中，有一个关于Guetzli实际体验的准确描述。 当您在静态站点的构建过程中对图像进行优化时，它是理想的选择，但在按需执行时则不太理想。
 
 <aside class="note"><b>Note:</b>作为静态站点的构建过程中优化图像时，Guetzli可能更适合。或者不用按需执行图像优化的情况。 </aside>
-
 像ImageOptim这样的工具支持Guetzli优化（在[最新版本](https://imageoptim.com/)中）。
 
 ```js
@@ -891,7 +883,6 @@ gulp.task('guetzli', () =>
 </figure>
 
 <aside class="note"><b>Note:</b>建议在高质量图像上运行Guetzli（例如，未压缩的输入图像，PNG源或100％质量或接近的JPEG）。虽然它也可以用于其他图像（例如质量为84或更低的JPEG），但结果可能更差。</aside>
-
 虽然使用Guetzli压缩图像非常（非常）耗时并且会使您的风扇疯狂旋转，但对于较大的图像，这是值得的。 我已经看到了许多例子，在保持视觉逼真度的同时，它可以在任何地方保存高达40%的文件大小。 这使其非常适合存档照片。 在中小尺寸的图像上，我仍然看到了一些节省（在10-15KB范围内），但它们并没有那么明显。 Guetzli可以在压缩时在较小的图像上引入更多的液化扭曲。
 
 您可能还对Eric Portis研究感兴趣，将Guetzli与Cloudinary的自动压缩进行[比较](https://cloudinary.com/blog/a_closer_look_at_guetzli) ，以获得有效的不同数据点。
@@ -1025,7 +1016,6 @@ The WebP file format supports EXIF photo metadata and XMP digital document metad
 WebP offers better compression at the cost of being more CPU intensive. Back in 2013, the compression speed of WebP was ~10× slower than JPEG but is now negligible (some images may be 2× slower). For static images that are processed as part of your build, this shouldn’t be a large issue. Dynamically generated images will likely cause a perceivable CPU overhead and will be something you will need to evaluate.
 
 <aside class="note"><b>Note:</b> WebP lossy quality settings are not directly comparable to JPEG. A JPEG at ‘70% quality’ will be quite different to a WebP image at ‘70% quality’ because WebP achieves smaller file sizes by discarding more data.</aside>
-
 ### <a id="whos-using-webp-in-production" href="#whos-using-webp-in-production">Who’s using WebP in production?</a>
 
 Many large companies are using WebP in production to reduce costs and decrease web page load times.
@@ -1141,7 +1131,6 @@ WebP is not without its downsides. It lacks full-resolution color space options 
 Several commercial and open source image editing and processing packages support WebP. One particularly useful application is XnConvert: a free, cross-platform, batch image processing converter.
 
 <aside class="note"><b>Note:</b> It’s important to avoid converting low or average quality JPEGs to WebP. This is a common mistake and can generate WebP images with JPEG compression artifacts. This can lead to WebP being less efficient as it has to save the image _and_ the distortions added by JPEG, leading to you losing on quality twice. Feed conversion apps the best quality source file available, preferably the original.</aside>
-
 **[XnConvert](http://www.xnview.com/en/xnconvert/)**
 
 XnConvert enables batch image processing, compatible with over 500 image formats. You can combine over 80 separate actions to transform or edit your images in multiple ways.
@@ -1449,7 +1438,6 @@ scripts for serving WebP](https://github.com/igrigorik/webp-detect) that can be 
 The browser itself is capable of choosing which image format to display through the use of the `<picture>` tag. The `<picture>` tag utilizes multiple `<source>` elements, with one `<img>` tag, which is the actual DOM element which contains the image. The browser cycles through the sources and retrieves the first match. If the `<picture>` tag isn’t supported in the user’s browser, a `<div>` is rendered and the `<img>` tag is used.
 
 <aside class="note"><b>Note:</b> Be careful with the position of `<source>` as order matters. Don’t place image/webp sources after legacy formats, but instead put them before. Browsers that understand it will use them and those that don’t will move onto more widely supported frameworks. You can also place your images in order of file size if they’re all the same physical size (when not using the `media` attribute). Generally this is the same order as putting legacy last. </aside>
-
 Here is some sample HTML:
 
 ```html
@@ -1902,7 +1890,6 @@ Image CDNs like [Cloudinary](http://cloudinary.com/blog/how_to_automatically_ada
 density to users from a single canonical source.
 
 <aside class="note"><b>Note:</b> You can learn more about Device Pixel Ratio and responsive images in this free [Udacity](https://www.udacity.com/course/responsive-images--ud882) course and the [Images](https://developers.google.com/web/fundamentals/design-and-ui/responsive/images) guide on Web Fundamentals.</aside>
-
 A friendly reminder that [Client Hints](https://www.smashingmagazine.com/2016/01/leaner-responsive-images-client-hints/) can also provide an alternative to specifying each possible pixel density and format in your responsive image markup. Instead, they append this information to the HTTP request so web servers can pick the best fit for the current device’s screen density.
 
 ### <a id="art-direction" href="#art-direction">Art direction</a>
@@ -2029,7 +2016,6 @@ The differences in color spaces (like sRGB, Adobe RGB and ProPhoto RGB) are thei
 [Wide-gamut](http://www.astramael.com/) is a term describing color spaces with a gamut larger than sRGB. These types of displays are becoming more common. That said, many digital displays are still simply unable to display color profiles that are significantly better than sRGB. When saving for the web in Photoshop, consider using the ‘Convert to sRGB’ option unless targeting users with higher-end wide-gamut screens. 
 
 <aside class="key-point"><b>Note:</b> When working with original photography, avoid using sRGB as your primary color space. It’s smaller than the color spaces most cameras support and can cause clipping. Instead, work on a larger color space (like ProPhoto RGB) and output to sRGB when exporting for the web.</aside>
-
 **Are there any cases where wide gamut makes sense for web content?**
 
 Yes. If an image contains very saturated/juicy/vibrant color and you care about it being just as juicy on screens that support it. However, in real photos that rarely happens. Often it’s easy to tweak color to make it appear vibrant, without it actually exceeding sRGB gamut 
@@ -2047,7 +2033,6 @@ With gamma compression useful scale of brightness fits in 8 bits of precision (0
 Even though in both cases, physically, exactly the same amount of light was added. So because eyes are less sensitive when light is bright, gamma compression ‘compresses’ bright values, so in physical terms bright levels are less precise but the scale is adjusted for humans so from the human perspective all values are equally precise. 
 
 <aside class="key-point"><b>Note:</b> Gamma compression/correction here is different to the image gamma curves you might configure in Photoshop. When gamma compression works as it should, it doesn’t look like anything.</aside>
-
 #### Color profiles
 
 A color profile is the information describing what that the color space of a device is. It’s used to convert between different color spaces. Profiles attempt to ensure an image looks as similar as possible on these different kinds of screens and mediums. 
@@ -2055,7 +2040,6 @@ A color profile is the information describing what that the color space of a dev
 Images can have an embedded color profile as described by the [International Color Consortium](http://www.color.org/icc_specs2.xalter) (ICC) to represent precisely how colors should appear. This is supported by different formats including JPEGs, PNGs, SVGs and [WebP](https://developers.google.com/speed/webp/docs/riff_container) and most major browsers support embedded ICC profiles. When an image is displayed in an app and it knows the monitor’s capabilities, these colors can be adjusted based on the color profile. 
 
 <aside class="key-point"><b>Note:</b> Some monitors have a color profile similar to sRGB and cannot display much better profiles so depending on your target users displays, there may be limited value in embedding them. Check who your target users are.</aside>
-
 Embedded color profiles can also heavily increase the size of your images (100KB+ occasionally) so be careful with embedding. Tools like ImageOptim will actually [automatically](https://imageoptim.com/color-profiles.html) remove color profiles if it finds them. In contrast, with the ICC profile removed in the name of size reduction, browsers will be forced to display the image in your monitor’s color space which can lead to differences in expected saturation and contrast. Evaluate the trade-offs here make sense for your use case.
 
 [Nine Degrees Below](https://ninedegreesbelow.com/photography/articles.html) have an excellent set of resources on ICC profile color management if you are interested in learning more about profiles.
@@ -2065,7 +2049,6 @@ Embedded color profiles can also heavily increase the size of your images (100KB
 Earlier versions of Chrome did not have great support for color management, but this is improving in 2017 with [Color Correct Rendering](https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/ptuKdRQwPAo). Displays that are not sRGB (newer MacBook Pros) will convert colors from sRGB to the display profile. This will mean colors should look more similar across different systems and browsers. Safari, Edge and Firefox can now also take ICC profiles into account, so images with a different color profile (e.g. ICC) can now display them correctly whether your screen has wide gamut or not.
 
 <aside class="key-point"><b>Note:</b> For a great guide on how color applies to a broader spectrum of ways we work on the web, see the [nerd’s guide to color on the web](https://css-tricks.com/nerds-guide-color-web/) by Sarah Drasner.</aside>
-
 ## <a id="image-sprites" href="#image-sprites">Image spriting</a>
 
 [Image sprites](https://developers.google.com/web/fundamentals/design-and-ui/responsive/images#use_image_sprites) (or CSS sprites) have a long history on the web, are supported by all browsers and have been a popular way to reduce the number of images a page loads by combining them into a single larger image that is sliced.
@@ -2457,7 +2440,6 @@ Most of the images you deliver to users are static assets that will[ not change]
 When setting your HTTP caching headers, set Cache-Control with a max-age of a year (e.g. `Cache-Control:public; max-age=31536000`). This type of aggressive caching works well for most types of images, especially those that are long-lived like avatars and image headers.
 
 <aside class="note"><b>Note:</b> If you’re serving images using PHP, it can destroy caching due to the default [session_cache_limiter](http://php.net/manual/en/function.session-cache-limiter.php) setting. This can be a disaster for image caching and you may want to [work around](https://stackoverflow.com/a/3905468) this by setting session_cache_limiter('public') which will set public, max-age=. Disabling and setting custom cache-control headers is also fine.</aside>
-
 ## <a id="preload-critical-image-assets" href="#preload-critical-image-assets">Preloading critical image assets</a>
 
 Critical image assets can be preloaded using [`<link rel=preload>`](https://www.w3.org/TR/preload/). 
@@ -2473,7 +2455,6 @@ Images can be preloaded by specifying an `as` value of `image`:
 Image resources for `<img>`, `<picture>`, `srcset` and SVGs can all take advantage of this optimization.
 
 <aside class="note"><b>Note:</b> `<link rel="preload">` is [supported](http://caniuse.com/#search=preload) in Chrome and Blink-based browsers like Opera, [Safari Tech Preview](https://developer.apple.com/safari/technology-preview/release-notes/) and has been [implemented](https://bugzilla.mozilla.org/show_bug.cgi?id=1222633) in Firefox.</aside>
-
 Sites like [Philips](https://www.usa.philips.com/), [Flipkart](https://www.flipkart.com/) and [Xerox](https://www.xerox.com/) use `<link rel=preload>` to preload their main logo assets (often used early in the document). [Kayak](https://kayak.com/) also uses preload to ensure the hero image for their header is loaded as soon as possible.
 
 <figure>
@@ -2626,7 +2607,6 @@ If you **can’t** invest in conditionally serving formats based on browser supp
 Happy compressing!
 
 <aside class="note"><b>Note:</b> For more practical guidance on how to optimize images, I heavily recommend [Web Performance in Action](https://www.manning.com/books/web-performance-in-action) by Jeremy Wagner. [High Performance Images](http://shop.oreilly.com/product/0636920039730.do) is also filled with excellent, nuanced advice on this topic.</aside>
-
 ## <a id="trivia" href="#trivia">Trivia</a>
 
 * [JPEG XT](https://jpeg.org/jpegxt/) defines extensions to the 1992 JPEG specification. For extensions to have pixel-perfect rendering on-top of old JPEG, the specification had to clarify the old 1992 spec and [libjpeg-turbo](https://libjpeg-turbo.org/) was chosen as its reference implementation (based on popularity). 
@@ -2635,6 +2615,5 @@ Happy compressing!
 * Blink (the rendering engine used by Chrome) decodes images off the main thread. Moving the decode work to the compositor thread frees-up the main thread to work on other tasks. We call this deferred decoding. With deferred decoding, the decode work remains on the critical path for presenting a frame to the display, so it can still cause animation jank. The [`img.decode()`](https://html.spec.whatwg.org/multipage/embedded-content.html#dom-img-decode) API should help with the jank problem.
 
 <p class="license">The content of this book is licensed under the  Creative Commons [Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)](https://creativecommons.org/licenses/by-nc-nd/2.0/) license, and code samples are licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0). Copyright Google, 2018.</p>
-
 </body>
 </html>
