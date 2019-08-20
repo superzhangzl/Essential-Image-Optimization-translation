@@ -964,7 +964,7 @@ Mozjpeg是一个初学者友好的Web资产编码器，速度相对较快，生�
 
 ## <a id="what-is-webp" href="#what-is-webp">什么是WebP?</a>
 
-[WebP](https://developers.google.com/speed/webp/)是Google最近推出的一种图像格式，旨在以可接受的视觉质量为前提下，提供无损压缩和有损压缩使得的文件大小更低。它包括对alpha通道透明度和动画的支持。
+[WebP](https://developers.google.com/speed/webp/)是Google最近推出的一种图像格式，旨在以可接受的视觉质量提供较低的文件大小，用于无损和有损压缩。它包括对alpha通道透明度和动画的支持。
 
 在过去的一年中，webp在有损和无损模式下压缩比提高了几个百分点，在速度方面，算法的速度提高了两倍，在解压方面提高了10%。WebP并不是一个全能的工具，但它在图像压缩社区中有一定的地位和不断增长的用户基础。我们来研究一下原因。
 
@@ -1015,7 +1015,6 @@ The WebP file format supports EXIF photo metadata and XMP digital document metad
 WebP offers better compression at the cost of being more CPU intensive. Back in 2013, the compression speed of WebP was ~10× slower than JPEG but is now negligible (some images may be 2× slower). For static images that are processed as part of your build, this shouldn’t be a large issue. Dynamically generated images will likely cause a perceivable CPU overhead and will be something you will need to evaluate.
 
 <aside class="note"><b>备注:</b> WebP lossy quality settings are not directly comparable to JPEG. A JPEG at ‘70% quality’ will be quite different to a WebP image at ‘70% quality’ because WebP achieves smaller file sizes by discarding more data.</aside>
-
 ### <a id="whos-using-webp-in-production" href="#whos-using-webp-in-production">Who’s using WebP in production?</a>
 
 Many large companies are using WebP in production to reduce costs and decrease web page load times.
