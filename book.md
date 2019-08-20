@@ -994,27 +994,28 @@ Mozjpeg是一个初学者友好的Web资产编码器，速度相对较快，生�
 
 ### <a id="how-does-webp-perform" href="#how-does-webp-perform">WebP的表现如何？</a>
 
-**Lossy Compression**
+**有损压缩**
 
 WebP lossy files, using a VP8 or VP9 video key frame encoding variant, are on average cited by the WebP team as being [25-34%](https://developers.google.com/speed/webp/docs/webp_study) smaller than JPEG files.
 
 In the low-quality range (0-50), WebP has a large advantage over JPEG because it can blur away ugly blockiness artifacts. A medium quality setting (-m 4 -q 75) is the default balancing speed/file-size. In the higher-range (80-99), the advantages of WebP shrink. WebP is recommended where speed matters more than quality.
 
-**Lossless Compression**
+**无损压缩**
 
 [WebP lossless files are 26% smaller than PNG files](https://developers.google.com/speed/webp/docs/webp_lossless_alpha_study). The lossless load-time decrease compared to PNG is 3%. That said, you generally don’t want to deliver your users lossless on the web. There’s a difference between lossless and sharp edges (e.g. non-JPEG). Lossless WebP may be more suitable for archival content.
 
-**Transparency**
+**透明度**
 
 WebP has a lossless 8-bit transparency channel with only 22% more bytes than PNG. It also supports lossy RGB transparency, which is a feature unique to WebP.
 
-**Metadata**
+**元数据**
 
 The WebP file format supports EXIF photo metadata and XMP digital document metadata. It also contains an ICC Color Profile.
 
 WebP offers better compression at the cost of being more CPU intensive. Back in 2013, the compression speed of WebP was ~10× slower than JPEG but is now negligible (some images may be 2× slower). For static images that are processed as part of your build, this shouldn’t be a large issue. Dynamically generated images will likely cause a perceivable CPU overhead and will be something you will need to evaluate.
 
-<aside class="note"><b>Note:</b> WebP lossy quality settings are not directly comparable to JPEG. A JPEG at ‘70% quality’ will be quite different to a WebP image at ‘70% quality’ because WebP achieves smaller file sizes by discarding more data.</aside>
+<aside class="note"><b>备注:</b> WebP lossy quality settings are not directly comparable to JPEG. A JPEG at ‘70% quality’ will be quite different to a WebP image at ‘70% quality’ because WebP achieves smaller file sizes by discarding more data.</aside>
+
 ### <a id="whos-using-webp-in-production" href="#whos-using-webp-in-production">Who’s using WebP in production?</a>
 
 Many large companies are using WebP in production to reduce costs and decrease web page load times.
