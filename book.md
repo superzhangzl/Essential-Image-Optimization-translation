@@ -962,11 +962,11 @@ Mozjpeg是一个初学者友好的Web资产编码器，速度相对较快，生�
 
 
 
-## <a id="what-is-webp" href="#what-is-webp">What is WebP?</a>
+## <a id="what-is-webp" href="#what-is-webp">什么是WebP?</a>
 
-[WebP](https://developers.google.com/speed/webp/) is a recent image format from Google aiming to offer lower file-sizes for lossless and lossy compression at an acceptable visual quality. It includes support for alpha-channel transparency and animation.
+[WebP](https://developers.google.com/speed/webp/)是Google最近推出的一种图像格式，旨在以可接受的视觉质量为前提下，提供无损压缩和有损压缩使得的文件大小更低。它包括对alpha通道透明度和动画的支持。
 
-In the last year, WebP gained a few percent over compression-wise in lossy and lossless  modes and speed-wise the algorithm got twice as fast with a 10% improvement in decompression.  WebP is not a tool for all purposes, but it has some standing and a growing user base in the image compression community. Let’s examine why.
+在过去的一年中，webp在有损和无损模式下压缩比提高了几个百分点，在速度方面，算法的速度提高了两倍，在解压方面提高了10%。WebP并不是一个全能的工具，但它在图像压缩社区中有一定的地位和不断增长的用户基础。我们来研究一下原因。
 
 <figure>
 <picture>
@@ -974,8 +974,9 @@ In the last year, WebP gained a few percent over compression-wise in lossy and l
         data-srcset="images/book-images/Modern-Image16-small.jpg"
         media="(max-width: 640px)" />
 <source
-        data-srcset="images/book-images/Modern-Image16-medium.jpg"
+        data-srcset="images/book-images/Modern-Image16-medium.jpg
         media="(max-width: 1024px)" />
+
 
 <source
         data-srcset="images/book-images/Modern-Image16-large.jpg" />
@@ -988,10 +989,10 @@ In the last year, WebP gained a few percent over compression-wise in lossy and l
   <img src="images/book-images/Modern-Image16-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>WebP: A comparison of file sizes and visual similarity scores at different qualities.</figcaption>
+<figcaption>WebP：不同质量的文件大小和视觉相似性得分的比较。</figcaption>
 </figure>
 
-### <a id="how-does-webp-perform" href="#how-does-webp-perform">How does WebP perform?</a>
+### <a id="how-does-webp-perform" href="#how-does-webp-perform">WebP的表现如何？</a>
 
 **Lossy Compression**
 
