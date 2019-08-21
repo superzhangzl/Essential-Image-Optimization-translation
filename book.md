@@ -996,25 +996,28 @@ Mozjpeg是一个初学者友好的Web资产编码器，速度相对较快，生�
 
 **有损压缩**
 
-WebP lossy files, using a VP8 or VP9 video key frame encoding variant, are on average cited by the WebP team as being [25-34%](https://developers.google.com/speed/webp/docs/webp_study) smaller than JPEG files.
+WebP团队提到使用VP8或VP9视频关键帧编码变体的WebP有损文件大小比JEPG文件降低约 [25-34%](https://developers.google.com/speed/webp/docs/webp_study) 。
 
-In the low-quality range (0-50), WebP has a large advantage over JPEG because it can blur away ugly blockiness artifacts. A medium quality setting (-m 4 -q 75) is the default balancing speed/file-size. In the higher-range (80-99), the advantages of WebP shrink. WebP is recommended where speed matters more than quality.
+在低质量范围（0-50）中，WebP具有超过JPEG的巨大优势，因为它可以模糊出丑陋的块状伪影。 中等质量设置（-m 4 -q 75）是默认的平衡速度/文件大小。 在较高范围（80-99），WebP的优势缩小。如果速度比质量更重要，则建议使用 WebP。
+
+// todo 这个ugly block 该怎么翻译合适一些
 
 **无损压缩**
 
-[WebP lossless files are 26% smaller than PNG files](https://developers.google.com/speed/webp/docs/webp_lossless_alpha_study). The lossless load-time decrease compared to PNG is 3%. That said, you generally don’t want to deliver your users lossless on the web. There’s a difference between lossless and sharp edges (e.g. non-JPEG). Lossless WebP may be more suitable for archival content.
+[WebP无损文件比PNG文件小26%](https://developers.google.com/speed/webp/docs/webp_lossless_alpha_study)。与 PNG 相比，无损加载时间减少 3%。也就是说，您通常不希望在 Web 上为用户提供无损的图像。无损和锐化边缘（例如非 JPEG）之间存在差异。无损 WebP 可能更适合存档内容。
 
 **透明度**
 
-WebP has a lossless 8-bit transparency channel with only 22% more bytes than PNG. It also supports lossy RGB transparency, which is a feature unique to WebP.
+WebP 具有无损的 8 位透明度通道，仅比 PNG 多 22% 的字节。它还支持有损的 RGB 透明度，这是 WebP 独有的功能。
 
 **元数据**
 
-The WebP file format supports EXIF photo metadata and XMP digital document metadata. It also contains an ICC Color Profile.
+WebP 文件格式支持EXIF 照片元数据和XMP 数字文档元数据。它还包含ICC颜色配置文件。
 
-WebP offers better compression at the cost of being more CPU intensive. Back in 2013, the compression speed of WebP was ~10× slower than JPEG but is now negligible (some images may be 2× slower). For static images that are processed as part of your build, this shouldn’t be a large issue. Dynamically generated images will likely cause a perceivable CPU overhead and will be something you will need to evaluate.
+WebP 以占用更多 CPU 的成本提供更好的压缩。早在 2013 年，WebP 的压缩速度比 JPEG 慢约10倍，但现在可以忽略不计（某些图像可能慢 2倍）。对于作为生成一部分处理的静态图像，这应该不是大问题。动态生成的图像可能会出现可感知的 CPU 开销，并且需要评估。
 
-<aside class="note"><b>备注:</b> WebP lossy quality settings are not directly comparable to JPEG. A JPEG at ‘70% quality’ will be quite different to a WebP image at ‘70% quality’ because WebP achieves smaller file sizes by discarding more data.</aside>
+<aside class="note"><b>备注:</b> WebP有损质量设置与JPEG无法直接比较。 “70％质量”的JPEG与“70％质量”的WebP图像完全不同，因为WebP通过丢弃更多数据来实现更小的文件大小。</aside>
+
 ### <a id="whos-using-webp-in-production" href="#whos-using-webp-in-production">Who’s using WebP in production?</a>
 
 Many large companies are using WebP in production to reduce costs and decrease web page load times.
