@@ -1021,13 +1021,11 @@ WebP 以占用更多 CPU 的成本提供更好的压缩。早在 2013 年，WebP
 
 许多大公司在生产中使用WebP来降低成本并减少网页加载时间。
 
-。。。
+谷歌报告称，使用WebP比其他有损压缩方案节省30-35％，每天提供430亿个图像请求，其中26％是无损压缩。 这是大量的请求以及效果显著的节省。 如果[浏览器支持](http://caniuse.com/#search=webp)更好，更广泛，节省的开销无疑会更大。 Google还在Google Play和YouTube等制作网站中使用它。
 
-Google reported 30-35% savings using WebP over other lossy compression schemes, serving 43 billion image requests a day, 26% of that being lossless compression. That’s a lot of requests and significant savings. Savings would undoubtedly be larger if [browser support](http://caniuse.com/#search=webp) were better and more widespread. Google also uses it in production sites like Google Play and YouTube.
+Netflix、Amazon、Quora、Yahoo、Walmart、eBay、Guardian、Fortune和USA Today，都通过WebP为支持它的浏览器压缩和服务图像。VoxMedia通过为他们的Chrome用户切换到WebP，将[1-3秒的加载时间](https://product.voxmedia.com/2015/8/13/9143805/performance-update-2-electric-boogaloo)降到了极限。当切换到为Chrome用户提供服务时，[500px](https://iso.500px.com/500px-color-profiles-file-formats-and-you/) 的图像文件大小平均减少了25%，图像质量类似或更好。
 
-Netflix, Amazon, Quora, Yahoo, Walmart, Ebay, The Guardian, Fortune, and USA Today, all compress and serve images with WebP for browsers which support it. VoxMedia [shaved 1-3s off load times](https://product.voxmedia.com/2015/8/13/9143805/performance-update-2-electric-boogaloo) for The Verge by switching over to WebP for their Chrome users. [500px](https://iso.500px.com/500px-color-profiles-file-formats-and-you/) saw an average 25% reduction in image file size with similar or better image quality when switching to serving it to their Chrome users.
-
-There are quite a few more companies on board than this sample list indicates.
+除了这个样本列表中指出的还有不少公司。
 
 <figure>
 <picture>
@@ -1037,7 +1035,6 @@ There are quite a few more companies on board than this sample list indicates.
 <source
         data-srcset="images/book-images/webp-conversion-medium.jpg"
         media="(max-width: 1024px)" />
-
 <source
         data-srcset="images/book-images/webp-conversion-large.jpg" />
 
@@ -1049,7 +1046,7 @@ There are quite a few more companies on board than this sample list indicates.
   <img src="images/book-images/webp-conversion-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>WebP usage at Google: 43 billion WebP image requests a day are served across YouTube, Google Play, Chrome Data Saver and G+.</figcaption>
+<figcaption>Google的WebP使用：每天在YouTube，Google Play，Chrome数据保护程序和G +上提供每天430亿次WebP图像请求。</figcaption>
 </figure>
 
 ### <a id="how-does-webp-encoding-work" href="#how-does-webp-encoding-work">How does WebP encoding work?</a>
