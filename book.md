@@ -1049,11 +1049,13 @@ Netflix、Amazon、Quora、Yahoo、Walmart、eBay、Guardian、Fortune和USA Tod
 <figcaption>Google的WebP使用：每天在YouTube，Google Play，Chrome数据保护程序和G +上提供每天430亿次WebP图像请求。</figcaption>
 </figure>
 
-### <a id="how-does-webp-encoding-work" href="#how-does-webp-encoding-work">How does WebP encoding work?</a>
+### <a id="how-does-webp-encoding-work" href="#how-does-webp-encoding-work">WebP编码如何工作？</a>
 
-WebP’s lossy encoding is designed to compete with JPEG for still images. There are three key phases to WebP’s lossy encoding:
+WebP的有损编码旨在与JPEG静止图像竞争。 WebP的有损编码有三个关键阶段：
 
-**Macro-blocking** – splitting an image into 16×16 (macro) blocks of luma pixels and two 8×8 blocks of chroma pixels. This may sound familiar to the idea of JPEGs doing color space conversion, chroma channel downsampling and image subdivision.
+**Macro-blocking** - 将图像拆分为 16×16（宏）的亮度（luma）像素块和两个 8×8 块色度（chroma）像素。这在 JPEG 执行色彩空间转换、色度通道向下采样和图像细分的思路中可能听起来很熟悉。
+
+//todo  注：这里的Macro-blocking暂时没想好一个比较专业的术语，就先按原样写下来，
 
 <figure>
 <picture>
@@ -1078,7 +1080,7 @@ WebP’s lossy encoding is designed to compete with JPEG for still images. There
 
 </figure>
 
-**Prediction** – every 4×4 subblock of a macroblock has a prediction model applied that effectively does filtering. This defines two sets of pixels around a block – A (the row directly above it) and L (the column to the left of it). Using these two the encoder fills a test block with 4×4 pixels and determines which creates values closest to the original block. Colt McAnlis talks about this in more depth in [How WebP lossy mode works](https://medium.com/@duhroach/how-webp-works-lossly-mode-33bd2b1d0670).
+**预测** - 宏块（Macro-blocking）的每个4×4子块都应用了一个有效进行筛选的预测模型。 这定义了一个块周围的两组像素 -  A（它正上方的行）和L（它左边的列）。 使用这两个编码器填充具有4×4像素的测试块并确定哪个创建最接近原始块的值。 Colt McAnlis在[WebP有损模式的工作原理](https://medium.com/@duhroach/how-webp-works-lossly-mode-33bd2b1d0670)中更深入地讨论了这一点
 
 
 <figure>
@@ -1104,27 +1106,27 @@ WebP’s lossy encoding is designed to compete with JPEG for still images. There
 
 </figure>
 
-A Discrete Cosine Transform (DCT) is applied with a few steps similar to JPEG encoding. A key difference is use of an [Arithmetic Compressor](https://www.youtube.com/watch?v=FdMoL3PzmSA&index=7&list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H) vs JPEG’s Huffman.
+应用离散余弦变换（DCT），其步骤类似于JPEG编码。 关键的区别在于使用[算术压缩器](https://www.youtube.com/watch?v=FdMoL3PzmSA&index=7&list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H) 和 JPEG的Huffman编码。
 
-If you want to dive deeper, Google Developer’s article [WebP Compression Techniques](https://developers.google.com/speed/webp/docs/compression) goes into this topic in depth.
+如果您想深入了解，Google Developer的文章 [WebP 压缩技术](https://developers.google.com/speed/webp/docs/compression)将深入探讨这一主题。
 
-### <a id="webp-browser-support" href="#webp-browser-support">WebP browser support</a>
+### <a id="webp-browser-support" href="#webp-browser-support">WebP 浏览器支持</a>
 
-Not all browsers support WebP, however [according to CanIUse.com](http://caniuse.com/webp), global user support is at about 74%. Chrome and Opera natively support it. Safari, Edge, and Firefox have experimented with it but not landed it yet in official releases. This often leaves the task of getting the WebP image to the user up to the web developer. More on this later.
+但并非所有浏览器都支持WebP根据[canius.com](https://caniuse.com/#search=webp)，全球用户支持率约为74%。Chrome和Opera在本地支持它。Safari、Edge和Firefox已经对此进行了试验，但还没有正式发布。这通常会将获取WebP图像的任务留给Web开发人员。以后再谈。
 
-Here are the major browsers and support information for each:
+以下是每个主要的浏览器和支持信息：
 
-* Chrome: Chrome began full support at version 23.
-* Chrome for Android: Since Chrome 50
-* Android: Since Android 4.2
-* Opera: Since 12.1
-* Opera Mini: All versions
-* Firefox: Some beta support
-* Edge: Some beta support
-* Internet Explorer: No support
-* Safari: Some beta support
+* Chrome：Chrome在23版本开始全力支持。
+* Chrome for Android：从Chrome 50开始
+* Android：从Android 4.2开始
+* Opera：从12.1开始
+* Opera Mini：所有版本
+* Firefox：一些测试版支持
+* Edge：一些测试版支持
+* Internet Explorer：不支持
+* Safari：一些测试版支持
 
-WebP is not without its downsides. It lacks full-resolution color space options and does not support progressive decoding. That said, tooling for WebP is decent and browser-support, while limited to Chrome and Opera at the time of writing, may well cover enough of your users for it to be worth considering with a fallback.
+WebP并非没有缺点。 它缺乏全分辨率色彩空间选项，不支持渐进式解码。 也就是说，WebP是不错的浏览器支持工具，但在撰写本文时仅限于Chrome和Opera，可能会覆盖足够多的用户，因此它值得考虑作为备选方案。
 
 ### <a id="how-do-i-convert-to-webp" href="#how-do-i-convert-to-webp">How do I convert my images to WebP?</a>
 
