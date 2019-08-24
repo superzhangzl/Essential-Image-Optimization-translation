@@ -1177,15 +1177,15 @@ xnview网站上列出的一些选项包括：
 
 **Node modules**
 
-[Imagemin](https://github.com/imagemin/imagemin) is a popular image minification module that also has an add-on for converting images to WebP ([imagemin-webp](https://github.com/imagemin/imagemin-webp)). This supports both lossy and lossless modes.
+[Imagemin](https://github.com/imagemin/imagemin) 是一种流行的图像缩小模块，它还具有用于将图像转换为WebP的附加组件 ([imagemin-webp](https://github.com/imagemin/imagemin-webp))。支持无损和有损两种模式。
 
-To install imagemin and imagemin-webp run:
+要安装imagemin和imagemin-webp，请执行以下命令：
 
 ```
 > npm install --save imagemin imagemin-webp
 ```
 
-We can then require() in both modules and run them over any images (e.g. JPEGs) in a project directory. Below we’re using lossy encoding with a WebP encoder quality of 60:
+然后我们可以使用require()导入两个模块，并对项目目录中的任何图像（例如JPEG）使用。 下面我们使用有损编码，WebP编码器质量为60：
 
 
 ```js
@@ -1201,8 +1201,7 @@ imagemin(['images/*.{jpg}'], 'images', {
 });
 ```
 
-
-Similar to JPEGs, it’s possible to notice compression artefacts in our output. Evaluate what quality setting makes sense for your own images. Imagemin-webp can also be used to encode lossless quality WebP images (supporting 24-bit color and full transparency) by passing `lossless: true` to options:
+与 JPEG 类似，在我们的输出中可以注意到压缩伪影。评估设置为什么质量对您自己的图像有价值。Imagemin-webp 还可用于通过将`lossless: true`参数传递给选项来编码无损质量 WebP 图像（支持 24 位颜色和完全透明度）：
 
 
 ```js
@@ -1219,7 +1218,7 @@ imagemin(['images/*.{jpg,png}'], 'build/images', {
 ```
 
 
-A [WebP plugin for Gulp](https://github.com/sindresorhus/gulp-webp) by Sindre Sorhus built on imagemin-webp and a [WebP loader for WebPack](https://www.npmjs.com/package/webp-loader) are also available. The Gulp plugin accepts any options the imagemin add-on does:
+Sindre Sorhus 构建在imagemin-webp和 [WebPack的WebP加载器](https://www.npmjs.com/package/webp-loader) 的[Gulp WebP插件](https://github.com/sindresorhus/gulp-webp) 也是可用的available。Gulp插件接受imagemin插件所做的任何选项：
 
 ```js
 const gulp = require('gulp');
@@ -1236,7 +1235,7 @@ gulp.task('webp', () =>
 );
 ```
 
-Or lossless:
+或无损：
 
 ```js
 const gulp = require('gulp');
