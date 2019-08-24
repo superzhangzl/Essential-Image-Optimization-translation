@@ -1250,42 +1250,41 @@ gulp.task('webp-lossless', () =>
 );
 ```
 
-**Batch image optimization using Bash**
+**使用Bash进行批量图像优化**
 
-XNConvert supports batch image compression, but if you would prefer to avoid using an app or a build system, bash and image optimization binaries keep things fairly simple.
+XNConvert支持批量图像压缩，但如果您希望避免使用应用程序或构建系统，则bash和图像优化工具可以使事情变得非常简单。
 
-You can bulk convert your images to WebP using [cwebp](https://developers.google.com/speed/webp/docs/cwebp):
+您可以使用[cwebp](https://developers.google.com/speed/webp/docs/cwebp) 将图片批量转换为WebP：
 
 ```
 find ./ -type f -name '*.jpg' -exec cwebp -q 70 {} -o {}.webp \;
 ```
 
-Or bulk optimize your image sources with MozJPEG using [jpeg-recompress](https://github.com/danielgtaylor/jpeg-archive):
+或通过使用 [jpeg-recompress](https://github.com/danielgtaylor/jpeg-archive) 批量优化你的源图像：
 
 ```
 find ./ -type f -name '*.jpg' -exec jpeg-recompress {} {} \;
 ```
 
-and trim those SVGs down using [svgo](https://github.com/svg/svgo) (which we’ll cover later on):
+并使用[svgo ](https://github.com/svg/svgo)修改这些SVG（稍后我们会介绍）：
 
 ```
 find ./ -type f -name '*.svg' -exec svgo {} \;
 ```
 
-Jeremy Wagner has a more comprehensive post on [image optimization using Bash](https://jeremywagner.me/blog/bulk-image-optimization-in-bash) and another on doing this work in [parallel](https://jeremywagner.me/blog/faster-bulk-image-optimization-in-bash) worth reading.
+Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk-image-optimization-in-bash) 方面有更全面的内容，另外还有一篇关于[并行工作](https://jeremywagner.me/blog/faster-bulk-image-optimization-in-bash) 的文章也值得阅读。
 
-**Other WebP image processing and editing apps include:**
+**其他WebP图像处理和编辑应用程序包括：**
 
-   * Leptonica — An entire website of open source image processing and analysis
-Apps.
+   * Leptonica  - 一个完整的开源图像处理和分析网站
 
-*   Sketch supports outputting directly to WebP
-    * GIMP — Free, open source Photoshop alternative. Image editor.
-    * ImageMagick — Create, compose, convert, or edit bitmap images. Free. Command-Line app.
-    * Pixelmator — Commercial image editor for Mac.
-    * Photoshop WebP Plugin — Free. Image import and export. From Google.
+* Sketch支持直接输出到WebP
+* GIMP  - 免费的，开源的Photoshop替代品。 图像编辑器。
+* ImageMagick  - 创建，编写，转换或编辑位图图像。 免费使用的命令行应用程序。
+* Pixelmator  - 适用于Mac的商业图像编辑器。
+* Photoshop的WebP插件 - 来自谷歌的可免费使用图像导入和导出插件。
 
-**Android:** You can convert existing BMP, JPG, PNG or static GIF images to WebP format using Android Studio. For more information, see [Create WebP Images Using Android Studio](https://developer.android.com/studio/write/convert-webp.html).
+**Android**：您可以使用Android Studio将现有的BMP，JPG，PNG或静态GIF图像转换为WebP格式。 有关更多信息，请参阅[使用Android Studio创建WebP图像](https://developer.android.com/studio/write/convert-webp.html)。
 
 ### <a id="how-do-i-view-webp-on-my-os" href="#how-do-i-view-webp-on-my-os">How do I view WebP images on my OS?</a>
 
