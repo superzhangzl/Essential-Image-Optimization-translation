@@ -1128,14 +1128,15 @@ WebP的有损编码旨在与JPEG静止图像竞争。 WebP的有损编码有三�
 
 WebP并非没有缺点。 它缺乏全分辨率色彩空间选项，不支持渐进式解码。 也就是说，WebP是不错的浏览器支持工具，但在撰写本文时仅限于Chrome和Opera，可能会覆盖足够多的用户，因此它值得考虑作为备选方案。
 
-### <a id="how-do-i-convert-to-webp" href="#how-do-i-convert-to-webp">How do I convert my images to WebP?</a>
+### <a id="how-do-i-convert-to-webp" href="#how-do-i-convert-to-webp">我如何将图像转为WebP?</a>
 
-Several commercial and open source image editing and processing packages support WebP. One particularly useful application is XnConvert: a free, cross-platform, batch image processing converter.
+一些商业和开源图像编辑处理包支持WebP。 其中一个特别有用的应用是XnConvert：一个免费的，跨平台的批量图像处理转换器。
 
-<aside class="note"><b>Note:</b> It’s important to avoid converting low or average quality JPEGs to WebP. This is a common mistake and can generate WebP images with JPEG compression artifacts. This can lead to WebP being less efficient as it has to save the image _and_ the distortions added by JPEG, leading to you losing on quality twice. Feed conversion apps the best quality source file available, preferably the original.</aside>
+<aside class="note"><b>备注:</b> 避免将低质量或普通质量的JPEG转换为WebP这一点非常重要。使用 JPEG压缩工具生成WebP图像是一个常见的错误。 这可能导致WebP效率降低，因为它必须保存图像和JPEG添加的失真，从而导致两次损失质量。适合 Feed转换应用程序的是高质量源文件，最好是原始文件。</aside>
+
 **[XnConvert](http://www.xnview.com/en/xnconvert/)**
 
-XnConvert enables batch image processing, compatible with over 500 image formats. You can combine over 80 separate actions to transform or edit your images in multiple ways.
+XnConvert支持批量图像处理，兼容500多种图像格式。 您可以组合80多个单独的操作，以多种方式转换或编辑图像。
 
 
 <figure>
@@ -1159,18 +1160,20 @@ XnConvert enables batch image processing, compatible with over 500 image formats
   <img src="images/book-images/Modern-Image20-large.png"/>
 </noscript>
 </picture>
-<figcaption>XnConvert supports batch image optimisation, allowing straight-forward conversion from source files to WebP and other formats. In addition to compression, XnConvert can also help with metadata stripping, cropping, color depth customisation and other transforms.</figcaption>
+<figcaption>XnConvert支持批量图像优化，支持从源文件到WebP和其他格式的直接转换。 除压缩外，XnConvert还可以帮助进行元数据分离，裁剪，颜色深度定制和其他变换。</figcaption>
 </figure>
 
-Some of the options listed on the xnview website include:
+xnview网站上列出的一些选项包括：
 
-*   Metadata: Editing
-*   Transforms: Rotate, Crop, Resize
-*   Adjustments: Brightness, Contrast, Saturation
-*   Filters: Blur, Emboss, Sharpen
-*   Effects: Masking, Watermark, Vignetting
+*   元数据：编辑
+*   变换：旋转，裁剪，调整大小
+*   调整：亮度，对比度，饱和度
+*   过滤器：模糊，浮雕，锐化
+*   效果：遮蔽，水印，晕影（暗角）
 
-The results of your operations can be exported to about 70 different file formats, including WebP. XnConvert is free for Linux, Mac, and Windows. XnConvert is highly recommended, especially for small businesses.
+（注：关于Vignetting的意思，推荐下[What is Vignetting?](https://photographylife.com/what-is-vignetting)）
+
+您的操作结果可以导出为大约70种不同的文件格式，包括WebP。 XnConvert适用于Linux，Mac和Windows。 强烈建议使用XnConvert，特别是对于小型企业。
 
 **Node modules**
 
