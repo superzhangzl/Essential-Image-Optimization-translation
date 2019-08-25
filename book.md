@@ -1133,7 +1133,6 @@ WebP并非没有缺点。 它缺乏全分辨率色彩空间选项，不支持渐
 一些商业和开源图像编辑处理包支持WebP。 其中一个特别有用的应用是XnConvert：一个免费的，跨平台的批量图像处理转换器。
 
 <aside class="note"><b>备注:</b> 避免将低质量或普通质量的JPEG转换为WebP这一点非常重要。使用 JPEG压缩工具生成WebP图像是一个常见的错误。 这可能导致WebP效率降低，因为它必须保存图像和JPEG添加的失真，从而导致两次损失质量。适合 Feed转换应用程序的是高质量源文件，最好是原始文件。</aside>
-
 **[XnConvert](http://www.xnview.com/en/xnconvert/)**
 
 XnConvert支持批量图像处理，兼容500多种图像格式。 您可以组合80多个单独的操作，以多种方式转换或编辑图像。
@@ -1286,21 +1285,18 @@ Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk
 
 **Android**：您可以使用Android Studio将现有的BMP，JPG，PNG或静态GIF图像转换为WebP格式。 有关更多信息，请参阅[使用Android Studio创建WebP图像](https://developer.android.com/studio/write/convert-webp.html)。
 
-### <a id="how-do-i-view-webp-on-my-os" href="#how-do-i-view-webp-on-my-os">How do I view WebP images on my OS?</a>
+### <a id="how-do-i-view-webp-on-my-os" href="#how-do-i-view-webp-on-my-os">如何在我的操作系统上查看WebP图像？</a>
 
-While you can drag and drop WebP images to Blink-based browsers (Chrome, Opera, Brave) to preview them, you can also preview them directly from your OS using an add-on for either Mac or Windows.
+虽然您可以将WebP图像拖放到基于Blink内核的浏览器（Chrome，Opera，Brave）进行预览，但您也可以使用Mac或Windows的附加组件直接从操作系统中预览它们。
 
-[Facebook experimented with WebP](https://www.cnet.com/news/facebook-tries-googles-webp-image-format-users-squawk/) a few years ago and found that users who tried to right-click on photos and save them to disk noticed they wouldn’t be displayed outside their browser due to them being in WebP. There were three key problems here:
+几年前[Facebook尝试使用WebP](https://www.cnet.com/news/facebook-tries-googles-webp-image-format-users-squawk/)，并发现尝试右键单击照片并将其保存到磁盘的用户不会在浏览浏览器之外查看，由于是使用了WebP。 这里有三个关键问题：
+ - “另存为”，但无法在本地查看WebP文件。 这是通过Chrome将自己注册为“.webp”处理程序来解决的。
+ - “另存为”，然后将图片附加到电子邮件中，并与没有Chrome的人共享。 Facebook通过在用户界面中引入一个醒目的“下载”按钮并在用户请求下载时返回JPEG来解决这个问题。
+ - 右键单击 -> 复制URL  - > 在Web上共享URL。 这是通过[内容类型协商](https://www.igvita.com/2012/12/18/deploying-new-image-formats-on-the-web/)解决的
 
-<ul>
-<li>"Save as" but unable to view WebP files locally. This was fixed by Chrome registering itself as a ".webp" handler.</li>
-<li>"Save as" then attaching the image to an email and sharing with someone without Chrome. Facebook solved this by introducing a prominent "download" button in their UI and returning a JPEG when users requested the download.</li>
-<li>Right click > copy URL -> share URL on the web. This was solved by [content-type negotiation](https://www.igvita.com/2012/12/18/deploying-new-image-formats-on-the-web/).</li>
-</ul>
+这些问题对您的用户可能不太重要，但顺便说一下，这是一个有关社交可共享性的有趣说明。值得庆幸的是，现在在不同操作系统上存在用于查看和使用WebP的应用程序。
 
-These issues might matter less to your users, but is an interesting note on social shareability in passing. Thankfully today, utilities exist for viewing and working with WebP on different operating systems.
-
-On Mac, try the [Quick Look plugin for WebP](https://github.com/Nyx0uf/qlImageSize) (qlImageSize). It works pretty well:
+在Mac上，尝试WebP的[快速查看插件](https://github.com/Nyx0uf/qlImageSize) （qlImageSize）。 它工作得很好：
 
 <figure>
 <picture>
@@ -1319,14 +1315,14 @@ On Mac, try the [Quick Look plugin for WebP](https://github.com/Nyx0uf/qlImageSi
         data-src="images/book-images/Modern-Image22-large.jpg"
         alt="Desktop on a mac showing a WebP file previewed using the Quick Look plugin for WebP files"
          />
+
 <noscript>
   <img src="images/book-images/Modern-Image22-large.jpg"/>
 </noscript>
 </picture>
 </figure>
 
-
-On Windows, you can also download the [WebP codec package](https://storage.googleapis.com/downloads.webmproject.org/releases/webp/WebpCodecSetup.exe) allowing WebP images to be previewed in the File Explorer and Windows Photo Viewer.  
+在Windows上，您还可以下载[WebP编解码器软件包](https://storage.googleapis.com/downloads.webmproject.org/releases/webp/WebpCodecSetup.exe) ，以便在文件资源管理器和Windows照片查看器中预览WebP图像。
 
 ### <a id="how-do-i-serve-webp" href="#how-do-i-serve-webp">How do I serve WebP?</a>
 
