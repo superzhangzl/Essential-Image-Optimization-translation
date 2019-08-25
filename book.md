@@ -1324,9 +1324,9 @@ Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk
 
 在Windows上，您还可以下载[WebP编解码器软件包](https://storage.googleapis.com/downloads.webmproject.org/releases/webp/WebpCodecSetup.exe) ，以便在文件资源管理器和Windows照片查看器中预览WebP图像。
 
-### <a id="how-do-i-serve-webp" href="#how-do-i-serve-webp">How do I serve WebP?</a>
+### <a id="how-do-i-serve-webp" href="#how-do-i-serve-webp">我如何提供WebP服务？</a>
 
-Browsers without WebP support can end up not displaying an image at all, which isn’t ideal. To avoid this there are a few strategies we can use for conditionally serving WebP based on browser support.
+没有WebP支持的浏览器最终可能根本不显示图像，这并不理想。 为了避免这种情况，我们可以使用一些策略来基于浏览器支持有条件地提供WebP服务。
 
 <figure>
 <picture>
@@ -1349,7 +1349,7 @@ Browsers without WebP support can end up not displaying an image at all, which i
   <img src="images/book-images/play-format-webp-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>The Chrome DevTools Network panel highlighting WebP files being conditionally served to Blink-based browsers under the ‘Type’ column.</figcaption>
+<figcaption>Chrome的开发者工具网络面板在“teype”列下突出显示提供给基于Blink的浏览器的WebP文件。</figcaption>
 </figure>
 
 <figure>
@@ -1373,11 +1373,11 @@ Browsers without WebP support can end up not displaying an image at all, which i
   <img src="images/book-images/play-format-type-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>While the Play store delivers WebP to Blink, it falls back to JPEGs for browsers like Firefox.</figcaption>
+<figcaption>虽然Play商店向Blink传送WebP，但对于像Firefox这样的浏览器，它会回归到JPEG。</figcaption>
 </figure>
 
 
-Here are some of the options for getting WebP images from your server to your user:
+以下是从服务器向用户提供WebP图像的一些选项：
 
 **Using .htaccess to Serve WebP Copies**
 
