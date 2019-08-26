@@ -1381,13 +1381,13 @@ Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk
 
 **Using .htaccess to Serve WebP Copies**
 
-Here’s how to use a .htaccess file to serve WebP files to supported browsers when a matching .webp version of a JPEG/PNG file exists on the server.
+以下是当服务器上存在匹配的.webp版本的JPEG / PNG文件时，如何使用.htaccess文件向支持的浏览器提供WebP文件。
 
-Vincent Orback recommended this approach:
+Vincent Orback推荐这种方法：
 
-Browsers can [signal WebP support explicitly](http://vincentorback.se/blog/using-webp-images-with-htaccess/) via an [Accept header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept). If you control your backend, you can return a WebP version of an image if it exists on disk rather than formats like JPEG or PNG. This isn’t always possible however (e.g. for static hosts like GitHub pages or S3) so be sure to check before considering this option.
+浏览器可以通过[Accept Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)显式地发出[WebP支持信号](http://vincentorback.se/blog/using-webp-images-with-htaccess/)。 如果您控制后端，则可以返回图像的WebP版本（如果图像存在于磁盘上）而不是JPEG或PNG格式。 但这并不总是可行的（例如对于像GitHub Page或S3这样的静态地址），所以在考虑此选项之前一定要检查。
 
-Here is a sample .htaccess file for the Apache web server:
+以下是Apache Web服务器的示例.htaccess文件：
 
 ```
 <IfModule mod_rewrite.c>
@@ -1414,30 +1414,29 @@ Here is a sample .htaccess file for the Apache web server:
 AddType  image/webp .webp
 ```
 
-If there are issues with the .webp images appearing on the page, make sure that the image/webp MIME type is enabled on your server.
+如果页面上出现.webp图像存在问题，请确保在服务器上启用了image/webp MIME类型。
 
-Apache: add the following code to your .htaccess file:
+Apache：将以下代码添加到.htaccess文件中：
 
 ```
 AddType image/webp .webp
 ```
 
-Nginx: add the following code to your mime.types file:
+Nginx：将以下代码添加到mime.types文件中：
 
 ```
 image/webp webp;
 ```
 
-<aside class="note"><b>Note:</b> Vincent Orback has a sample [htaccess config](https://github.com/vincentorback/WebP-images-with-htaccess) for serving WebP for reference and Ilya Grigorik maintains a collection of [configuration
-scripts for serving WebP](https://github.com/igrigorik/webp-detect) that can be useful.</aside>
+**注意**：Vincent Orback有一个示例[phtaccess配置](https://github.com/vincentorback/WebP-images-with-htaccess)用于提供WebP以供参考，Ilya Grigorik维护了一组非常有用的用于提供[WebP的配置脚本](https://github.com/igrigorik/webp-detect) 。
 
+**使用 `<picture>` 标签**
 
-**Using the `<picture>` Tag**
+浏览器本身能够通过使用`<picture>`标签来选择要显示的图像格式。 `<picture>`标签使用多个`<source>`元素，带有一个`<img>`标签，它是包含图像的实际DOM元素。 浏览器循环浏览源并检索第一个匹配项。 如果用户的浏览器不支持`<picture>`标记，则呈现`<div>`并使用`<img>`标记。
 
-The browser itself is capable of choosing which image format to display through the use of the `<picture>` tag. The `<picture>` tag utilizes multiple `<source>` elements, with one `<img>` tag, which is the actual DOM element which contains the image. The browser cycles through the sources and retrieves the first match. If the `<picture>` tag isn’t supported in the user’s browser, a `<div>` is rendered and the `<img>` tag is used.
+**注意**：注意`<source>`的位置，因为顺序很重要。 不要在传统格式之后放置`image/webp`资源，而是将它们放在之前。 能解释它的浏览器将使用它们，而那些不能解释它的浏览器将转而更广泛支持的框架上。 如果图像的物理尺寸相同（不使用`media`属性），也可以按文件大小的顺序放置图像。 通常，这与将遗留最后的顺序相同。
 
-<aside class="note"><b>Note:</b> Be careful with the position of `<source>` as order matters. Don’t place image/webp sources after legacy formats, but instead put them before. Browsers that understand it will use them and those that don’t will move onto more widely supported frameworks. You can also place your images in order of file size if they’re all the same physical size (when not using the `media` attribute). Generally this is the same order as putting legacy last. </aside>
-Here is some sample HTML:
+这是一些示例HTML：
 
 ```html
 <picture>
