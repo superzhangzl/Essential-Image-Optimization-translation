@@ -1459,21 +1459,23 @@ image/webp webp;
 </picture>
 ```
 
-**Automatic CDN conversion to WebP**
+**CDN自动转换为WebP**
 
-Some CDNs support automated conversion to WebP and can use client hints to serve up WebP images [whenever possible](http://cloudinary.com/documentation/responsive_images#automating_responsive_images_with_client_hints). Check with your CDN to see if WebP support is included in their service. You may have an easy solution just waiting for you.
+一些CDN支持自动转换为WebP，并且可以使用[客户端提示](http://cloudinary.com/documentation/responsive_images#automating_responsive_images_with_client_hints)尽可能地提供WebP图像。 请与您的CDN联系，了解他们的服务中是否包含WebP支持。 你可能有一个简单的解决方案等着你。
 
-**WordPress WebP support**
+**WordPress WebP支持**
 
-**Jetpack** — Jetpack, a popular WordPress plugin, includes a CDN image service called [Photon](https://jetpack.com/support/photon/). With Photon you get seamless WebP image support. The Photon CDN is included in Jetpack's free level, so this is a good value and a hands-off implementation. The drawback is that Photon resizes your image, puts a query string in your URL and there is an extra DNS lookup required for each image.
+**Jetpack**  -  Jetpack，一个流行的WordPress插件，包括一个名为[Photon](https://jetpack.com/support/photon/)的CDN图像服务。 使用Photon，您可以获得无缝的WebP图像支持。 Photon CDN包含在Jetpack的免费级别中，因此这是一个很好的方案，并且是一个非入侵式的实现。 缺点是Photon会调整您的图像大小，在您的URL中放置一个查询字符串，并且每个图像都需要额外的DNS查找。
 
-**Cache Enabler and Optimizer** — If you are using WordPress, there is at least one halfway-open source option. The open source plugin [Cache Enabler](https://wordpress.org/plugins/cache-enabler/) has a menu checkbox option for caching WebP images to be served if available and the current user’s browser supports them. This makes serving WebP images easy. There is a drawback: Cache Enabler requires the use of a sister program called Optimizer, which has an annual fee. This seems out of character for a genuinely open source solution.  
+**Cache Enabler and Optimizer** — 如果您使用的是WordPress，则至少有一个半开放选项。 开源插件 [Cache Enabler](https://wordpress.org/plugins/cache-enabler/)有一个菜单复选框选项，用于缓存要提供的WebP图像，如果WebP图像可用并且当前用户的浏览器支持它们。 这使得提供WebP图像变得容易。 有一个缺点：Cache Enabler需要使用名为Optimizer的姐妹程序，该程序需要支付年费。 对于真正的开源解决方案而言，这似乎不合时宜。
 
-**Short Pixel** — Another option for use with Cache Enabler, also at a cost, is Short Pixel. Short Pixel functions much like Optimizer, described above. You can optimize up to 100 images a month for free.
+**Short Pixel** — 与Cache Enabler一起使用的另一个选项（也需付费）是Short Pixel。Short Pixel功能与上文描述的Optimizer非常类似。您每月可以免费优化多达 100 个图像。
 
-**Compressing Animated GIFs and why `<video>` is better**
+**压缩动画GIF以及为什么`<video>`更好**
 
 Animated GIFs continue to enjoy widespread use, despite being a very limited format. Although everything from social networks to popular media sites embed animated GIFs heavily, the format was *never* designed for video storage or animation. In fact, the [GIF89a spec](https://www.w3.org/Graphics/GIF/spec-gif89a.txt) notes ‘the GIF is not intended as a platform for animation’. The [number of colors, number of frames and dimensions](http://gifbrewery.tumblr.com/post/39564982268/can-you-recommend-a-good-length-of-clip-to-keep-gifs) all impact animated GIF size. Switching to video offers the largest savings.  
+
+动画GIF继续广泛使用，尽管格式非常有限。 虽然从社交网络到流行媒体网站的所有内容都大量嵌入动画GIF，但格式*从未*专为视频存储或动画而设计。 事实上，[GIF89a规范](https://www.w3.org/Graphics/GIF/spec-gif89a.txt) 指出GIF并不打算作为动画的平台。 [颜色数量，帧数和尺寸](http://gifbrewery.tumblr.com/post/39564982268/can-you-recommend-a-good-length-of-clip-to-keep-gifs) 都会影响动画GIF大小。 切换到视频节省了最多。
 
 
 <figure>
@@ -1484,7 +1486,6 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
 <source
         data-srcset="images/book-images/animated-gif-medium.jpg"
         media="(max-width: 1024px)" />
-
 <source
         data-srcset="images/book-images/animated-gif-large.jpg" />
 
@@ -1497,7 +1498,7 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
   <img src="images/book-images/animated-gif-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>Animated GIF vs. Video: a comparison of file sizes at ~equivalent quality for different formats.</figcaption>
+<figcaption>动画GIF vs. Video: 不同格式的等效质量的文件大小比较。</figcaption>
 </figure>
 
 **Delivering the same file as an MP4 video can often shave 80% or more off your file-size.** Not only do GIFs often waste significant bandwidth, but they take longer to load, include fewer colors and generally offer sub-part user experiences. You may have noticed animated GIFs uploaded to Twitter perform better on Twitter than on other websites. [Animated GIFs on Twitter aren’t actually GIFs](http://mashable.com/2014/06/20/twitter-gifs-mp4/#fiiFE85eQZqW). To improve user experience and reduce bandwidth consumption, animated GIFs uploaded to Twitter are actually converted to video. Similarly, [Imgur converts GIFs to videos](https://thenextweb.com/insider/2014/10/09/imgur-begins-converting-gif-uploads-mp4-videos-new-gifv-format/) on upload, silently converting it to an MP4 for you.
