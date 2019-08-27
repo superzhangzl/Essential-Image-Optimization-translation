@@ -1505,18 +1505,20 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
 
 Why are GIFs many times larger? Animated GIFs store each frame as a lossless GIF image – yes, lossless. The degraded quality we often experience is due to GIFs being limited to a 256-color palette. The format is often large as it doesn’t consider neighbor frames for compression, unlike video codecs like H.264. An MP4 video stores each key frame as a lossy JPEG, which discards some of the original data to achieve better compression.
 
-**If you can switch to videos**
+**如果您可以切换到视频**
 
-*   Use [ffmpeg](https://www.ffmpeg.org/) to convert your animated GIFs (or sources) to H.264 MP4s. I use this one-liner from[ Rigor](http://rigor.com/blog/2015/12/optimizing-animated-gifs-with-html5-video):
-ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.mp4
+*   使用 [ffmpeg](https://www.ffmpeg.org/) 将动画GIF（或源）转换为H.264 MP4。我是用来自[Rigor](http://rigor.com/blog/2015/12/optimizing-animated-gifs-with-html5-video) 的命令：
+`ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.mp4`
 *   ImageOptim API also supports [converting animated gifs to WebM/H.264 video](https://imageoptim.com/api/ungif), [removing dithering from GIFs](https://github.com/kornelski/undither#examples) which can help video codecs compress even more.
+*   ImageOptim API还支持将[GIF动画转换为WebM / H.264视频](https://imageoptim.com/api/ungif)、[从GIF中删除抖动](https://github.com/kornelski/undither#examples)，这可以帮助视频编解码器压缩更多。
 
-**If you must use animated GIFs**
+**如果您必须使用动画GIF**
 
-*   Tools like Gifsicle can strip metadata, unused palette entries and minimize what changes between frames
+*   像Gifsicle这样的工具可以剥离元数据、未使用的调色板条目，并最小化帧之间的变化
 *   Consider a lossy GIF encoder. The [Giflossy](https://github.com/kornelski/giflossy) fork of Gifsicle supports this with the `—lossy` flag and can shave ~60-65% off size. There’s also a nice tool based on it called [Gifify](https://github.com/vvo/gifify). For non-animated GIFs, convert them to PNG or WebP.
+*   考虑有损GIF编码器。 fork于Gifsicle 的 [Giflossy](https://github.com/kornelski/giflossy)支持用`-lossy`标志，可以减少约60-65％的尺寸。 还有一个很好的基于它的工具，叫做 [Gifify](https://github.com/vvo/gifify)。 对于非动画GIF，请将它们转换为PNG或WebP。
 
-For more information, checkout the[ Book of GIF](https://rigor.com/wp-content/uploads/2017/03/TheBookofGIFPDF.pdf) by Rigor.
+有关更多信息，请查看Rigor的[Book of GIF](https://rigor.com/wp-content/uploads/2017/03/TheBookofGIFPDF.pdf)。
 
 ## <a id="svg-optimization" href="#svg-optimization">SVG Optimization</a>
 
