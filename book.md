@@ -1501,9 +1501,15 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
 <figcaption>动画GIF vs. Video: 不同格式的等效质量的文件大小比较。</figcaption>
 </figure>
 
-**Delivering the same file as an MP4 video can often shave 80% or more off your file-size.** Not only do GIFs often waste significant bandwidth, but they take longer to load, include fewer colors and generally offer sub-part user experiences. You may have noticed animated GIFs uploaded to Twitter perform better on Twitter than on other websites. [Animated GIFs on Twitter aren’t actually GIFs](http://mashable.com/2014/06/20/twitter-gifs-mp4/#fiiFE85eQZqW). To improve user experience and reduce bandwidth consumption, animated GIFs uploaded to Twitter are actually converted to video. Similarly, [Imgur converts GIFs to videos](https://thenextweb.com/insider/2014/10/09/imgur-begins-converting-gif-uploads-mp4-videos-new-gifv-format/) on upload, silently converting it to an MP4 for you.
+**提供与MP4视频相同的文件通常可以减少文件大小80％及以上**。 GIF不仅经常浪费大量带宽，而且加载时间更长，包含更少的颜色，并且通常提供不完整的用户体验。 您可能已经注意到上传到Twitter的动画GIF在Twitter上比在其他网站上表现更好。 [Twitter上的动画GIF实际上不是GIF](http://mashable.com/2014/06/20/twitter-gifs-mp4/#fiiFE85eQZqW)。为了改善用户体验并减少带宽消耗，上传到Twitter的动画GIF实际上转换为视频。 同样，[Imgur会在上传时将GIF转换为视频](https://thenextweb.com/insider/2014/10/09/imgur-begins-converting-gif-uploads-mp4-videos-new-gifv-format/)，然后将其静默转换为MP4。
 
-Why are GIFs many times larger? Animated GIFs store each frame as a lossless GIF image – yes, lossless. The degraded quality we often experience is due to GIFs being limited to a 256-color palette. The format is often large as it doesn’t consider neighbor frames for compression, unlike video codecs like H.264. An MP4 video stores each key frame as a lossy JPEG, which discards some of the original data to achieve better compression.
+（注：原文说的是 sub-part user experiences，想说的说就是部分用户体验，故翻译为不完整的用户体验。）
+
+为什么GIF要大很多倍？ 动画GIF将每个帧存储为无损GIF图像 - 是的，竟然是无损的。 我们经常遇到的低质量是由于GIF仅限于256色调色板。 格式通常很大，因为与H.264等视频编解码器不同，它不考虑用于压缩的间隔帧。 MP4视频将每个关键帧存储为有损JPEG，丢弃一些原始数据以实现更好的压缩。
+
+//译者注：H.264会将连续视频分为关键帧和前后可预测的非关键帧来减少文件大小。
+
+//todo 添加一些说明
 
 **如果您可以切换到视频**
 
