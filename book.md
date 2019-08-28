@@ -1526,9 +1526,9 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
 
 有关更多信息，请查看Rigor的[Book of GIF](https://rigor.com/wp-content/uploads/2017/03/TheBookofGIFPDF.pdf)。
 
-## <a id="svg-optimization" href="#svg-optimization">SVG Optimization</a>
+## <a id="svg-optimization" href="#svg-optimization">SVG优化</a>
 
-Keeping SVGs lean means stripping out anything unnecessary. SVG files created with editors usually contain a large quantity of redundant information (metadata, comments, hidden layers and so forth). This content can often be safely removed or converted to a more minimal form without impacting the final SVG that’s being rendered.
+保持SVG精简意味着剥离任何不必要的东西。 使用编辑器创建的SVG文件通常包含大量冗余信息（元数据，注释，隐藏层等）。 通常可以安全地删除此内容或将其转换为更小的形式，而不会影响正在呈现的最终SVG。
 
 <figure>
 <picture>
@@ -1551,12 +1551,12 @@ Keeping SVGs lean means stripping out anything unnecessary. SVG files created wi
   <img src="images/book-images/Modern-Image26-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>[SVGOMG](https://jakearchibald.github.io/svgomg/), by Jake Archibald, is a GUI interface enabling you to optimize your SVGs to your preference  by selecting optimizations, with a live preview of the outputted markup </figcaption>
+<figcaption>[SVGOMG](https://jakearchibald.github.io/svgomg/), by Jake Archibald, 是一个GUI界面，通过选择优化，并输出实时预览状态，您可以根据自己的喜好优化SVG </figcaption>
 </figure>
 
-**Some general rules for SVG optimization (SVGO):**
+**SVG优化的一些一般规则（SVGO）：**
 
-*   Minify and gzip your SVG files. SVGs are really just text assets expressed in XML, like CSS, HTML and JavaScript, and should be minified and gzipped to improve performance.
+*   缩小并压缩您的SVG文件。 SVG实际上只是用XML表示的文本内容，如CSS，HTML和JavaScript，应该缩小和压缩以提高性能。
 * Instead of paths, use predefined SVG shapes like `<rect>`, `<circle>`, `<ellipse>`, `<line>` and `<polygon>`. Preferring predefined shapes decreases how much markup is needed to produce a final image, meaning less code to parse and rasterize by the browser. Reducing SVG complexity means a browser can display it more quickly.
 *   If you must use paths, try to reduce your curves and paths. Simplify and combine them where you can. Illustrator’s [simplify tool](http://jlwagner.net/talks/these-images/#/2/10) is adept at removing superfluous points in even complex artwork while smoothing out irregularities.
 *   Avoid using groups. If you can’t, try to simplify them.
