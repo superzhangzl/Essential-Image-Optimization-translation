@@ -1538,7 +1538,6 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
 <source
         data-srcset="images/book-images/Modern-Image26-medium.jpg"
         media="(max-width: 1024px)" />
-
 <source
         data-srcset="images/book-images/Modern-Image26-large.jpg" />
 
@@ -1547,6 +1546,7 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
         data-src="images/book-images/Modern-Image26-large.jpg"
         alt="svgo"
          />
+
 <noscript>
   <img src="images/book-images/Modern-Image26-large.jpg"/>
 </noscript>
@@ -1557,13 +1557,14 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
 **SVG优化的一些一般规则（SVGO）：**
 
 *   缩小并压缩您的SVG文件。 SVG实际上只是用XML表示的文本内容，如CSS，HTML和JavaScript，应该缩小和压缩以提高性能。
-* Instead of paths, use predefined SVG shapes like `<rect>`, `<circle>`, `<ellipse>`, `<line>` and `<polygon>`. Preferring predefined shapes decreases how much markup is needed to produce a final image, meaning less code to parse and rasterize by the browser. Reducing SVG complexity means a browser can display it more quickly.
-*   If you must use paths, try to reduce your curves and paths. Simplify and combine them where you can. Illustrator’s [simplify tool](http://jlwagner.net/talks/these-images/#/2/10) is adept at removing superfluous points in even complex artwork while smoothing out irregularities.
-*   Avoid using groups. If you can’t, try to simplify them.
-*   Delete layers that are invisible.
-*   Avoid any Photoshop or Illustrator effects. They can get converted to large raster images.
-*   Double check for any embedded raster images that aren’t SVG-friendly
+* 使用预定义的SVG形状而不是路径，如`<rect>`，`<circle>`，`<ellipse>`，`<line>`和`<polygon>`。 优先选择预定义的形状会减少生成最终图像所需的标记量，这意味着浏览器解析和栅格化的代码更少。 降低SVG复杂性意味着浏览器可以更快地显示它。（译者注：栅格化也存在于PS之中，大致是说将一个向量类型的形状、路径转换为一个点阵类型的图像。形状、路径是可以自由缩放不收影响）
+*   如果必须使用路径，请尝试减少曲线和路径。 尽可能简化并组合它们。 Illustrator的[简化工具](http://jlwagner.net/talks/these-images/#/2/10)擅长删除复杂艺术作品中的多余点，同时消除不规则性。（//todo irregularities）
+*   避免使用群组。 如果做不到，试着简化它们。
+*   删除不可见的图层。
+*   避免任何Photoshop或Illustrator效果。 它们可以转换为大型光栅图像。
+*   仔细检查任何不支持SVG的嵌入式光栅图像
 * Use a tool to optimize your SVGs. [SVGOMG](https://jakearchibald.github.io/svgomg/) is a super handy web-based GUI for [SVGO](https://github.com/svg/svgo) by Jake Archibald that I’ve found invaluable. If you use Sketch, the [Sketch plugin for running SVGO](https://www.sketchapp.com/extensions/plugins/svgo-compressor/) can be used when exporting to shrink the file size.
+* 使用工具优化SVG。  [SVGOMG](https://jakearchibald.github.io/svgomg/)是Jake Archibald为[SVGO](https://github.com/svg/svgo)提供的一个非常方便的基于Web的GUI，我发现它非常好用。 如果使用Sketch，则可以在导出时使用[SVGO的Sketch插件](https://www.sketchapp.com/extensions/plugins/svgo-compressor/)来缩小文件大小。
 
 <figure>
 <picture>
@@ -1586,11 +1587,10 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
   <img src="images/book-images/svgo-precision-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>An example of running an SVG source through SVGO in high-precision mode (leading to a 29% improvement in size) vs. low-precision mode (a 38% size improvement).</figcaption>
+<figcaption>通过SVGO以高质量模式运行SVG源（尺寸减少29％）与低质量模式（尺寸减少38％）的示例。</figcaption>
 </figure>
 
-
-[SVGO](https://github.com/svg/svgo) is a Node-based tool for optimizing SVG. SVGO can reduce file-size by lowering the *precision* of numbers in your <path> definitions. Each digit after a point adds a byte and this is why changing the precision (number of digits) can heavily influence file size. Be very very careful with changing precision however as it can visually impact how your shapes look.
+[SVGO](https://github.com/svg/svgo) 是一种基于节点的SVG优化工具。 SVGO可以通过降低`<path>`定义中数字的精度来减小文件大小。 小数点后的每一个数字都会增加一个字节，这就是为什么*更改精度*（位数）会严重影响文件大小的原因。 要非常小心地改变精度，因为它可以很直观的看到你的形状受到影响。
 
 <figure>
 <picture>
@@ -1600,7 +1600,6 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
 <source
         data-srcset="images/book-images/Modern-Image28-medium.jpg"
         media="(max-width: 1024px)" />
-
 <source
         data-srcset="images/book-images/Modern-Image28-large.jpg" />
 
@@ -1609,36 +1608,37 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
         data-src="images/book-images/Modern-Image28-large.jpg"
         alt="where svgo can go wrong, oversimplifying paths and artwork"
          />
+
 <noscript>
   <img src="images/book-images/Modern-Image28-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>It’s important to note that while SVGO does well in the previous example without over-simplifying paths and shapes, there are plenty of cases where this may not be the case. Observe how the light strip on the above rocket is distorted at a lower precision.</figcaption>
+<figcaption>重要的是要注意虽然SVGO在前面的示例中表现良好而没有过度简化路径和形状，但是在很多情况下可能并非如此。 观察上述火箭上的灯条，在较低的精度下出现了扭曲。</figcaption>
 </figure>
 
-**Using SVGO at the command-line:**
+**在命令行使用SVGO：**
 
-SVGO can be installed as a [global npm CLI](https://www.npmjs.com/package/svgo) should you prefer that to a GUI:
+SVGO可以作为[全局npm CLI](https://www.npmjs.com/package/svgo)安装，如果您更喜欢GUI：
 
 ```
 npm i -g svgo
 ```
 
-This can then be run against a local SVG file as follows:
+然后可以对本地SVG文件运行，如下所示：
 
 ```
 svgo input.svg -o output.svg
 ```
 
-It supports all the options you might expect, including adjusting floating point precision:
+它支持您可能期望的所有选项，包括调整浮点精度：
 
 ```
 svgo input.svg --precision=1 -o output.svg
 ```
 
-See the SVGO [readme](https://github.com/svg/svgo) for the full list of supported options.
+有关支持的选项的完整列表，请参阅SVGO的 [readme](https://github.com/svg/svgo)。
 
-**Don’t forget to compress SVGs!**
+**别忘了压缩SVG！**
 
 <figure>
 <picture>
@@ -1663,9 +1663,11 @@ See the SVGO [readme](https://github.com/svg/svgo) for the full list of supporte
 </picture>
 </figure>
 
-Also, don’t forget to [Gzip your SVG assets](https://calendar.perfplanet.com/2014/tips-for-optimising-svg-delivery-for-the-web/) or serve them using Brotli. As they’re text based, they’ll compress really well (~50% of the original sources).
+另外，不要忘记[使用Gzip压缩](https://calendar.perfplanet.com/2014/tips-for-optimising-svg-delivery-for-the-web/)您的SVG资源或使用Brotli提供服务。 由于它们是基于文本的，因此它们的压缩效果非常好（约占原始来源的50％）。
 
-When Google shipped a new logo, we announced that the [smallest](https://twitter.com/addyosmani/status/638753485555671040) version of it was only 305 bytes in size.
+当Google发布新logo时，我们宣布它的[最小版本](https://twitter.com/addyosmani/status/638753485555671040)只有305字节。
+
+（译者注：Brotli也是Google提供的一种新的压缩工具，比Gzip压缩效率更高，可以在Nginx代理的时候替换gzip模块使用，具体如何配置可以看我的另一篇文章）
 
 <figure>
 <picture>
