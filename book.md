@@ -1708,13 +1708,15 @@ Tools like [svg-sprite](https://github.com/jkphl/svg-sprite) and [IcoMoon](https
 
 Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/2014/tips-for-optimising-svg-delivery-for-the-web/)和Chris Coyier的[实用SVG书](https://abookapart.com/products/practical-svg)非常好。 我还发现Andreas Larsen的优化SVG帖子很有启发性[第1部分](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-1-67e8f2d4035)，[部分 2](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-2-6711cc15df46)。[在Sketch中准备和导出SVG图标](https：// medium .com / sketch-app-sources / preparation-and-exports-svg-icons-in-sketch-1a3d65b239bb)也是一本很棒的读物。
 
-## <a id="avoid-recompressing-images-lossy-codecs" href="#avoid-recompressing-images-lossy-codecs">Avoid recompressing images with lossy codecs</a>
+## <a id="avoid-recompressing-images-lossy-codecs" href="#avoid-recompressing-images-lossy-codecs">避免使用有损编解码器重新压缩图像</a>
 
-It is recommended to always compress from the original image. Recompressing images has consequences. Let’s say you take a JPEG that’s already been compressed with a quality of 60. If you recompress this image with lossy encoding, it will look worse. Each additional round of compression is going to introduce generational loss – information will be lost and compression artifacts will start to build up. Even if you’re re-compressing at a high quality setting.
+建议始终从原始图像压缩。 重新压缩图像会产生影响。 假设您拍摄的质量为60的JPEG已被压缩。如果使用有损编码重新压缩此图像，则会显得更糟。 每一轮额外的压缩都将引入代际损失 - 信息将丢失，压缩冗余将开始积累。 即使您在高质量设置下重新压缩。
 
-To avoid this trap, **set the lowest good quality you’re willing to accept in the first place** and you’ll get maximum file savings from the start. You then avoid this trap because any file-size reductions from quality reduction alone will look bad.
+（译者注：类似JPEG这种有损的格式，经过DCT变换和量化过程就会损失精度，所以即使设置高质量保存，也需要引入额外的冗余信息保持精度，所以对同一个JPEG图片重复压缩不但对图像有影响，还会显著增加文件体积。）
 
-Re-encoding a lossy file will almost always give you a smaller file, but this doesn’t mean you’re getting as much quality out of it as you may think.
+为了避免这种陷阱，**首先要设置您愿意接受的最低质量**，并且从一开始就可以节省最多的文件大小。 然后，您可以避免此陷阱，因为仅从质量降低来减少任何文件大小都会看起来很糟糕。
+
+重新编码有损文件几乎总会给你一个较小的文件，但这并不意味着你可以从中获得尽可能多的质量。
 
 <figure>
 <picture>
