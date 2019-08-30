@@ -1692,17 +1692,21 @@ svgo input.svg --precision=1 -o output.svg
 </picture>
 </figure>
 
-There are [lots of advanced SVG tricks](https://www.clicktorelease.com/blog/svg-google-logo-in-305-bytes/) you can use to trim this down even further (all the way to 146 bytes)! Suffice to say, whether it’s through tools or manual clean-up, there’s probably a *little* more you can shave off your SVGs.
+有许多[高级SVG技巧](https://www.clicktorelease.com/blog/svg-google-logo-in-305-bytes/)可以用来进一步减少（一直到146字节）！ 可以说，无论是通过工具还是通过手动，你可以多花一些东西来精简你的SVG。
 
-**SVG Sprites**
+**SVG Sprites技术**
 
-SVG can be [powerful](https://css-tricks.com/icon-fonts-vs-svg/) for icons, offering a way to represent visualizations as a sprite without the [quirky](https://www.filamentgroup.com/lab/bulletproof_icon_fonts.html) workarounds needed for icon fonts. It has more granular CSS styling control than icon fonts (SVG stroke properties),  better positioning control (no need to hack around pseudo-elements and CSS `display`) and SVGs are much more [accessible](http://www.sitepoint.com/tips-accessible-svg/).
+SVG 对于图标来说可能[功能强大](https://css-tricks.com/icon-fonts-vs-svg/) ，它提供了一种将可视化表示为子画面的方法，而无需图标字体这种[古怪解决方法](https://www.filamentgroup.com/lab/bulletproof_icon_fonts.html)。它有比图标字体（SVG笔画属性），更好的定位控制（无需破解伪元素和CSS`display`）和SVG[更容易访问](http://www.sitepoint.com/tips-accessible-svg/)更精细的CSS样式控制。
+
+//todo 下一段先不删了，得先搞明白svg sprite的的原理。mark：[SVG Sprites技术介绍](https://www.zhangxinxu.com/wordpress/2014/07/introduce-svg-sprite-technology/)
+
+像svg-sprite和IcoMoon这样的工具，可以通过使用CSS Sprite，Symbol Sprite或Stacked Sprite自动将SVG组合成Sprite。 Una Kravets对如何使用gulp-svg-sprite进行SVG Sprite工作流程进行了实用的描述，值得一试。 Sara Soueidan还介绍了如何在她的博客上从图标字体过渡到SVG。
 
 Tools like [svg-sprite](https://github.com/jkphl/svg-sprite) and [IcoMoon](https://icomoon.io/) can automate combining SVGs into sprites which can be used via a [CSS Sprite](https://css-tricks.com/css-sprites/), [Symbol Sprite](https://css-tricks.com/svg-use-with-external-reference-take-2) or [Stacked Sprite](http://simurai.com/blog/2012/04/02/svg-stacks). Una Kravets has a practical [write-up](https://una.im/svg-icons/#💁) on how to use gulp-svg-sprite for an SVG sprite workflow worth checking out. Sara Soueidan also covers [making the transition from icon fonts to SVG](https://www.sarasoueidan.com/blog/icon-fonts-to-svg/) on her blog.
 
-**Further reading**
+**更多阅读**
 
-Sara Soueidan’s [tips for optimising SVG delivery for the web](https://calendar.perfplanet.com/2014/tips-for-optimising-svg-delivery-for-the-web/) and Chris Coyier’s [Practical SVG book](https://abookapart.com/products/practical-svg) are excellent. I’ve also found Andreas Larsen’s optimizing SVG posts enlightening ([part 1](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-1-67e8f2d4035),[part 2](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-2-6711cc15df46)).[Preparing and exporting SVG icons in Sketch](https://medium.com/sketch-app-sources/preparing-and-exporting-svg-icons-in-sketch-1a3d65b239bb) was also a great read.
+Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/2014/tips-for-optimising-svg-delivery-for-the-web/)和Chris Coyier的[实用SVG书](https://abookapart.com/products/practical-svg)非常好。 我还发现Andreas Larsen的优化SVG帖子很有启发性[第1部分](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-1-67e8f2d4035)，[部分 2](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-2-6711cc15df46)。[在Sketch中准备和导出SVG图标](https：// medium .com / sketch-app-sources / preparation-and-exports-svg-icons-in-sketch-1a3d65b239bb)也是一本很棒的读物。
 
 ## <a id="avoid-recompressing-images-lossy-codecs" href="#avoid-recompressing-images-lossy-codecs">Avoid recompressing images with lossy codecs</a>
 
