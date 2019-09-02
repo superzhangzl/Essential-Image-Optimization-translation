@@ -1976,11 +1976,11 @@ density to users from a single canonical source.
 
 [了解颜色模型和专色系统](https://www.designersinsights.com/designer-resources/understanding-color-models/)可以很好地描述其他颜色模型和模式，例如HSL，HSV和LAB。
 
-#### Color spaces
+#### 色彩空间
 
-[Color spaces](http://www.dpbestflow.org/color/color-space-and-color-profiles#space) are a specific range of colors that can be represented for a given image. For example, if an image contains up to 16.7 million colors, different color spaces allow the use of narrower or wider ranges of these colors. Some developers refer to color models and color spaces as the same thing.
+[色彩空间](http://www.dpbestflow.org/color/color-space-and-color-profiles#space)是可以为给定图像表示的特定颜色范围。 例如，如果图像包含多达1670万种颜色，则不同的颜色空间允许使用这些颜色的更窄或更宽的色彩范围。 一些开发人员将颜色模型和颜色空间称为相同的东西。
 
-[sRGB](https://en.wikipedia.org/wiki/SRGB) was designed to be a [standard](https://www.w3.org/Graphics/Color/sRGB.html) color space for the web and is based on RGB. It’s a small color space that is typically considered the lowest common denominator and is the safest option for color management cross-browser. Other color spaces (such as [Adobe RGB](https://en.wikipedia.org/wiki/Adobe_RGB_color_space) or [ProPhoto RGB](https://en.wikipedia.org/wiki/ProPhoto_RGB_color_space) – used in Photoshop and Lightroom) can represent more vibrant colors than sRGB but as the latter is more ubiquitous across most web browsers, games and monitors, it’s what is generally focused on.
+[sRGB](https://en.wikipedia.org/wiki/SRGB) 旨在成为Web的[标准色彩空间](https://www.w3.org/Graphics/Color/sRGB.html)，基于RGB。 这是一个小的色彩空间，通常被认为是最低的共同点的集合，是跨浏览器色彩管理最安全的选择。 其他色彩空间（如 [Adobe RGB](https://en.wikipedia.org/wiki/Adobe_RGB_color_space)或 [ProPhoto RGB](https://en.wikipedia.org/wiki/ProPhoto_RGB_color_space)  - 用于Photoshop和Lightroom）可以代表比sRGB更鲜艳的色彩，但后者在大多数网络浏览器，游戏和显示器中更为普遍，它通常是需要被关注的。
 
 <figure>
 <picture>
@@ -2002,10 +2002,10 @@ density to users from a single canonical source.
   <img src="images/book-images/color-wheel_hazsbk-small.jpg"/>
 </noscript>
 </picture>
-<figcaption>Above we can see a visualization of gamut – the range of colors a color space can define.</figcaption>
+<figcaption>在上面我们可以看到色域的可视化 - 色彩空间可以定义的颜色范围。</figcaption>
 </figure>
 
-Color spaces have three channels (red, green and blue). There are 255 colors possible in each channel under 8-bit mode, bringing us to a total of 16.7 million colors. 16-bit images can show trillions of colors. 
+色彩空间有三个通道（红色，绿色和蓝色）。 在8位模式下，每个通道可以有255种颜色，使我们总共有1670万种颜色。 16位图像可以显示数万亿种颜色。
 
 <figure>
 <picture>
