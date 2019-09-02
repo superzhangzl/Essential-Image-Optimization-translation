@@ -1935,11 +1935,13 @@ density to users from a single canonical source.
 <figcaption>艺术指导：埃里克·波蒂斯（Eric Portis）整理了一幅优秀的[样本](https://ericportis.com/etc/cloudinary/)，展示了如何将响应式图像用于艺术指导。 此示例调整主要根据图像在不同断点处的视觉特征，以充分利用可用空间。</figcaption>
 </figure>
 
-## <a id="color-management" href="#color-management">Color management</a>
+## <a id="color-management" href="#color-management">色彩管理</a>
 
-There are at least three different perspectives of color: biology, physics and print. In biology, color is a [perceptual phenomenon](http://hubel.med.harvard.edu/book/ch8.pdf). Objects reflect light in different combinations of wavelengths. Light receptors in our eyes translate these wavelengths into the sensation we know as color. In physics, it’s light that matters – light frequencies and brightness. Print is more about color wheels, inks and artistic models.
+至少有三种不同的颜色视角：生物学，物理学和印刷学。 在生物学中，色彩是一种[感性现象](http://hubel.med.harvard.edu/book/ch8.pdf)。 物体反射不同波长组合的光。 我们眼中的光感受器将这些波长转化为我们称之为颜色的感觉。 在物理学中，重要的是光 - 频率和亮度。 打印更多的是关于色轮，墨水和艺术模型。（//todo 专业数据）
 
-Ideally, every screen and web browser in the world would display color exactly the same. Unfortunately, due to a number of inherent inconsistencies, they don’t. Color management allows us to reach a compromise on displaying color through color models, spaces and profiles.
+理想情况下，世界上的每个屏幕和Web浏览器都会显示完全相同的颜色。 不幸的是，由于一些固有的不一致性，他们没有。 色彩管理使我们能够通过颜色模型，空间和轮廓来显示颜色。
+
+（译者注：不一致性受硬件制造水印限制，色域、位深都能造成视觉上的偏差）
 
 #### Color models
 
