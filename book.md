@@ -1943,11 +1943,13 @@ density to users from a single canonical source.
 
 （译者注：不一致性受硬件制造水印限制，色域、位深都能造成视觉上的偏差）
 
-#### Color models
+#### 色彩模型
 
-[Color models](https://en.wikipedia.org/wiki/Gamma_correction) are a system for generating a complete range of colors from a smaller set of primary colors. There are different types of color spaces which use different parameters to control colors. Some color spaces have fewer control parameters than others – e.g. grayscale only has a single parameter for controlling brightness between black and white colors. 
+[色彩模型](https://en.wikipedia.org/wiki/Gamma_correction)是用于从较小的一组原色生成完整颜色范围的系统。 有不同类型的色彩空间使用不同的参数来控制色彩。 一些色彩空间的控制参数比其他色彩空间少 - 例如 灰度仅具有用于控制黑色和白色之间的亮度的单个参数。
 
-Two common color models are additive and subtractive. Additive color models (like RGB, used for digital displays) use light to show color while subtractive color models (like CMYK, used in printing) work by taking light away.
+两种常见的颜色模型是加法模型和减法模型。 加色模型（如RGB，用于数字显示）使用光来显示颜色，而减色模型（如CMYK，用于打印）通过消除光线来工作。
+
+（译者注：CMYK常用于喷绘打印，其中包括黑色或金色等由于制备工艺原因等无法由其他颜色很好的配比而成，因而需要单独配置，也被称为专色。）
 
 <figure>
 <picture>
@@ -1969,10 +1971,10 @@ Two common color models are additive and subtractive. Additive color models (lik
   <img src="images/book-images/colors_ept6f2-small.jpg"/>
 </noscript>
 </picture>
-<figcaption>In RGB red, green and blue light are added in different combinations to produce a broad spectrum of colors. CYMK (cyan, magenta, yellow and black) works through different colors of ink subtracting brightness from white paper.  </figcaption>
+<figcaption>在RGB红色，绿色和蓝色光以不同的组合添加，以产生广泛的颜色。 CYMK（青色，品红色，黄色和黑色）通过不同颜色的墨水从白纸中减去亮度。 </figcaption>
 </figure>
 
-[Understanding Color Models and Spot Color Systems](https://www.designersinsights.com/designer-resources/understanding-color-models/) has a good description of other color models and modes, such as HSL, HSV and LAB.
+[了解颜色模型和专色系统](https://www.designersinsights.com/designer-resources/understanding-color-models/)可以很好地描述其他颜色模型和模式，例如HSL，HSV和LAB。
 
 #### Color spaces
 
