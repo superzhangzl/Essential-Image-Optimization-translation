@@ -2027,19 +2027,22 @@ density to users from a single canonical source.
   <img src="images/book-images/srgb-rgb_ntuhi4-small.jpg"/>
 </noscript>
 </picture>
-<figcaption>A comparison of sRGB, Adobe RGB and ProPhoto RGB using an image from [Yardstick](https://yardstick.pictures/tags/img%3Adci-p3). It’s incredibly hard to show this concept in sRGB, when you can’t show colors that can’t be seen. A regular photo in sRGB vs wide gamut should have everything identical, except most saturated ‘juicy’ colors.</figcaption>
+<figcaption>使用 [Yardstick](https://yardstick.pictures/tags/img%3Adci-p3)中的图像比较sRGB，Adobe RGB和ProPhoto RGB。 当您无法看到不能被显示的颜色时，在sRGB中显示此概念非常困难。 除了大多数饱和的丰富颜色外，sRGB与宽色域的常规照片应该具有相同的一切。（译者注：原文的juicy color，直白的翻译是多汁的颜色，应该是用于说明颜色种类非常丰富。todo）
+
+</figcaption>
 </figure>
 
-The differences in color spaces (like sRGB, Adobe RGB and ProPhoto RGB) are their gamut (the range of colors they can reproduce with shades), illuminant and [gamma](http://blog.johnnovak.net/2016/09/21/what-every-coder-should-know-about-gamma/) curves. sRGB is ~20% smaller than Adobe RGB and ProPhoto RGB is ~[50% larger](http://www.petrvodnakphotography.com/Articles/ColorSpace.htm) than Adobe RGB. The above image sources are from [Clipping Path](http://clippingpathzone.com/blog/essential-photoshop-color-settings-for-photographers).
+色彩空间之间的差异（如sRGB，Adobe RGB和ProPhoto RGB）是它们的色域（它们可以用阴影再现的颜色范围），光源和[伽玛曲线](http://blog.johnnovak.net/2016/09/21/what-every-coder-should-know-about-gamma/)。 sRGB比Adobe RGB小约20％，ProPhoto RGB比Adobe RGB大[约50％](http://www.petrvodnakphotography.com/Articles/ColorSpace.htm) 。 上面的图像源来自 [Clipping Path](http://clippingpathzone.com/blog/essential-photoshop-color-settings-for-photographers)
 
-[Wide-gamut](http://www.astramael.com/) is a term describing color spaces with a gamut larger than sRGB. These types of displays are becoming more common. That said, many digital displays are still simply unable to display color profiles that are significantly better than sRGB. When saving for the web in Photoshop, consider using the ‘Convert to sRGB’ option unless targeting users with higher-end wide-gamut screens. 
+[宽色域](http://www.astramael.com/) 是描述色域大于sRGB的色域的术语。 这些类型的显示器正变得越来越普遍。 也就是说，许多数字显示器仍然无法显示明显优于sRGB的颜色配置文件。 在Photoshop中保存网页图像时，请考虑使用“转换为sRGB”选项，除非定位具有高端宽色域屏幕的用户。
 
-<aside class="key-point"><b>Note:</b> When working with original photography, avoid using sRGB as your primary color space. It’s smaller than the color spaces most cameras support and can cause clipping. Instead, work on a larger color space (like ProPhoto RGB) and output to sRGB when exporting for the web.</aside>
-**Are there any cases where wide gamut makes sense for web content?**
+**Note：**使用原始照片时，请避免使用sRGB作为主要色彩空间。 它比大多数相机支持的色彩空间小，并且可能导致剪裁。 相反，在导出Web时，可以在更大的色彩空间（如ProPhoto RGB）进行处理并输出到sRGB。
 
-Yes. If an image contains very saturated/juicy/vibrant color and you care about it being just as juicy on screens that support it. However, in real photos that rarely happens. Often it’s easy to tweak color to make it appear vibrant, without it actually exceeding sRGB gamut 
+**是否存在宽色域对Web上的内容有意义的情况？**
 
-That’s because human color perception is not absolute, but relative to our surroundings and is easily fooled. If your image contains a fluorescent highlighter color, then you’ll have an easier time with wide gamut.
+是的。 如果图像包含非常饱和/丰富/鲜艳的颜色，并且您关心它在支持它的屏幕上同样的效果。 但是，在很少发生的真实照片中。 通常很容易调整颜色以使其看起来充满活力，而实际上并不超过sRGB色域。
+
+那是因为人类的颜色感知并不是绝对的，而是相对于我们周围的环境而且容易被欺骗。 如果您的图像包含高亮的荧光色，那么使用宽色域查看时会更容易。
 
 #### Gamma correction and compression
 
