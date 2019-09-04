@@ -2044,17 +2044,20 @@ density to users from a single canonical source.
 
 那是因为人类的颜色感知并不是绝对的，而是相对于我们周围的环境而且容易被欺骗。 如果您的图像包含高亮的荧光色，那么使用宽色域查看时会更容易。
 
-#### Gamma correction and compression
+#### 伽马校正和压缩
 
-[Gamma correction](https://en.wikipedia.org/wiki/Gamma_correction) (or just Gamma) controls the overall brightness of an image. Changing the gamma can also alter the ratio of red to green and blue colors. Images without gamma correction can look like their colors are bleached out or too dark. 
+[Gamma校正](https://en.wikipedia.org/wiki/Gamma_correction) （或仅Gamma）控制图像的整体亮度。 更改伽玛还可以改变红色与绿色和蓝色的比例。 没有伽玛校正的图像可能看起来像是漂白或太暗。
 
-In video and computer graphics, gamma is used for compression, similar to data compression. This allows you to squeeze useful levels of brightness in fewer bits (8-bit rather than 12 or 16). Human perception of brightness is not linearly proportional to physical amount of light. Representing colors in their true physical form would be wasteful when encoding images for human eyes. Gamma compression is used to encode brightness on a scale that is closer to human perception. 
+在视频和计算机图形中，伽玛被用于压缩，类似于数据压缩。 这允许您以较少的位（8位而不是12位或16位）压缩有用的亮度级别。 人类对亮度的感知与物理光量不成线性比例。 在为人眼编码图像时，以真实物理形式表示颜色将是浪费的。 伽玛压缩用于在更接近人类感知的尺度上编码亮度。
 
-With gamma compression useful scale of brightness fits in 8 bits of precision (0-255 used by most RGB colors). All of this comes from the fact that if colors used some unit with 1:1 relationship to physics, RGB values would be from 1 to million where values 0-1000 would look distinct, but values between 999000-1000000 would look identical. Imagine being in a dark room where there is just 1 candle. Light a second candle and you notice significant increases in brightness in the room light. Add a third candle and it’ll seem even brighter. Now imagine being in a room with 100 candles. Light the 101st candle, the 102nd. You won’t notice a change in brightness. 
+对于伽玛压缩，有用的亮度范围符合8位精度（大多数RGB颜色使用0-255）。 所有这一切都来自如下事实：如果颜色使用与物理学具有1：1关系的一些单位，则RGB值将从1到百万，其中值0-1000看起来不同，但是999000-1000000之间的值看起来相同。 想象一下，在一个只有一支蜡烛的黑暗房间里。 点亮第二根蜡烛，你会发现室内光线亮度明显增加。 添加第三根蜡烛，它看起来更加明亮。 现在想象一下，在一个有100根蜡烛的房间里。 点燃第101个蜡烛，第102个蜡烛。 你不会注意到亮度的变化。
 
-Even though in both cases, physically, exactly the same amount of light was added. So because eyes are less sensitive when light is bright, gamma compression ‘compresses’ bright values, so in physical terms bright levels are less precise but the scale is adjusted for humans so from the human perspective all values are equally precise. 
+即使在两种情况下，物理上都添加了完全相同的光量。 因此，当光线明亮时，眼睛不那么敏感，伽马压缩会“压缩”明亮的值，因此在物理方面，亮度水平不太精确，但是人体调整了比例，因此从人的角度来看，所有值都同样精确。
 
-<aside class="key-point"><b>Note:</b> Gamma compression/correction here is different to the image gamma curves you might configure in Photoshop. When gamma compression works as it should, it doesn’t look like anything.</aside>
+
+
+**Note：**此处的伽马压缩/校正与您在Photoshop中可能配置的图像伽玛曲线不同。当伽玛压缩按预期工作时，将看不错任何区别。
+
 #### Color profiles
 
 A color profile is the information describing what that the color space of a device is. It’s used to convert between different color spaces. Profiles attempt to ensure an image looks as similar as possible on these different kinds of screens and mediums. 
