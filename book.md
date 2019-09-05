@@ -2054,20 +2054,21 @@ density to users from a single canonical source.
 
 即使在两种情况下，物理上都添加了完全相同的光量。 因此，当光线明亮时，眼睛不那么敏感，伽马压缩会“压缩”明亮的值，因此在物理方面，亮度水平不太精确，但是人体调整了比例，因此从人的角度来看，所有值都同样精确。
 
-
-
 **Note：**此处的伽马压缩/校正与您在Photoshop中可能配置的图像伽玛曲线不同。当伽玛压缩按预期工作时，将看不错任何区别。
 
-#### Color profiles
+#### 颜色配置文件
 
-A color profile is the information describing what that the color space of a device is. It’s used to convert between different color spaces. Profiles attempt to ensure an image looks as similar as possible on these different kinds of screens and mediums. 
+颜色配置文件是描述设备色彩空间的信息。 它用于在不同的色彩空间之间进行转换。 配置文件尝试确保图像在这些不同类型的屏幕和介质上看起来尽可能相似。
 
-Images can have an embedded color profile as described by the [International Color Consortium](http://www.color.org/icc_specs2.xalter) (ICC) to represent precisely how colors should appear. This is supported by different formats including JPEGs, PNGs, SVGs and [WebP](https://developers.google.com/speed/webp/docs/riff_container) and most major browsers support embedded ICC profiles. When an image is displayed in an app and it knows the monitor’s capabilities, these colors can be adjusted based on the color profile. 
+图像具有可嵌入的颜色配置文件，如[国际色彩联盟](http://www.color.org/icc_specs2.xalter)（ICC）所描述的，以精确地表示颜色应该如何显示。 这是由不同的格式支持，包括JPEG，PNG，SVG和WebP](https://developers.google.com/speed/webp/docs/riff_container)，大多数主流浏览器支持嵌入式ICC配置文件。 当图像在应用程序中显示并且它知道显示器的功能时，可以根据颜色配置文件调整这些颜色。
 
-<aside class="key-point"><b>Note:</b> Some monitors have a color profile similar to sRGB and cannot display much better profiles so depending on your target users displays, there may be limited value in embedding them. Check who your target users are.</aside>
-Embedded color profiles can also heavily increase the size of your images (100KB+ occasionally) so be careful with embedding. Tools like ImageOptim will actually [automatically](https://imageoptim.com/color-profiles.html) remove color profiles if it finds them. In contrast, with the ICC profile removed in the name of size reduction, browsers will be forced to display the image in your monitor’s color space which can lead to differences in expected saturation and contrast. Evaluate the trade-offs here make sense for your use case.
+（译者注：JPEG在使用CMYK色彩模式作为喷绘打印的图像时，ICC配置文件就非常重要，尤其是使用代码生成时，否则会导致目标文件色彩显示错误（就是能显示，但是颜色偏差非常大）导致无法打印。以JAVA为例：需要先解析MetaTree，将ICC配置文件嵌入进去，再进行合并。）
 
-[Nine Degrees Below](https://ninedegreesbelow.com/photography/articles.html) have an excellent set of resources on ICC profile color management if you are interested in learning more about profiles.
+**Note：**某些显示器具有与sRGB类似的颜色配置文件，并且无法显示更好的配置文件，因此根据您目标用户的显示设备，嵌入它们的价值可能有限。 确定目标用户是哪些。
+
+嵌入的颜色配置文件也会大大增加图像的大小（偶尔会增加100KB），因此请小心嵌入。 像ImageOptim这样的工具实际上会在找到它们时[自动](https://imageoptim.com/color-profiles.html)删除颜色配置文件。 相反，在缩小尺寸名称中删除ICC配置文件时，浏览器将被迫在显示器的色彩空间中显示图像，这可能导致预期饱和度和对比度的差异。 评估这之间的权衡对您的用例很有意义。
+
+如果您有兴趣了解有关配置文件的更多信息，那么[Nine Degrees Below](https://ninedegreesbelow.com/photography/articles.html) 拥有一套优秀的ICC配置文件颜色管理资源。
 
 #### Color profiles and web browsers
 
