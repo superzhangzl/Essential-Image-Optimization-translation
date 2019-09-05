@@ -2070,11 +2070,12 @@ density to users from a single canonical source.
 
 如果您有兴趣了解有关配置文件的更多信息，那么[Nine Degrees Below](https://ninedegreesbelow.com/photography/articles.html) 拥有一套优秀的ICC配置文件颜色管理资源。
 
-#### Color profiles and web browsers
+#### 颜色配置文件和Web浏览器
 
-Earlier versions of Chrome did not have great support for color management, but this is improving in 2017 with [Color Correct Rendering](https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/ptuKdRQwPAo). Displays that are not sRGB (newer MacBook Pros) will convert colors from sRGB to the display profile. This will mean colors should look more similar across different systems and browsers. Safari, Edge and Firefox can now also take ICC profiles into account, so images with a different color profile (e.g. ICC) can now display them correctly whether your screen has wide gamut or not.
+早期版本的Chrome对色彩管理没有很好的支持，但2017年使用 [Color Correct Rendering](https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/ptuKdRQwPAo)进行了改进。 不是sRGB（较新的MacBook Pro）的显示器会将sRGB中的颜色按照显示配置文件进行转换。 这意味着不同系统和浏览器的颜色看起来应该更相似。 Safari，Edge和Firefox现在也可以考虑ICC配置文件，因此具有不同颜色配置文件（例如ICC）的图像现在可以正确显示它们，无论您的屏幕是否具有宽色域。
 
-<aside class="key-point"><b>Note:</b> For a great guide on how color applies to a broader spectrum of ways we work on the web, see the [nerd’s guide to color on the web](https://css-tricks.com/nerds-guide-color-web/) by Sarah Drasner.</aside>
+**Note：**有关色彩如何在网络上工作这方面的更广泛的意见，请参阅Sarah Drasner撰写的[网站色彩指南](https://css-tricks.com/nerds-guide-color-web/)。
+
 ## <a id="image-sprites" href="#image-sprites">Image spriting</a>
 
 [Image sprites](https://developers.google.com/web/fundamentals/design-and-ui/responsive/images#use_image_sprites) (or CSS sprites) have a long history on the web, are supported by all browsers and have been a popular way to reduce the number of images a page loads by combining them into a single larger image that is sliced.
