@@ -2078,7 +2078,9 @@ density to users from a single canonical source.
 
 ## <a id="image-sprites" href="#image-sprites">Image spriting</a>
 
-[Image sprites](https://developers.google.com/web/fundamentals/design-and-ui/responsive/images#use_image_sprites) (or CSS sprites) have a long history on the web, are supported by all browsers and have been a popular way to reduce the number of images a page loads by combining them into a single larger image that is sliced.
+[Image sprites](https://developers.google.com/web/fundamentals/design-and-ui/responsive/images#use_image_sprites) (或CSS sprites)在 Web 上具有悠久的历史，所有浏览器都支持这些图片，并且通过将图像组合到切片的单个较大图像中来减少页面加载的图像数量，这已成为一种常用方法。
+
+（译者注：Image spriting最好不需要翻译，直译就是图像精灵，反而不好懂，是一种图像切片技术。可参考[知乎回答](https://www.zhihu.com/question/51438507)）
 
 <figure>
 <picture>
@@ -2101,14 +2103,14 @@ density to users from a single canonical source.
   <img src="images/book-images/i2_2ec824b0_1-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>Image sprites are still widely used in large, production sites, including the Google homepage.</figcaption>
+<figcaption>Image sprites技术仍然广泛用于大型生产网站，包括谷歌主页。</figcaption>
 </figure>
 
-Under HTTP/1.x, some developers used spriting to reduce HTTP requests. This came with a number of benefits, however care was needed as you quickly ran into challenges with cache-invalidation – changes to any small part of an image sprite would invalidate the entire image in a user’s cache.
+在HTTP/1.x下，一些开发人员使用spriting来减少HTTP请求。 这带来了许多好处，但是当你突然遇到缓存失效的异常时需要小心 - 对Image sprites的任何一小部分的更改都会使用户缓存中的整个图像无效。
 
-Spriting may now however be an [HTTP/2](https://hpbn.co/http2/) anti-pattern. With HTTP/2, it may be best to [load individual images](https://deliciousbrains.com/performance-best-practices-http2/) since multiple requests within a single connection are now possible. Measure to evaluate whether this is the case for your own network setup.
+然而，Spriting现在可以是 [HTTP/2](https://hpbn.co/http2/) 下的一个反模式。 使用HTTP/2，最好[加载单个图像](https://deliciousbrains.com/performance-best-practices-http2/)，因为现在可以在单个连接中进行多个请求。 衡量这样做是否适用于您自己的网络设置。
 
-## <a id="lazy-load-non-critical-images" href="#lazy-load-non-critical-images">Lazy-load non-critical images</a>
+## <a id="lazy-load-non-critical-images" href="#lazy-load-non-critical-images">懒加载非关键图像</a>
 
 Lazy loading is a web performance pattern that delays the loading of images in the browser until the user needs to see it. One example is, as you scroll, images load asynchronously on demand. This can further compliment the byte-savings you see from having an image compression strategy.
 
