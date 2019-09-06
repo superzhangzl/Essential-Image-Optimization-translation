@@ -2110,9 +2110,11 @@ density to users from a single canonical source.
 
 然而，Spriting现在可以是 [HTTP/2](https://hpbn.co/http2/) 下的一个反模式。 使用HTTP/2，最好[加载单个图像](https://deliciousbrains.com/performance-best-practices-http2/)，因为现在可以在单个连接中进行多个请求。 衡量这样做是否适用于您自己的网络设置。
 
-## <a id="lazy-load-non-critical-images" href="#lazy-load-non-critical-images">懒加载非关键图像</a>
+## <a id="lazy-load-non-critical-images" href="#lazy-load-non-critical-images">延迟加载非关键图像</a>
 
-Lazy loading is a web performance pattern that delays the loading of images in the browser until the user needs to see it. One example is, as you scroll, images load asynchronously on demand. This can further compliment the byte-savings you see from having an image compression strategy.
+延迟加载是一种Web性能模式，它会延迟浏览器中图像的加载，直到用户需要查看它为止。 例如，滚动时，图像会根据需要异步加载。 这可以进一步提高您从“图像压缩策略”看到的字节节省的数量。
+
+（译者注：避免了非必要的图像加载以节省带宽，尤其是在大量图像场景下性能提升明显，例如图片直播等。）
 
 
 <figure>
@@ -2138,9 +2140,9 @@ Lazy loading is a web performance pattern that delays the loading of images in t
 </picture>
 </figure>
 
-Images that must appear ‘above the fold’, or when the web page first appears are loaded straight away. The images which follow ‘below the fold’, however, are not yet visible to the user. They do not have to be immediately loaded into the browser. They can be loaded later — or lazy loaded — only if and when the user scrolls down and it becomes necessary to show them.
+必须出现在“首屏”上方或首次出现网页的图像需要立即加载。 然而，屏幕下方的图像对于用户来说是不可见的。 它们不必立即加载到浏览器中。 它们可以在以后加载 - 或者延迟加载 - 只有当用户向下滚动并且有必要显示它们时才可以加载它们。
 
-Lazy loading is not yet natively supported in the browser itself (although there have been [discussions](https://discourse.wicg.io/t/a-standard-way-to-lazy-load-images/1153/10) about it in the past). Instead, we use JavaScript to add this capability.
+浏览器本身尚未支持延迟加载（尽管过去曾有过[讨论](https://discourse.wicg.io/t/a-standard-way-to-lazy-load-images/1153/10)）。 相反，我们可以使用JavaScript来添加此功能。
 
 **Why is Lazy Loading Useful?**
 
@@ -2148,7 +2150,7 @@ This ‘lazy’ way of loading images only if and when necessary has many benefi
 
 * **Reduced data consumption**: As you aren’t assuming the user will need every image fetched ahead of time, you’re only loading the minimal number of resources. This is always a good thing, especially on mobile with more restrictive data plans.
 * **Reduced battery consumption**: Less workload for the user’s browser which can save on battery life.
-* **Improved download speed**: Decreasing your overall page load time on an image heavy website from several seconds to almost nothing is a tremendous boost to user experience. In fact, it could be the difference between a user staying around to enjoy your site and just another bounce statistic.
+* *Improved download speed**: Decreasing your overall page load time on an image heavy website from several seconds to almost nothing is a tremendous boost to user experience. In fact, it could be the difference between a user staying around to enjoy your site and just another bounce statistic.
 
 **But like all tools, with great power comes great responsibility.**
 
