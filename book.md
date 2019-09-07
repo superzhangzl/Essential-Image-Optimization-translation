@@ -2188,13 +2188,15 @@ density to users from a single canonical source.
 <figcaption>Medium.com上图像的高斯模糊内联预览的示例</figcaption>
 </figure>
 
-A number of sites (such as Medium) display a small, Gaussian-blurred inline preview (a few 100 bytes) that transitions (lazy-loads) to a full-quality image once it has been fetched.
+许多站点（例如Medium）显示一个小的高斯模糊的内联预览（几个100字节），一旦获取后它就会转换（延迟加载）到一个完整质量的图像。
 
-José M. Pérez has written about how to implement the Medium effect using [CSS filters](https://jmperezperez.com/medium-image-progressive-loading-placeholder/) and experimented with [different image formats](https://jmperezperez.com/webp-placeholder-images/) to support such placeholders. Facebook also did a write-up on their famous 200-byte approach for such placeholders for their [cover photos](https://code.facebook.com/posts/991252547593574/the-technology-behind-preview-photos/) that is worth a read. If you’re a Webpack user, [LQIP loader](https://lqip-loader.firebaseapp.com/) can help automate some of this work away.
+JoséM.Pérez撰写了关于如何使用[CSS过滤器](https://jmperezperez.com/medium-image-progressive-loading-placeholder/) 实现Medium的这种效果并尝试使用[不同图像格式](https://jmperezperez.com/webp-placeholder-images/)来支持此类占位符的文章。 Facebook还对其著名的200字节方法进行了记录，为这些占位符提供了值得阅读的[封面照片](https://code.facebook.com/posts/991252547593574/the-technology-behind-preview-photos/)。 如果您是Webpack用户，[LQIP加载器](https://lqip-loader.firebaseapp.com/)可以帮助自动完成部分工作。
 
-In fact, you can search for your favorite source of high-res photos and then scroll down the page. In almost all cases you’ll experience how the website loads only a few full-resolution images at a time, with the rest being placeholder colors or images. As you continue to scroll, the placeholder images are replaced with full-resolution images. This is lazy loading in action.
+实际上，您可以搜索自己喜欢的高分辨率照片源站，然后向下滚动页面。 几乎在所有情况下，您都会体验到网站一次只加载几张全分辨率图像，其余图像是占位符颜色或图像。 在继续滚动时，占位符图像将替换为全分辨率图像。 这就是延迟加载的作用。
 
-A technique that has been making the rounds recently is *vector-* rather than pixel-based low-quality image previews, piloted by Tobias Baldauf in his tool [SQIP](https://github.com/technopagan/sqip). This approach makes use of the utility [Primitive](https://github.com/fogleman/primitive) to generate an SVG preview consisting of several simple shapes that approximate the main features visible inside the target image, optimizes the SVG using [SVGO](https://github.com/svg/svgo), and finally adds a Gaussian Blur filter to it; producing an SVG placeholder that weighs in at only ~800–1000 bytes, looks crisp on all screens, and provides a visual cue of the image contents to come. Both, lazy-loading and low-quality image previews, can obviously [be combined](https://calendar.perfplanet.com/2017/progressive-image-loading-using-intersection-observer-and-sqip/).
+最近一直在进行的一项技术是*基于矢量*而非基于像素的低质量图像预览，由Tobias Baldauf在他的工具 [SQIP](https://github.com/technopagan/sqip)中进行试验。 这种方法利用实用程序[Primitive](https://github.com/fogleman/primitive)生成SVG预览，该预览由几个简单的形状组成，这些形状近似于目标图像中可见的主要特征，使用 [SVGO](https://github.com/svg/svgo)优化SVG，最后为其添加高斯模糊滤波器; 生成SVG占位符，大小仅为800-1000字节，在所有屏幕上看起来都很清晰，并提供了图像内容的视觉提示。延迟加载和低质量图像预览都可以明显地[结合](https://calendar.perfplanet.com/2017/progressive-image-loading-using-intersection-observer-and-sqip/)起来。
+
+（译者注：crisp原意为脆，结合文章表示图像看起来清晰锐利。）
 
 **How Can I Apply Lazy Loading to My Pages?**
 
