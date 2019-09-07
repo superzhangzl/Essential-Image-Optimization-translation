@@ -2144,23 +2144,25 @@ density to users from a single canonical source.
 
 浏览器本身尚未支持延迟加载（尽管过去曾有过[讨论](https://discourse.wicg.io/t/a-standard-way-to-lazy-load-images/1153/10)）。 相反，我们可以使用JavaScript来添加此功能。
 
-**Why is Lazy Loading Useful?**
+**为什么延迟加载如此有效？**
 
-This ‘lazy’ way of loading images only if and when necessary has many benefits:
+这种只在必要时加载图像的“延迟”方式有很多好处：
 
-* **Reduced data consumption**: As you aren’t assuming the user will need every image fetched ahead of time, you’re only loading the minimal number of resources. This is always a good thing, especially on mobile with more restrictive data plans.
-* **Reduced battery consumption**: Less workload for the user’s browser which can save on battery life.
-* *Improved download speed**: Decreasing your overall page load time on an image heavy website from several seconds to almost nothing is a tremendous boost to user experience. In fact, it could be the difference between a user staying around to enjoy your site and just another bounce statistic.
+* **减少数据消耗：**由于您没有假设用户需要提前获取所有图像，因此您只需加载最少量的资源。 这总是一件好事，特别是在具获取数据又限制的移动设备上。
+* **减少电池消耗**：减少用户浏览器的工作量，从而节省电池寿命。
+* **提高下载速度**：将图像繁重的网站上的整个页面加载时间从几秒减少到几乎没有，这对用户体验起到了巨大的推动作用。 事实上，这可能是用户留下来享受您的网站或离开您的网站之间的统计数据区别。
 
-**But like all tools, with great power comes great responsibility.**
+**但是像所有工具一样，强大的功能带来了巨大的责任。**
 
-**Avoid lazy-loading images above the fold.** Use it for long-lists of images (e.g. products) or lists of user avatars. Don’t use it for the main page hero image. Lazy-loading images above the fold can make loading visibly slower, both technically and for human perception. It can kill the browser’s preloader, progressive loading and the JavaScript can create extra work for the browser.
+**避免在首屏上方加载延迟图像。**将其用于长图像列表（例如产品列表）或用户头像列表。 不要将它用作主页横幅。 从技术上和对人的感知上来说，延迟加载fold上方的图像会使加载明显变慢。 它会杀死浏览器的预加载器，渐进式加载和JavaScript会为浏览器带来额外的开销。
 
-**Be very careful lazy-loading images when scrolling.**  If you wait until the user is scrolling they are likely to see placeholders and may eventually get images, if they haven’t already scrolled past them. One recommendation would be to start lazy-loading after the above-the-fold images have loaded, loading all of the images independent of user interaction.
+（译者注： hero image意为主页横幅）
 
-**Who Uses Lazy Loading?**
+**滚动时要非常小心延迟加载图像。**如果你等到用户滚动可能会先看到占位符，并且最终会获得图像，如果它们还没有滚过它们的话。 一个建议是在fold上方图像加载后就开始延迟加载，这样加载所有图像而不依赖于用户交互。
 
-For examples of lazy loading, look at most any major site that hosts a lot of images. Some notable sites are [Medium](https://medium.com/) and [Pinterest](https://www.pinterest.com/).
+**谁在使用延迟加载？**
+
+有关延迟加载的示例，请查看承载大量图像的大多数主要站点。 一些值得注意的网站是[Medium](https://medium.com/)和[Pinterest](https://www.pinterest.com/)。
 
 <figure>
 <picture>
@@ -2183,7 +2185,7 @@ For examples of lazy loading, look at most any major site that hosts a lot of im
   <img src="images/book-images/Modern-Image35-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>An example of Gaussian-blurred inline previews for images on Medium.com</figcaption>
+<figcaption>Medium.com上图像的高斯模糊内联预览的示例</figcaption>
 </figure>
 
 A number of sites (such as Medium) display a small, Gaussian-blurred inline preview (a few 100 bytes) that transitions (lazy-loads) to a full-quality image once it has been fetched.
