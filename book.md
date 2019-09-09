@@ -2363,20 +2363,19 @@ Jake Archibald的[Request Quest](https://jakearchibald.github.io/request-quest/)
 
 同样，尽可能使用`<picture>`和`<img srcset>`而不是依赖于`display：none`。
 
-## <a id="image-processing-cdns" href="#image-processing-cdns">Does an image processing CDN make sense for you?</a>
+## <a id="image-processing-cdns" href="#image-processing-cdns">图像处理CDN对您有意义吗？</a>
 
-*The time you’ll spend reading the blog posts to setup your own image processing pipeline and tweaking your config is often >> the fee for a service. With [Cloudinary](http://cloudinary.com/) offering a free service, [Imgix](https://www.imgix.com/) a free trial and [Thumbor](https://github.com/thumbor/thumbor) existing as an OSS alternative, there are plenty of options available to you for automation.*
+*您花在阅读博客文章以设置自己的图像处理管道和调整配置所花费的时间通常是远大于服务费。随着[Cloudinary](http://cloudinary.com/)提供免费服务，[Imgix](https://www.imgix.com/)免费试用和[Thumbor](https://github.com/thumbor/thumbor)作为OSS的替代品，有很多选项供您自动使用。*
 
-To achieve optimal page load times, you need to optimize your image loading. This optimization calls for a responsive image strategy and can benefit from on-server image compression, auto-picking the best format and responsive resizing. What matters is that you deliver the correctly sized image to the proper device in the proper resolution as fast as possible. Doing this is not as easy as one might think.
+要实现最佳页面加载时间，您需要优化图像加载。 此优化需要响应式图像策略，并且可以受益于服务器上的图像压缩，以自动选择最佳格式和响应式调整大小。 重要的是，您要尽可能快地以正确的分辨率将正确大小的图像传送到适当的设备。 这样做并不像人们想象的那么容易。
 
-**Using Your Server vs. a CDN**
+**使用自己的服务器 vs CDN**
 
-Because of the complexity and ever-evolving nature of image manipulation, we’re going to offer a quote from someone with experience in the field, then proceed with a suggestion.
+由于图像处理的复杂性和不断变化的性质，我们将提供具有该领域经验的人的报价，然后继续提出建议。
 
-"If your product is not image manipulation, then don’t do this yourself. Services like Cloudinary [or imgix, Ed.] do this much more efficiently and much better than you will, so use them. And if you’re worried about the cost, think about how much it’ll cost you in development and upkeep, as well as hosting, storage, and delivery costs." — [Chris Gmyr](https://medium.com/@cmgmyr/moving-from-self-hosted-image-service-to-cloudinary-bd7370317a0d)
+“如果你的产品不涉及图像处理，那就不要自己动手了。像Cloudinary [或imgix、Ed]这样的服务比你更有效率且能提供更好地服务，所以请使用它们。如果你担心成本的话，请务必考虑在开发和维护中的开销，以及托管、存储和交付的成本。“   — [Chris Gmyr](https://medium.com/@cmgmyr/moving-from-self-hosted-image-service-to-cloudinary-bd7370317a0d)
 
-
-For the moment, we are going to agree and suggest that you consider using a CDN for your image processing needs. Two CDNs will be examined to see how they compare relative to the list of tasks we raised earlier.
+目前，我们将同意并建议您考虑使用CDN来满足您的图像处理需求。 下面将根据我们之前提出的任务列表，来对两个CDN进行比较。
 
 **Cloudinary and imgix**
 
