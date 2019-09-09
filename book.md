@@ -2285,11 +2285,11 @@ Lazysizes 不是你唯一的选项，这里还有更多延迟加载的类库：
 延迟加载图像是一种用于减少带宽，降低成本和改善用户体验的普适模式。 评估您的体验是否合理。 有关进一步阅读，请参阅[延迟加载图像](https://jmperezperez.com/lazy-loading-images/)和[实现Medium的渐进式加载](https://jmperezperez.com/medium-image-progressive-loading-placeholder/)。
 
 
-## <a id="display-none-trap" href="#display-none-trap">Avoiding the display:none trap</a>
+## <a id="display-none-trap" href="#display-none-trap">避免display:none陷阱</a>
 
-Older responsive image solutions have mistaken how browsers handle image requests when setting the CSS  `display` property. This can cause significantly more images to be requested than you might be expecting and is another reason `<picture>` and `<img srcset>` are preferred for loading responsive images.
+较旧的响应式图像解决方案误解了浏览器在设置CSS的`display`属性时如何处理图像请求。 这可能导致请求的图像明显多于您可能期望的图像，而且另一个原因是`<picture>`和`<img srcset>`才是加载响应图像的首选。
 
-Have you ever written a media query that sets an image to `display:none` at certain breakpoints?
+你有没有写过一个媒体类型的请求，并在某些断点处将图像设置为`display：none`？
 
 ```html
 <img src="img.jpg">
@@ -2302,7 +2302,7 @@ Have you ever written a media query that sets an image to `display:none` at cert
 </style>
 ```
 
-Or toggled what images are hidden using a `display:none` class?
+或者使用`display：none`类来切换隐藏的图像？
 
 ```html
 <style>
@@ -2314,7 +2314,9 @@ Or toggled what images are hidden using a `display:none` class?
 <img src=“img-hidden.jpg" class="hidden">
 ```
 
-A quick check against the Chrome DevTools network panel will verify that images hidden using these approaches still get fetched, even when we expect them not to be. This behavior is actually correct per the embedded resources spec.
+A quick check against the Chrome DevTools network panel will verify that images hidden using these approaches still get fetched, even when we expect them not to be. This behavior is actually correct per the embedded resources spec.、
+
+对Chrome DevTools的network面板进行快速检查，将验证使用这些方法隐藏的图像是否仍会被取出？即使我们预计不会这样。 根据嵌入式资源规范，此行为实际上是正确的。
 
 <figure>
 <picture>
@@ -2339,15 +2341,15 @@ A quick check against the Chrome DevTools network panel will verify that images 
 </picture>
 </figure>
 
-**Does `display:none` avoid triggering a request for an image `src`?**
+**`display：none`是否会触发对图像`src`的请求？**
 
 ```html
 <div style="display:none"><img src="img.jpg"></div>
 ```
 
-No. The image specified will still get requested. A library cannot rely on display:none here as the image will be requested before JavaScript can alter the src.
+指定的图像仍会被请求。 类库不能依赖display：none，因为在JavaScript改变src之前就会请求图像。
 
-**Does `display:none` avoid triggering a request for a `background: url()`?**
+**`display：none`是否会触发对`background：url()`的请求？**
 
 ```html
 <div style="display:none">
@@ -2355,11 +2357,11 @@ No. The image specified will still get requested. A library cannot rely on displ
 </div>
 ```
 
-Yes. CSS backgrounds aren’t fetched as soon as an element is parsed. Calculating CSS styles for children of elements with `display:none` would be less useful as they don’t impact rendering of the document. Background images on child elements are not calculated nor downloaded.
+ 只要解析元素，就不会获取CSS背景。 使用`display：none`计算元素子元素的CSS样式不太有用，因为它们不会影响文档的呈现。 子元素的背景图像不会计算或下载。
 
-Jake Archibald’s [Request Quest](https://jakearchibald.github.io/request-quest/) has an excellent quiz on the pitfalls of using `display:none` for your responsive images loading. When in doubt about how specific browser’s handle image request loading, pop open their DevTools and verify for yourself.
+Jake Archibald的[Request Quest](https://jakearchibald.github.io/request-quest/) 对于使用`display：none`进行响应式图像加载的缺陷进行了很好的测验。 如果对特定浏览器如何处理图像请求加载有疑问，请打开他们的DevTools并自行验证。
 
-Again, where possible, use `<picture>` and `<img srcset>` instead of relying on `display:none`.
+同样，尽可能使用`<picture>`和`<img srcset>`而不是依赖于`display：none`。
 
 ## <a id="image-processing-cdns" href="#image-processing-cdns">Does an image processing CDN make sense for you?</a>
 
