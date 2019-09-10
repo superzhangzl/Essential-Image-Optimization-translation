@@ -2377,21 +2377,23 @@ Jake Archibald的[Request Quest](https://jakearchibald.github.io/request-quest/)
 
 目前，我们将同意并建议您考虑使用CDN来满足您的图像处理需求。 下面将根据我们之前提出的任务列表，来对两个CDN进行比较。
 
-**Cloudinary and imgix**
+**Cloudinary 和 imgix**
 
-[Cloudinary](http://cloudinary.com/) and [imgix](https://www.imgix.com/) are two established image processing CDNs. They are the choice of hundreds of thousands of developers and companies worldwide, including Netflix and Red Bull. Let’s look at them in more detail.
+Cloudinary和[imgix](https://www.imgix.com/)是两个已创建的图像处理CDN公司。 它们是全球数十万开发商和公司的选择，包括Netflix和Red Bull。 让我们更详细地看一下它们。
 
-**What are the Basics?**
+**基础是什么?**
 
-Unless you are the owner of a network of servers like they are, their first huge advantage over rolling your own solution is that they use a distributed global network system to bring a copy of your images closer to your users. It’s also far easier for a CDN to ‘future proof’ your image loading strategy as trends change – doing this on your own requires maintenance, tracking browser support for emerging formats & following the image compression community.
+除非您是像他们一样的服务器网络的所有者，首先他们相较于您自己的解决方案的一个巨大优势是他们使用分布式全球网络系统将您的图像副本更贴近您的用户。 随着趋势的变化，CDN也可以更容易在未来验证您的图像加载策略 - 自行完成此操作需要维护，跟踪浏览器对新兴格式的支持以及跟随图像压缩社区。
 
-Second, each service has a tiered pricing plan, with Cloudinary offering a [free level](http://cloudinary.com/pricing) and imgix pricing their standard level inexpensively, relative to their high-volume premium plan. Imgix offers a free [trial](https://www.imgix.com/pricing) with a credit towards services, so it almost amounts to the same thing as a free level.
+其次，每个服务都有分层定价计划，与高容量溢价计划相比，Cloudinary 提供[免费](http://cloudinary.com/pricing)的定价，imgix 以低廉的价格为其标准级别定价。Imgix 提供免费[试用版](https://www.imgix.com/pricing)，并享有服务积分，因此几乎相当于免费级别。
+
+第三，API 访问由两个服务提供。开发人员可以以编程方式访问 CDN 并自动处理。还提供客户端库、框架插件和 API 文档，某些功能仅限于较高付费级别。
 
 Third, API access is provided by both services. Developers can access the CDN programmatically and automate their processing. Client libraries, framework plugins, and API documentation are also available, with some features restricted to higher paid levels.
 
-**Let’s Get to the Image Processing**
+**让我们开始图像处理**
 
-For now, let’s limit our discussion to static images. Both Cloudinary and Imgix offer a range of image manipulation methods, and both support primary functions such as compression, resizing, cropping and thumbnail creation in their standard and free plans.
+现在，让我们将讨论局限于静态图像。 Cloudinary和Imgix都提供了一系列图像处理方法，并且在标准和免费计划中都支持压缩，调整大小，裁剪和缩略图创建等主要功能。
 
 <figure>
 <picture>
@@ -2414,18 +2416,22 @@ For now, let’s limit our discussion to static images. Both Cloudinary and Imgi
   <img src="images/book-images/Modern-Image36-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>Cloudinary Media Library: By default Cloudinary encodes [non-Progressive JPEGs](http://cloudinary.com/blog/progressive_jpegs_and_green_martians). To opt-in to generating them, check the ‘Progressive’ option in ‘More options’ or pass the ‘fl_progressive’ flag.</figcaption>
+<figcaption>Cloudinary Media Library：默认情况下，Cloudinary对[非渐进式JPEG](http://cloudinary.com/blog/progressive_jpegs_and_green_martians)进行编码。 要选择生成它们，请选中“更多选项”中的“渐进式”选项或传递“fl_progressive”标记。</figcaption>
 </figure>
 
-Cloudinary lists [seven broad image transformation](http://cloudinary.com/documentation/image_transformations) categories, with a total of 48 subcategories within them. Imgix advertises over [100 image processing operations](https://docs.imgix.com/apis/url?_ga=2.52377449.1538976134.1501179780-2118608066.1501179780).
+Cloudinary列出了[七个常用的图像转换类别](http://cloudinary.com/documentation/image_transformations)，其中共有48个子类别。 Imgix宣传支持[100多个图像处理操作](https://docs.imgix.com/apis/url?_ga=2.52377449.1538976134.1501179780-2118608066.1501179780)s。
 
-**What Happens by Default?**
+**默认情况会发生什么？**
 
-*   Cloudinary performs the following optimizations by default:
-*   [Encodes JPEGs using MozJPEG](https://twitter.com/etportis/status/891529495336722432) (opted against Guetzli as a default)
-*   Strips all associated metadata from the transformed image file (the original image is left untouched). To override this behavior and deliver a transformed image with its metadata intact, add the keep_iptc flag.
-*   Can generate WebP, GIF, JPEG, and JPEG-XR formats with automatic quality. To override the default adjustments, set the quality parameter in your transformation.
-*   Runs [optimization](http://cloudinary.com/documentation/image_optimization#default_optimizations) algorithms to minimize the file size with minimal impact to visual quality when generating images in the PNG, JPEG or GIF format.
+Cloudinary默认执行以下优化：
+
+- [使用MozJPEG对JPEG进行编码](https://twitter.com/etportis/status/891529495336722432)（默认选择Guetzli）
+- 从变换后的图像文件中剥离所有关联的元数据（原始图像保持不变）。 要覆盖此行为并提供其元数据完整的转换后的图像，请添加keep_iptc标志。
+
+*   可以生成具有自动质量的WebP，GIF，JPEG和JPEG-XR格式。 要覆盖默认调整，请在转换中设置quality参数。
+*   在生成PNG，JPEG或GIF格式的图像时，运行[优化](http://cloudinary.com/documentation/image_optimization#default_optimizations) 算法以最小化文件大小，同时对视觉质量的影响最小。
+
+
 
 Imgix has no default optimizations such as Cloudinary has. It does have a settable default image quality. For imgix, auto parameters help you automate your baseline optimization level across your image catalog.
 
