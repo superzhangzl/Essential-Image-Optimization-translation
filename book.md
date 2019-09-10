@@ -2433,26 +2433,30 @@ Cloudinary默认执行以下优化：
 
 
 
-Imgix has no default optimizations such as Cloudinary has. It does have a settable default image quality. For imgix, auto parameters help you automate your baseline optimization level across your image catalog.
+Imgix不像Cloudinary一样有默认优化选项。 它具有可设置的默认图像质量。 对于imgix，自动参数可帮助您在整个图像目录中自动化基线优化级别。
 
-Currently, it has [four different methods](https://docs.imgix.com/apis/url/auto):
+目前，它有[四种不同的方法](https://docs.imgix.com/apis/url/auto)：
 
-*   Compression
-*   Visual enhancement
-*   File format conversion
-*   Redeye removal
+*   压缩
+ - 视觉增强
+ - 文件格式转换
+ - 去除红眼
 
-Imgix supports the following image formats: JPEG, JPEG2000, PNG, GIF, Animated GIF, TIFF, BMP, ICNS, ICO, PDF, PCT, PSD, AI
 
-Cloudinary supports the following image formats: JPEG, JPEG 2000, JPEG XR, PNG, GIF, Animated GIF, WebP, Animated WebP,BMPs, TIFF, ICOs, PDF, EPS, PSD, SVG, AI, DjVu, FLIF, TARGA.
 
-**What About Performance?**
+Imgix支持以下图像格式：JPEG，JPEG2000，PNG，GIF，动画GIF，TIFF，BMP，ICNS，ICO，PDF，PCT，PSD，AI
 
-CDN delivery performance is mostly about [latency](https://docs.google.com/a/chromium.org/viewer?a=v&pid=sites&srcid=Y2hyb21pdW0ub3JnfGRldnxneDoxMzcyOWI1N2I4YzI3NzE2) and speed.
+Cloudinary支持以下图像格式：JPEG，JPEG 2000，JPEG XR，PNG，GIF，动画GIF，WebP，动画WebP，BMP，TIFF，ICO，PDF，EPS，PSD，SVG，AI，DjVu，FLIF，TARGA。
 
-Latency always increases somewhat for completely uncached images. But once an image is cached and distributed among the network servers, the fact that a global CDN can find the shortest hop to the user, added to the byte savings of a properly-processed image, almost always mitigates latency issues when compared to poorly processed images or solitary servers trying to reach across the planet.
+**性能如何？**
 
-Both services use fast and wide CDN. This configuration reduces latency and increases download speed. Download speed affects page load time, and this is one of the most important metrics for both user experience and conversion.
+CDN分发性能主要是关于[延迟](https://docs.google.com/a/chromium.org/viewer?a=v&pid=sites&srcid=Y2hyb21pdW0ub3JnfGRldnxneDoxMzcyOWI1N2I4YzI3NzE2) 和速度。
+
+对于完全未缓存的图像，延迟总是有所增加。 但是，一旦图像被缓存并在网络服务器之间分布，全局CDN可以找到最短的用户节点，加上正确处理的图像的字节节省，与图像处理不当的单机节点试图覆盖整个全球范围相比，几乎总能缓解延迟问题。
+
+（译者注：hop 是网络请求查询路由表的下一个就近节点，俗称下一跳，此处翻译为节点比较合适。）
+
+这两种服务商都使用快速和分布广泛的CDN。 此配置可减少延迟并提高下载速度。 下载速度会影响页面加载时间，这是用户体验和转换的最重要指标之一。
 
 **So How Do They Compare?**
 
