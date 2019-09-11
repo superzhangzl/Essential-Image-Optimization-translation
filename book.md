@@ -2458,19 +2458,21 @@ CDN分发性能主要是关于[延迟](https://docs.google.com/a/chromium.org/vi
 
 这两种服务商都使用快速和分布广泛的CDN。 此配置可减少延迟并提高下载速度。 下载速度会影响页面加载时间，这是用户体验和转换的最重要指标之一。
 
-**So How Do They Compare?**
+**那么他们如何比较？**
 
-Cloudinary has [160K customers](http://cloudinary.com/customers) including Netflix, eBay and Dropbox. Imgix doesn’t report how many customers it has, but it is smaller than Cloudinary. Even so, imgix’s base includes heavyweight image users such as Kickstarter, Exposure, unsplash, and Eventbrite.  
+Cloudinary拥有[160,000名客户](http://cloudinary.com/customers)，包括Netflix，eBay和Dropbox。 Imgix没有报告它有多少客户，但它比Cloudinary小一些。 即便如此，imgix的用户基础包括重量级图像用户，如Kickstarter，Exposure，unsplash和Eventbrite。
 
-There are so many uncontrolled variables in image manipulation that a head-to-head performance comparison between the two services is difficult. So much depends on how much you need to process the image — which takes a variable amount of time — and what size and resolution are required for the final output, which affects speed and download time. Cost may ultimately be the most important factor for you.
+在图像处理中存在许多不受控制的变量，两个服务之间的点对点的性能比较是困难的。 这在很大程度上取决于您需要处理多少图像 - 这需要不同的时间 - 以及最终输出所需的大小和分辨率，这会影响速度和下载时间。 成本最终可能是最重要的因素。
 
-CDNs cost money. An image heavy site with a lot of traffic could cost hundreds of US dollars a month in CDN fees. There is a certain level of prerequisite knowledge and programming skill required to get the most out of these services. If you are not doing anything too fancy, you’re probably not going to have any trouble.
+在图像处理中存在许多不受控制的变量，两个服务之间的头对头性能比较是困难的。 这在很大程度上取决于您需要处理多少图像 - 这需要不同的时间 - 以及最终输出所需的大小和分辨率，这会影响速度和下载时间。 成本最终可能是最重要的因素。
 
-But if you’re not comfortable working with image processing tools or APIs, then you are looking at a bit of a learning curve. In order to accommodate the CDN server locations, you will need to change some URLs in your local links. Do the right due diligence :)
+CDN需要花钱。 拥有大量流量的图像繁重的网站每月可能需要花费数百美元的CDN费用。 为了充分利用这些服务，需要一定程度的必备知识和编程技能。 如果你没有做任何太花哨的事情，你可能不会有任何麻烦。
 
-**Conclusion**
+但是，如果您不习惯使用图像处理工具或API，那么您正在考虑一些学习途径。 为了容纳CDN服务器位置，您需要更改本地链接中的某些URL。 请尽职做好正确的调查。:)
 
-If you are currently serving your own images or planning to, perhaps you should give a CDN some consideration.
+**结论**
+
+如果您目前正在提供自己的图像或有这方面的计划，也许您也应该考虑CDN。
 
 ## <a id="caching-image-assets" href="#caching-image-assets">Caching image assets</a>
 
