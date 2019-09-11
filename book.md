@@ -2474,15 +2474,16 @@ CDN需要花钱。 拥有大量流量的图像繁重的网站每月可能需要�
 
 如果您目前正在提供自己的图像或有这方面的计划，也许您也应该考虑CDN。
 
-## <a id="caching-image-assets" href="#caching-image-assets">Caching image assets</a>
+## <a id="caching-image-assets" href="#caching-image-assets">缓存图像资源</a>
 
-Resources can specify a caching policy using [HTTP cache headers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching#cache-control). Specifically, `Cache-Control` can define who can cache responses and for how long
+资源可以使用[HTTP缓存标头](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching#cache-control)指定缓存策略。 具体来说，“Cache-Control”可以定义谁可以缓存响应以及响应时间
 
-Most of the images you deliver to users are static assets that will[ not change](http://kean.github.io/post/image-caching) in the future. The best caching strategy for such assets is aggressive caching.
+您向用户提供的大多数图像都是静态资产，将来[不会发生变化](http://kean.github.io/post/image-caching)。 这类资产的最佳缓存策略是主动缓存。
 
-When setting your HTTP caching headers, set Cache-Control with a max-age of a year (e.g. `Cache-Control:public; max-age=31536000`). This type of aggressive caching works well for most types of images, especially those that are long-lived like avatars and image headers.
+设置HTTP缓存标头时，将Cache-Control设置为max-age为一年（例如`Cache-Control:public; max-age = 31536000`）。 这种类型的较为激进的缓存策略适用于大多数类型的图像，特别是那些像头像和图像标题一样长久不变的图像。
 
-<aside class="note"><b>Note:</b> If you’re serving images using PHP, it can destroy caching due to the default [session_cache_limiter](http://php.net/manual/en/function.session-cache-limiter.php) setting. This can be a disaster for image caching and you may want to [work around](https://stackoverflow.com/a/3905468) this by setting session_cache_limiter('public') which will set public, max-age=. Disabling and setting custom cache-control headers is also fine.</aside>
+**注：**如果您使用PHP提供图像，则由于默认的[session_cache_limiter](http://php.net/manual/en/function.session-cache-limiter.php)设置，它可以破坏缓存。 这可能是图像缓存的灾难，您可能希望通过设置session_cache_limiter（'public'）来[解决此问题](https://stackoverflow.com/a/3905468)，该会话将设置为`public, max-age =`。 禁用和设置自定义缓存控制标头也可以。
+
 ## <a id="preload-critical-image-assets" href="#preload-critical-image-assets">Preloading critical image assets</a>
 
 Critical image assets can be preloaded using [`<link rel=preload>`](https://www.w3.org/TR/preload/). 
