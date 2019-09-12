@@ -2573,15 +2573,19 @@ Link: <https://example.com/logo-hires.jpg>; rel=preload; as=image
 
 要了解有关预加载的更多信息，请参阅文章[《在Chrome中预加载，预取和优先级》](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)和[《预加载：它有什么用？》](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/)
 
-## <a id="performance-budgets" href="#performance-budgets">Web Performance Budgets For Images</a>
+## <a id="performance-budgets" href="#performance-budgets">图像的Web性能指标</a>
 
-A performance budget is a ‘budget’ for web page performance that a team attempts to not exceed. For example, ‘images will not exceed 200KB on any page’ or ‘the user experience must be usable in under 3 seconds’. When a budget isn’t being met, explore why this is and how you get back on target.
+性能指标是团队尝试不超过的网页性能的“指标”。 例如，“任何页面上的图像不会超过200KB”或“用户体验必须在3秒内可用”。 如果没有达到预期，请探究原因以及如何重新达到目标。
 
-Budgets provide a useful framework for discussing performance with stakeholders. When a design or business decision may impact site performance, consult the budget. They’re a reference for pushing back or rethinking the change when it can harm a site’s user experience.
+与利益相关者讨论绩效时，指标是一个有用的参考框架。 如果设计或业务决策可能会影响网站性能，请参考性能指标。 当更改可能损害站点的用户体验时，这是推倒更改或重新思考更改的一个参考依据。
 
-I’ve found teams have the best success with performance budgets when monitoring them is automated. Rather than manually inspecting network waterfalls for budget regressions, automation can flag when the budget is crossed. Two such services that are useful for performance budget tracking are [Calibre](https://calibreapp.com/docs/metrics/budgets) and [SpeedCurve](https://speedcurve.com/blog/tag/performance-budgets/).
+（译者注：原文中使用budget，直译为预算，私以为翻译为指标更通顺一些。）
 
-Once a performance budget for image sizes is defined, SpeedCurve starts monitoring and alerts you if the budget is exceeded:
+我发现在监控自动化时，团队在性能指标方面取得了巨大的成功。 自动化可以标记何时超出预期指标，而不是在预算复盘时手动检查网络资源加载瀑布流。 对性能预算跟踪有用的两个此类服务是[Calibre](https://calibreapp.com/docs/metrics/budgets)和[SpeedCurve](https://speedcurve.com/blog/tag/performance-budgets/)。
+
+（译者注：network waterfall译为了“网络资源加载瀑布流”，也就是在Chrome的开发者工具的Network选项里显示数据流。）
+
+一旦定义了图像大小的性能预算，SpeedCurve就会开始监控并在超出预算时提醒您：
 
 <figure>
 <picture>
@@ -2606,7 +2610,7 @@ Once a performance budget for image sizes is defined, SpeedCurve starts monitori
 </picture>
 </figure>
 
-Calibre offers a similar feature with support for setting budgets for each device-class you’re targeting. This is useful as your budget for image sizes on desktop over WiFi may vary heavily to your budgets on mobile.
+Calibre提供了类似的功能，支持为您定位的每个设备级别设置指标。 这非常有用，因为您通过WiFi在个人PC桌面上调整图片大小的指标可能会因移动设备的指标而有很大差异。
 
 <figure>
 <picture>
