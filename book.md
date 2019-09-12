@@ -2484,22 +2484,25 @@ CDN需要花钱。 拥有大量流量的图像繁重的网站每月可能需要�
 
 **注：**如果您使用PHP提供图像，则由于默认的[session_cache_limiter](http://php.net/manual/en/function.session-cache-limiter.php)设置，它可以破坏缓存。 这可能是图像缓存的灾难，您可能希望通过设置session_cache_limiter（'public'）来[解决此问题](https://stackoverflow.com/a/3905468)，该会话将设置为`public, max-age =`。 禁用和设置自定义缓存控制标头也可以。
 
-## <a id="preload-critical-image-assets" href="#preload-critical-image-assets">Preloading critical image assets</a>
+## <a id="preload-critical-image-assets" href="#preload-critical-image-assets">预加载关键图像资产</a>
 
-Critical image assets can be preloaded using [`<link rel=preload>`](https://www.w3.org/TR/preload/). 
+可以使用[`<link rel = preload>`](https://www.w3.org/TR/preload/)预加载关键图像资源。
 
 `<link rel=preload>` is a declarative fetch, allowing you to force the browser to make a request for a resource without blocking the document’s `onload` event. It enables increasing the priority of requests for resources that might otherwise not be discovered until later in the document parsing process. 
 
-Images can be preloaded by specifying an `as` value of `image`:
+`<link rel = preload>`是一个声明性提取，允许您强制浏览器发出资源请求而不阻塞文档的`onload`事件。 它可以提高资源请求的优先级，否则在文档解析过程的后期才能发现这些资源。
+
+可以通过指定`image`的`as`值来预加载图像：
 
 ```html
 <link rel="preload" as="image" href="logo.jpg"/>
 ```
 
-Image resources for `<img>`, `<picture>`, `srcset` and SVGs can all take advantage of this optimization.
+`<img>`，`<picture>`，`srcset`和SVG的图像资源都可以利用这种方式进行优化。
 
-<aside class="note"><b>Note:</b> `<link rel="preload">` is [supported](http://caniuse.com/#search=preload) in Chrome and Blink-based browsers like Opera, [Safari Tech Preview](https://developer.apple.com/safari/technology-preview/release-notes/) and has been [implemented](https://bugzilla.mozilla.org/show_bug.cgi?id=1222633) in Firefox.</aside>
-Sites like [Philips](https://www.usa.philips.com/), [Flipkart](https://www.flipkart.com/) and [Xerox](https://www.xerox.com/) use `<link rel=preload>` to preload their main logo assets (often used early in the document). [Kayak](https://kayak.com/) also uses preload to ensure the hero image for their header is loaded as soon as possible.
+**注：**Chrome和基于Blink的浏览器（如Opera，[Safari预览版](https://developer.apple.com/safari/technology-preview/release-notes/)） [支持](http://caniuse.com/#search=preload)`<link rel =“preload”>`，并且Firefox也已经[实现](https://bugzilla.mozilla.org/show_bug.cgi?id=1222633)了该方法。
+
+[Philips](https://www.usa.philips.com/)，[Flipkart](https://www.flipkart.com/) 和[Xerox](https://www.xerox.com/) 等网站使用`<link rel = preload>`来预加载其主要LOGO（通常在文档的早期使用）。 [Kayak](https://kayak.com/) 还使用预加载来确保尽快加载其标题页的主页横幅。
 
 <figure>
 <picture>
@@ -2524,17 +2527,17 @@ Sites like [Philips](https://www.usa.philips.com/), [Flipkart](https://www.flipk
 </picture>
 </figure>
 
-**What is the Link preload header?** 
+**什么是链接预加载头？**
 
-A preload link can be specified using either an HTML tag or an [HTTP Link header](https://www.w3.org/wiki/LinkHeader). In either case, a preload link directs the browser to begin loading a resource into the memory cache, indicating that the page expects with high confidence to use the resource and doesn’t want to wait for the preload scanner or the parser to discover it.
+可以使用HTML标签或[HTTP链接标头](https://www.w3.org/wiki/LinkHeader)指定预加载链接。 在任何一种情况下，预加载链接都会指示浏览器开始将资源加载到内存缓存中，这表明页面期望高可信度地使用该资源，并且不希望等待预加载扫描程序或解析器发现它。
 
-A Link preload header for images would look similar to this:
+图像的链接预加载头看起来类似于：
 
 ```
 Link: <https://example.com/logo-hires.jpg>; rel=preload; as=image
 ```
 
-When the Financial Times introduced a Link preload header to their site, they shaved [1 second off](https://twitter.com/wheresrhys/status/843252599902167040) the time it took to display their masthead image:
+当英国“金融时报”向其网站引入了链接预加载标题时，他们将显示其标题图像所花费的时间[缩短了1秒](https://twitter.com/wheresrhys/status/843252599902167040)：
 
 <figure>
 <picture>
@@ -2557,18 +2560,18 @@ When the Financial Times introduced a Link preload header to their site, they sh
   <img src="images/book-images/preload-financial-times-large.jpg"/>
 </noscript>
 </picture>
-<figcaption>Bottom: with `<link rel=preload>`, Top: without. Comparison for a Moto G4 over 3G on WebPageTest both [before](https://www.webpagetest.org/result/170319_Z2_GFR/) and [after](https://www.webpagetest.org/result/170319_R8_G4Q/).</figcaption>
+<figcaption>下方: 使用 `<link rel=preload>`, 上方: 并未。在WebPageTest 上Moto G4 在3G情况下的[之前](https://www.webpagetest.org/result/170319_Z2_GFR/)和[之后](https://www.webpagetest.org/result/170319_R8_G4Q/)的对比。</figcaption>
 </figure>
 
-Similarly, Wikipedia improved time-to-logo performance with the Link preload header as covered in their [case study](https://phabricator.wikimedia.org/phame/post/view/19/improving_time-to-logo_performance_with_preload_links/).
+同样，维基百科通过全方位[研究](https://phabricator.wikimedia.org/phame/post/view/19/improving_time-to-logo_performance_with_preload_links/)其他案例中的链接预加载标头，显著提升了实时加载Logo的性能。
 
-**What caveats should be considered when using this optimization?**
+**使用此优化时应考虑哪些注意事项？**
 
-Be very certain that it’s worth preloading image assets as, if they aren’t critical to your user experience, there may be other content on the page worth focusing your efforts on loading earlier instead. By prioritizing image requests, you may end up pushing other resources further down the queue.
+请确保将图像资源预加载是非常值得做，因为如果它们对您的用户体验不是很重要，那么页面上可能还有其他内容值得集中精力进行更早的加载。 通过优先处理图像请求，您最终可能会将其他资源推到后续队列中。
 
-It’s important to avoid using `rel=preload` to preload image formats without broad browser support (e.g. WebP). It’s also good to avoid using it for responsive images defined in `srcset` where the retrieved source may vary based on device conditions. 
+在没有广泛的浏览器支持（例如WebP）的情况下，避免使用`rel = preload`来预加载某种图像格式是很重要的。 避免将它用于`srcset`中定义的响应式图像也是很重要的，因为其检索到的图像源可能根据设备条件而变化。
 
-To learn more about preloading, see [Preload, Prefetch and Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf) and [Preload: What Is It Good For?](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/).
+要了解有关预加载的更多信息，请参阅文章[《在Chrome中预加载，预取和优先级》](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)和[《预加载：它有什么用？》](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/)
 
 ## <a id="performance-budgets" href="#performance-budgets">Web Performance Budgets For Images</a>
 
