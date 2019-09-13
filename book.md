@@ -2639,25 +2639,32 @@ Calibre提供了类似的功能，支持为您定位的每个设备级别设置�
 
 Ultimately, choosing an image optimization strategy will come down to the types of images you’re serving down to your users and what you decide is a reasonable set of evaluation criteria. It might be using SSIM or Butteraugli or, if it’s a small enough set of images, going off of human perception for what makes the most sense.
 
-**Here are my closing recommendations:**
+最终，选择图像优化策略将归结为您向用户提供的图像类型，以及您决定的一组合理的评估标准。 它可能正在使用SSIM或Butteraugli或其他，如果它是一组足够小的图像，那这么做影响到人们对图像的感知。
 
-If you **can’t** invest in conditionally serving formats based on browser support:
+（译者注：对于小图像再进行优化实际上可能会影响到图片的显示效果。）
+
+**以下是我最后的建议**
+
+如果您**不能**基于浏览器的支持情况有条件的提供对应的格式：
 
 
-* Guetzli + MozJPEG’s jpegtran are good optimizers for JPEG quality > 90.
-    * For the web `q=90` is wastefully high. You can get away with `q=80`, and on 2× displays even with `q=50`. Since Guetzli doesn’t go that low, for the web you can MozJPEG.
-    * Kornel Lesi&#x144;ski recently improved mozjpeg’s cjpeg command to add tiny sRGB profile to help Chrome display natural color on wide-gamut displays
-* PNG pngquant + advpng has a pretty good speed/compression ratio
-* If you **can** conditionally serve (using `<picture>`, the [Accept header](https://www.igvita.com/2013/05/01/deploying-webp-via-accept-content-negotiation/) or [Picturefill](https://scottjehl.github.io/picturefill/)):
-    * Serve WebP down to browsers that support it
-        * Create WebP images from original 100% quality images. Otherwise you’ll be giving browsers that do support it worse-looking images with JPEG distortions *and* WebP distortions! If you compress uncompressed source images using WebP it’ll have the less visible WebP distortions and can compress better too.
-        * The default settings the WebP team use of `-m 4 -q 75` are usually good for most cases where they optimize for speed/ratio.
-        * WebP also has a special mode for lossless (`-m 6 -q 100`) which can reduce a file to its smallest size by exploring all parameter combinations. It’s an order of magnitude slower but is worth it for static assets.
-    *   As a fallback, serve Guetzli/MozJPEG compressed sources to other browsers
+* Guetzli + MozJPEG的jpegtran对于JPEG图像质量大于90是一组不错的优化器。
+    * 对于网络图像`q = 90`是有些浪费，你可以使用`q = 80`，并且在2×显示器上即使用`q = 50`也可以。 由于Guetzli没有那么低设置，因此对于网络图像你可以使用MozJPEG。
+    * Kornel Lesi&#x144;ski  最近改进了mozjpeg cjpeg命令，添加了轻量级的sRGB配置文件，以帮助Chrome在宽色域显示器上显示自然色彩
+* PNG方面 pngquant + advpng具有非常好的速度/压缩比
+* 如果你**可以**提供有条件的服务：（使用`<picture>`, the [Accept header](https://www.igvita.com/2013/05/01/deploying-webp-via-accept-content-negotiation/) 或[Picturefill](https://scottjehl.github.io/picturefill/)）：
+    * 将WebP提供给支持它的浏览器
+        * 从原始的100％质量图像创建WebP图像。 否则你会给那些支持它的浏览器带来更糟糕的JPEG扭曲*以及* WebP扭曲！ 如果使用WebP对未压缩的源图像进行压缩，那么它将具有不太明显的WebP扭曲，并且也可以更好地进行压缩。
+        * WebP团队使用`-m 4 -q 75`的默认设置通常适用于大多数情况下优化*速度/比率*的情况。
+        * WebP还有一个无损（-m 6 -q 100`）的特殊模式，它可以通过浏览所有参数组合将文件缩小到最小尺寸。 它的速度要慢一个数量级，但静态资产却值得。
+    *   作为备选方案，将Guetzli / MozJPEG压缩源提供给其他浏览器
 
-Happy compressing!
+开心快乐的进行压缩吧！
 
-<aside class="note"><b>Note:</b> For more practical guidance on how to optimize images, I heavily recommend [Web Performance in Action](https://www.manning.com/books/web-performance-in-action) by Jeremy Wagner. [High Performance Images](http://shop.oreilly.com/product/0636920039730.do) is also filled with excellent, nuanced advice on this topic.</aside>
+（译者注：哈撒剋！面对疾风吧！）
+
+**Note：** 有关优化图像更实用的指导，我强烈推荐Jeremy Wagner的《[Web 高性能实战](https://www.manning.com/books/web-performance-in-action)》。《[高性能图像](http://shop.oreilly.com/product/0636920039730.do) 》也包含很多关于这个主题的优秀、精彩的建议。
+
 ## <a id="trivia" href="#trivia">Trivia</a>
 
 * [JPEG XT](https://jpeg.org/jpegxt/) defines extensions to the 1992 JPEG specification. For extensions to have pixel-perfect rendering on-top of old JPEG, the specification had to clarify the old 1992 spec and [libjpeg-turbo](https://libjpeg-turbo.org/) was chosen as its reference implementation (based on popularity). 
