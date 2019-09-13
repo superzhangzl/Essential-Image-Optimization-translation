@@ -2665,13 +2665,14 @@ Ultimately, choosing an image optimization strategy will come down to the types 
 
 **Note：** 有关优化图像更实用的指导，我强烈推荐Jeremy Wagner的《[Web 高性能实战](https://www.manning.com/books/web-performance-in-action)》。《[高性能图像](http://shop.oreilly.com/product/0636920039730.do) 》也包含很多关于这个主题的优秀、精彩的建议。
 
-## <a id="trivia" href="#trivia">Trivia</a>
+## <a id="trivia" href="#trivia">后记</a>
 
-* [JPEG XT](https://jpeg.org/jpegxt/) defines extensions to the 1992 JPEG specification. For extensions to have pixel-perfect rendering on-top of old JPEG, the specification had to clarify the old 1992 spec and [libjpeg-turbo](https://libjpeg-turbo.org/) was chosen as its reference implementation (based on popularity). 
-* [PIK](https://github.com/google/pik) is a new image codec worth keeping an eye on. It’s compatible with JPEG, has a more efficient color-space and utilizes similar benefits found in Guetzli. It decodes at 2/3 the speed of JPEG and offers 54% more file savings than libjpeg does. It is both faster to decode and compress than Guetzli-ified JPEGs. A [study](https://encode.ru/threads/2814-Psychovisual-analysis-on-modern-lossy-image-codecs) on psychovisual similarity of modern image codes showed PIK was less than half the size of alternatives. Unfortunately, it’s still early days for the codec and encoding is unusably slow at this time (August, 2017).
-* [ImageMagick](https://www.imagemagick.org/script/index.php) is often recommended for image optimization. This write-up considers it a fine tool, but its output generally requires more optimization and other tools can offer better output. We recommend trying [libvips](https://github.com/jcupitt/libvips) instead, however it is lower-level and requires more technical skill to use. ImageMagick has also histortically had [noted](https://imagetragick.com/#moreinfo) security vulnerabilities you may want to be aware of.
+* [JPEG XT](https://jpeg.org/jpegxt/)定义了1992 JPEG规范的扩展。 对于旧JPEG上具有像素完美渲染的扩展，规范必须澄清旧的1992规范，并选择[libjpeg-turbo](https://libjpeg-turbo.org/)作为其参考实现（基于 受欢迎程度）。
+* [PIK](https://github.com/google/pik)是值得关注的新图像编解码器。 它与JPEG兼容，具有更高效的色彩空间，并利用Guetzli中的类似优势。 它的解码速度是JPEG的2/3，比libjpeg节省了54％的文件。 解码和压缩比Guetzli-ified JPEG更快。 关于现代图像代码的心理视觉相似性的[研究](https://encode.ru/threads/2814-Psychovisual-analysis-on-modern-lossy-image-codecs)显示PIK不到替代品的一半。 不幸的是，目前编解码器和编码仍处于初期阶段（2017年8月）非常缓慢。
+* [ImageMagick](https://www.imagemagick.org/script/index.php)通常被推荐用于图像优化。 这篇文章认为它是一个很好的工具，但它的输出通常需要更多的优化调整，其他工具也可以提供更好的输出。 我们建议尝试[libvips](https://github.com/jcupitt/libvips)，但它的优先级更低，需要更多技术技能才能使用。 ImageMagick还可以在社区上有[注意](https://imagetragick.com/#moreinfo)您可能想要了解的安全漏洞。
 * Blink (the rendering engine used by Chrome) decodes images off the main thread. Moving the decode work to the compositor thread frees-up the main thread to work on other tasks. We call this deferred decoding. With deferred decoding, the decode work remains on the critical path for presenting a frame to the display, so it can still cause animation jank. The [`img.decode()`](https://html.spec.whatwg.org/multipage/embedded-content.html#dom-img-decode) API should help with the jank problem.
+* Blink（Chrome使用的渲染引擎）从主线程解码图像。 将解码工作移动到合成器线程可以释放主线程以处理其他任务。 我们称之为延迟解码。 通过延迟解码，在用于向显示器呈现帧上解码工作仍然是关键任务，因此它仍然可以导致动画抖动。 [`img.decode()`](https://html.spec.whatwg.org/multipage/embedded-content.html#dom-img-decode)API应该有助于解决该问题。
 
-<p class="license">The content of this book is licensed under the  Creative Commons [Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)](https://creativecommons.org/licenses/by-nc-nd/2.0/) license, and code samples are licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0). Copyright Google, 2018.</p>
-</body>
-</html>
+The content of this book is licensed under the  Creative Commons [Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)](https://creativecommons.org/licenses/by-nc-nd/2.0/) license, and code samples are licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0). Copyright Google, 2018.
+
+本书的内容是在Creative Commons[Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)](https://creativecommons.org/licenses/by-nc-nd/2.0/)许可下授权的，代码样本是在[Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)。谷歌版权所有，2018年。
