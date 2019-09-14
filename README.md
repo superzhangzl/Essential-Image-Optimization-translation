@@ -24,6 +24,10 @@
 
 
 
+9-14：刚发现有的图片和连接被github吃了，中秋假完了再调整一下。
+
+
+
 如有侵权，提[Issue](<https://github.com/xiaopangder/xiaopangder.github.io/issues>)我会第一时间删除。^_^
 
 
