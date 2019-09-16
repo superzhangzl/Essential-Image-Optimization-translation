@@ -1,4 +1,4 @@
-# 必要的图像优化
+必要的图像优化
 
 
 
@@ -92,106 +92,62 @@
 
 据[Tammy Everts](https://www.linkedin.com/in/tammyeverts)所言，向页面添加图像或使现有图像变大已被证明可以提高[转换率](https://calendar.perfplanet.com/2014/images-are-king-an-image-optimization-checklist-for-everyone-in-your-organization/)（译者注：此处的转换率指的是网站的访问者转换为活跃用户）。图像不太可能消失，因此在有效的最小化图像压缩策略上的投资就变得非常重要。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image00-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image00-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/Modern-Image00-large.jpg" />
-
 <img
         class="lazyload small"
         data-src="images/book-images/Modern-Image00-large.jpg"
         alt="Fewer images per page create more conversions. 19 images per page on average converted better than 31 images per page on average." />
-<noscript>
-  <img src="images/book-images/Modern-Image00-small.jpg"/>
-</noscript>
-</picture>
-<figcaption>Per from 2016, images were the 2nd highest predictor of conversions with the best pages having 38% fewer images.根据2016年 [Soasta/Google 的研究](https://www.thinkwithgoogle.com/marketing-resources/experience-design/mobile-page-speed-load-time/)，图像是转换率的第二高预测因素，最佳页面的图像减少了38％。</figcaption>
-</figure>
+
+
+
+
+
+> Per from 2016, images were the 2nd highest predictor of conversions with the best pages having 38% fewer images.根据2016年 [Soasta/Google 的研究](https://www.thinkwithgoogle.com/marketing-resources/experience-design/mobile-page-speed-load-time/)，图像是转换率的第二高预测因素，最佳页面的图像减少了38％。
+
+
 
 图像优化包含多种方式来减小图像大小，最终取决于你想要达到什么程度的视觉效果。
-
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/image-optimisation-small.jpeg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/image-optimisation-medium.jpeg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/image-optimisation-large.jpeg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/image-optimisation-large.jpeg"
         alt="Image optimization covers a number of different techniques" />
-<noscript>
-  <img src="images/book-images/image-optimisation-large.jpeg"/>
-</noscript>
-</picture>
-<figcaption><strong>图像优化：</strong> 选择正确的格式，合理的压缩，相较于可以懒加载的图像优先加载关键图像。</figcaption>
-</figure>
+
+> **图像优化：** 选择正确的格式，合理的压缩，相较于可以懒加载的图像优先加载关键图像。
+
+
 
 常见的图像优化包括：压缩、使用 [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)或[`<img srcset>`](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)来根据屏幕大小响应地降低尺寸，并且降低图像大小能降低解码成本。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/chart_naedwl-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/chart_naedwl-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/chart_naedwl-large.jpg" />
+
+
+
 
 <img
         class="lazyload small"
         data-src="images/book-images/chart_naedwl-large.jpg"
         alt="A histogram of potential image savings from the HTTP Archive validating the 30KB of potential image savings at the 95th percentile." />
-<noscript>
-  <img src="images/book-images/chart_naedwl-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>根据[HTTP Archive](http://jsfiddle.net/rviscomi/rzneberp/embedded/result/)表示，95%图像预加载就只有30KB！（可查看累积分布函数）</strong></figcaption>
 
-</figure>
+
+
+
+
+> 根据[HTTP Archive](http://jsfiddle.net/rviscomi/rzneberp/embedded/result/)表示，95%图像预加载就只有30KB！（可查看累积分布函数）
+
+
 
 对我们来说，有足够的空间来对图像进行批量优化。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/image-optim-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/image-optim-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/image-optim-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/image-optim-large.jpg"
         alt="ImageOptim in use on Mac with a number of images that have been compressed with savings over 50%" />
-<noscript>
-  <img src="images/book-images/image-optim-large.jpg"/>
-</noscript>
-</picture>
 
-<figcaption>ImageOptim是免费的，通过现代压缩技术和剔除不必要的EXIF元数据来减少图像大小。</figcaption>
+> ImageOptim是免费的，通过现代压缩技术和剔除不必要的EXIF元数据来减少图像大小。
 
-</figure>
+
 
 如果你是一个设计师，你也可以使用ImageOptim为Sketch制作的[插件](https://github.com/ImageOptim/Sketch-plugin)，能在导出的时候能对你的资产进行优化。我发现它能节省好多时间。
 
@@ -212,71 +168,44 @@
         data-srcset="images/book-images/Modern-Image1-medium.jpg"
         media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image1-large.jpg" />
+
 
 <img
         class="lazyload small"
         data-src="images/book-images/Modern-Image1-large.jpg"
         alt="WebPage test supports auditing for image compression via the compress images section" />
-<noscript>
-  <img src="images/book-images/Modern-Image1-large.jpg"/>
-</noscript>
-</picture>
-
-<figcaption>WebPageTest报告的“压缩图像”部分列出了可以更有效地压缩的图像的方法以及预估可节省的文件大小。
-</figcaption>
-</figure>
 
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image2-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image2-large.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image2-medium.jpg" />
+
+
+> WebPageTest报告的“压缩图像”部分列出了可以更有效地压缩的图像的方法以及预估可节省的文件大小。
+
+
 
 <img
         class="lazyload small"
         data-src="images/book-images/Modern-Image2-medium.jpg"
         alt="image compression recommendations from webpagetest" />
-<noscript>
-  <img src="images/book-images/Modern-Image2-medium.jpg"/>
-</noscript>
-</picture>
-</figure>
+
+
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) 为最佳性能表现提供审计。它包含审核图像优化方式，并可以为进一步压缩图像方式提供建议，或指出屏幕未显示的图像可以使用延迟加载方式进行加载。
 
 从Chrome 60开始，Lighthouse在开发者工具的 [Audits面板](https://developers.google.com/web/updates/2017/05/devtools-release-notes#lighthouse) 中提供使用。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/hbo-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/hbo-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/hbo-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/hbo-large.jpg"
         alt="Lighthouse audit for HBO.com, displaying image optimisation recommendations" />
-<noscript>
-  <img src="images/book-images/hbo-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>Lighthouse可以审核Web的性能、最佳实践和渐进式Web应用程序功能。（注：Performance、Best Practices、Progressive Web App为audits的复选项。Best Practices表示Web是否按照最佳方法进行现代Web开发）</figcaption>
-</figure>
+
+
+
+> Lighthouse可以审核Web的性能、最佳实践和渐进式Web应用程序功能。（注：Performance、Best Practices、Progressive Web App为audits的复选项。Best Practices表示Web是否按照最佳方法进行现代Web开发）
+
+
 
 您也可能还熟悉其他性能审核工具，如 [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) 或 [Website Speed Test](https://webspeedtest.cloudinary.com/)，其中包括详细的图像分析审核。
 
@@ -286,28 +215,11 @@
 
 正如Ilya Grigorik在他的杰作 [图像优化指南](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)中所指出的，“合适的”图像格式是视觉效果和功能要求的均衡（注：combination相比组合翻译成均衡更通顺些）。 你在使用位图还是矢量图形呢？
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/rastervvector-medium.png"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/rastervvector-large.png"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/rastervvector-small.png" />
-
 <img
         class="lazyload very-small"
         data-src="images/book-images/rastervvector-small.png"
         alt="vector vs raster images"
          />
-<noscript>
-  <img src="images/book-images/rastervvector-small.png"/>
-</noscript>
-</picture>
-</figure>
 
 [位图](https://en.wikipedia.org/wiki/Raster_graphics)通过对像素矩阵内的每一个像素的值进行编码来表示图像，与分辨率或缩放无关。WebP或者应用广泛的格式（例如PNG，JPEG）都可以很好的在保持图像内容的情况下处理这些图像。我们讨论过的Guetzli，MozJPEG或其他格式也同样适用于位图。
 
@@ -329,29 +241,12 @@ JPEG是一种有损压缩算法，它丢弃部分信息来节省存储空间，�
 
 JPEG等格式最适合具有多个颜色区域的照片或图像。 大多数优化工具允许你设置期望的压缩级别; 较高的压缩级别会减小文件大小，但会产生引入伪像，光晕等额外噪声。（译者注：[artifacts](https://en.wikipedia.org/wiki/Compression_artifact#Artistic_use) 指的是过度锐化或细节丢失等影响视觉显示效果的瑕疵，由于JPEG的DTC压缩导致出现方块现象，可以参考论坛的[讨论](http://forum.xitek.com/forum.php?mod=viewthread&tid=1605692&page=1&ordertype=1) 。后续该词翻译为伪像)。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image5-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image5-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/Modern-Image5-large.jpg" />
-
 <img
         class="lazyload"
         data-src="images/book-images/Modern-Image5-large.jpg"
         alt="JPEG compression artifacts can be increasingly perceived as we shift from best quality to lowest" />
-<noscript>
-  <img src="images/book-images/Modern-Image5-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>JPEG：可感知的JPEG压缩伪影会随着我们从最佳质量到最低质量的转变而显著增加。请注意，一个工具中的图像质量分数可能与另一个工具中的质量分数有所不同。</figcaption>
 
-</figure>
+> JPEG：可感知的JPEG压缩伪影会随着我们从最佳质量到最低质量的转变而显著增加。请注意，一个工具中的图像质量分数可能与另一个工具中的质量分数有所不同。
 
 当选择需要设置图像的质量时，请考虑您的图像属于哪个范畴：
 
@@ -371,54 +266,27 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 
 基线JPEG（大多数图像编辑和优化工具的默认值）以相对简单的方式进行编码和解码：从上到下。在缓慢或不稳定的连接上以基线方式加载JPEG时，用户会先看到图像的顶部，随着图像的加载会逐行显示更多的内容。无损JPEG类似，但压缩比较小。
 
-
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image6-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image6-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/Modern-Image6-large.jpg" />
-
 <img
         class="lazyload"
         data-src="images/book-images/Modern-Image6-large.jpg"
         alt="baseline JPEGs load top to bottom" />
-<noscript>
-  <img src="images/book-images/Modern-Image6-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>基线JPEG从上到下加载，而渐进式JPEG从模糊加载到清晰。</figcaption>
-</figure>
+
+
+
+
+
+> 基线JPEG从上到下加载，而渐进式JPEG从模糊加载到清晰。
+
+
 
 渐进式jpeg将图像分成若干个扫描阶段。第一次扫描显示位于模糊或低质量的图像区域，随后的扫描再提高图像质量。把这看作是“逐步”加载。图像的每次“扫描”都会增加细节级别。合并后，将创建显示完整质量的图像。
-
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image7-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image7-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/Modern-Image7-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/Modern-Image7-large.jpg"
         alt="progressive JPEGs load from low-resolution to high-resolution" />
-<noscript>
-  <img src="images/book-images/Modern-Image7-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>基线JPEG从上到下加载图像。渐进式JPEG从低分辨率（模糊）加载到高分辨率。 Pat Meenan编写了一个[交互式工具](http://www.patrickmeenan.com/progressive/view.php?img=https%3A%2F%2Fwww.nps.gov%2Fplanyourvisit%2Fimages%2FGrandCanyonSunset_960w.jpg) 来测试和了解渐进式JPEG加载方式。</figcaption>
-</figure>
+
+> 基线JPEG从上到下加载图像。渐进式JPEG从低分辨率（模糊）加载到高分辨率。 Pat Meenan编写了一个[交互式工具](http://www.patrickmeenan.com/progressive/view.php?img=https%3A%2F%2Fwww.nps.gov%2Fplanyourvisit%2Fimages%2FGrandCanyonSunset_960w.jpg) 来测试和了解渐进式JPEG加载方式。
 
 通过删除数码相机或编辑器添加的[EXIF数据](http://www.verexif.com/en/)，优化图像的[Huffman表](https://en.wikipedia.org/wiki/Huffman_coding)或重新扫描图像，可以实现无损的JPEG优化。 像[jpegtran](http://jpegclub.org/jpegtran/) 这样的工具通过重新排列压缩数据而不会降低图像质量来实现图像的无损压缩。 [jpegrescan](https://github.com/kud/jpegrescan), [jpegoptim](https://github.com/tjko/jpegoptim) 和 [mozjpeg](https://github.com/mozilla/mozjpeg)（我们将在稍后介绍）也支持无损JPEG压缩。
 
@@ -428,33 +296,21 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 
 在较慢的3G连接上，这种方式允许用户在仅接收到部分文件时（粗略地）查看图像中的内容，并决定是否等待其完全加载。 这比基线JPEG提供的图像从上到下显示方式更令人愉快。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/pjpeg-graph-small.png"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/pjpeg-graph-medium.png"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/pjpeg-graph-large.png" />
-
 <img
         class="lazyload small"
         data-src="images/book-images/pjpeg-graph-large.png"
         alt="impact to wait time of switching to progressive jpeg" />
-<noscript>
-  <img src="images/book-images/pjpeg-graph-large.png"/>
-</noscript>
-</picture>
-<figcaption>2015年，Facebook转向了使用渐进式JPEG（[用于iOS应用程序](https://code.facebook.com/posts/857662304298232/faster-photos-in-facebook-for-ios/)），数据使用量减少了10%。他们能够以比以前快15%的速度显示高质量的图像，优化图像的加载时间，如上图所示。</figcaption>
-</figure>
+
+> 2015年，Facebook转向了使用渐进式JPEG（[用于iOS应用程序](https://code.facebook.com/posts/857662304298232/faster-photos-in-facebook-for-ios/)），数据使用量减少了10%。他们能够以比以前快15%的速度显示高质量的图像，优化图像的加载时间，如上图所示。
+
+
 
 对于超过10KB的图像，渐进式JPEG可以改善压缩能力，与基线/简单JPEG相比，带宽减少 [2-10%](http://www.bookofspeed.com/chapter5.html) 。 它们的压缩比更高，这要归功于JPEG中的每次扫描都能够使用自己专用的可选[Huffman 表](https://en.wikipedia.org/wiki/Huffman_coding)。 现代JPEG编码器（例如：[libjpeg-turbo](http://libjpeg-turbo.virtualgl.org/)，MozJPEG等）利用PJPEG的灵活性来更好地打包数据。
 
 <aside class="note"><b>Note:</b> 为什么渐进式JPEG压缩得更好？ 基线JPEG的数据库块一次编码一个。 利用渐进式JPEG，可以将多个数据块的类似[离散余弦变换](https://en.wikipedia.org/wiki/Discrete_cosine_transform) 系数编码在一起，从而实现更好的压缩。</aside>
 渐进式JPEG的另一个优点是在HTTP2上，页面和第一个扫描层同时加载，这[提高了用户查看初始图像内容的速度](https://calendar.perfplanet.com/2016/even-faster-images-using-http2-and-progressive-jpegs/)，并使浏览器能够更快地布局页面元素。 将其与渐进式JPEG的定制扫描层相结合，例如：通过[向mozjpeg提供自定义扫描文件](https://calendar.perfplanet.com/wp-content/uploads/2016/12/scans.txt)或使用[Cloudinary的自定义PJPEG选项](http://cloudinary.com/blog/progressive_jpegs_and_green_martians)，可以更快地为用户呈现真正有意义的图像内容。
+
+
 
 ### <a id="whos-using-progressive-jpegs-in-production" href="#whos-using-progressive-jpegs-in-production">谁在产品中使用渐进式JPEG？</a>
 
@@ -464,28 +320,14 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 
 许多图像占比很高的网站，例如 [Pinterest](https://pinterest.com) ，也在产品中使用了渐进式JPEG。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/pinterest-loading-small.png"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/pinterest-loading-medium.png"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/pinterest-loading-large.png" />
-
 <img
         class="lazyload small"
         data-src="images/book-images/pinterest-loading-large.png"
         alt="Pinterests JPEGs are all progressively encoded. This optimizes the user experience by loading them each scan-by-scan." />
-<noscript>
-  <img src="images/book-images/pinterest-loading-large.png"/>
-</noscript>
-</picture>
-<figcaption>Pinterest’s JPEGs are all progressively encoded. This optimizes the user experience by loading them each scan-by-scan.</figcaption>
-</figure>
+
+> Pinterest的JPEG都是渐进式编码的。 这通过逐个扫描加载它们来优化用户体验。
+
+
 
 ### <a id="the-disadvantages-of-progressive-jpegs" href="#the-disadvantages-of-progressive-jpegs">渐进式JPEG的缺点</a>
 
