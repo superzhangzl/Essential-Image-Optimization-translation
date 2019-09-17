@@ -361,28 +361,14 @@ gulp.task('images', function () {
 
 大多数图像编辑工具默认将图像保存为基线JPEG文件。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/photoshop-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/photoshop-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/photoshop-large.jpg" />
-
 <img
         class="lazyload"
         data-src="images/book-images/photoshop-large.jpg"
         alt="photoshop supports exporting to progressive jpeg from the file export menu" />
-<noscript>
-  <img src="images/book-images/photoshop-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>大多数图像编辑工具默认将图像保存为基线JPEG文件。 您可以通过转到文件 - >导出 - >保存为Web（旧版），然后单击渐进式选项，将您在Photoshop中创建的任何图像保存为渐进式JPEG。 Sketch还支持直接导出渐进式JPEG  - 导出为JPG并在保存图像时选中“渐进式”复选框。</figcaption>
-</figure>
+
+> 大多数图像编辑工具默认将图像保存为基线JPEG文件。 您可以通过转到文件 - >导出 - >保存为Web（旧版），然后单击渐进式选项，将您在Photoshop中创建的任何图像保存为渐进式JPEG。 Sketch还支持直接导出渐进式JPEG  - 导出为JPG并在保存图像时选中“渐进式”复选框。</figcaption>
+
+
 
 ### <a id="chroma-subsampling" href="#chroma-subsampling">色度（或色彩）子采样</a>
 
@@ -390,52 +376,27 @@ gulp.task('images', function () {
 
 我们的眼睛对于图像（色度）中的颜色细节比对亮度（或简称亮度 - 亮度的度量）更容易丢失。 [色度子采样](https://en.wikipedia.org/wiki/Chroma_subsampling) 是一种压缩方式，可降低图像信号中的颜色精度，提高亮度。 这样可以减小文件大小而不会对图像质量产生负面影响，在某些情况下可以降低达 [15-17%](https://calendar.perfplanet.com/2015/why-arent-your-images-using-chroma-subsampling/)，并且是可以用于JPEG图像。 亚采样还可以减少图像内存使用量。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/luma-signal-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/luma-signal-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/luma-signal-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/luma-signal-large.jpg"
         alt="signal = chroma + luma" />
-<noscript>
-  <img src="images/book-images/luma-signal-large.jpg"/>
-</noscript>
-</picture>
-</figure>
+
+
 
 由于对比度负责形成我们在图像中看到的形状，因此定义它的亮度非常重要。 老式的旧照片或黑白照片不包含颜色，但由于亮度的原因，它们的显示效果可以像它们的颜色一样细腻。 色度（颜色）对视觉感知的影响较小。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/no-subsampling-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/no-subsampling-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/no-subsampling-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/no-subsampling-large.jpg"
         alt="JPEG includes support for numerous subsampling types: none, horizontal and horizontal and vertical." />
-<noscript>
-  <img src="images/book-images/no-subsampling-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>JPEG支持许多不同的子采样类型：无，水平和水平以及垂直。 该图来自FrédéricKayser的[马蹄蟹的JPEG](http://frdx.free.fr/JPEG_for_the_horseshoe_crabs.pdf) 。</figcaption>
-</figure>
+
+> JPEG支持许多不同的子采样类型：无，水平和水平以及垂直。 该图来自FrédéricKayser的[马蹄蟹的JPEG](http://frdx.free.fr/JPEG_for_the_horseshoe_crabs.pdf) 。
+
+
 
 在谈论子采样时，讨论了许多常见的样本。 通常为`4:4:4`，`4:2:2`和`4:2:0`。 但这些代表什么呢？ 假设子样本采用格式A:B:C。 A是一行中的像素数，对于JPEG，这通常是4. B表示第一行中的颜色量，C表示第二行中的颜色。
 
@@ -447,61 +408,39 @@ There are a number of common samples discussed when talking about subsampling. G
 
 <aside class="note"><b>Note:</b> jpegtran和cjpeg支持单独的亮度和色度质量配置。 这可以通过添加`-sample`标志来完成（例如`-sample 2x1`）。
 
-一些好的一般规则：子采样（`-sample 2x2`）非常适合照片。 无子采样（`-sample 1x1`）最适用于屏幕截图、横幅和按钮。 最后（`2x1`）在你不确定要使用什么的时候使用。</aside>
+一些好的一般规则：子采样（`-sample 2x2`）非常适合照片。 无子采样（`-sample 1x1`）最适用于屏幕截图、横幅和按钮。 最后（`2x1`）在你不确定要使用什么的时候使用。
 
 通过减少色度分量中的像素，可以显着减小颜色分量的大小，最终减小字节大小。
 
 （TODO）
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/subsampling-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/subsampling-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/subsampling-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/subsampling-large.jpg"
         alt="Chrome subsampling configurations for a JPEG at quality 80." />
-<noscript>
-  <img src="images/book-images/subsampling-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>质量为80的JPEG的色度子采样配置。</figcaption>
-</figure>
+
+> 质量为80的JPEG的色度子采样配置。
+
+
 
 对于大多数类型的图像，使用色度子采样是值得考虑的。 它也有一些值得注意的例外：由于子采样依赖于我们人眼视觉的限制，因此对于其中颜色细节可能与亮度一样重要（例如医学图像）的压缩图像使用起来并不是很好。
 
 包含字体的图像也会受到影响，因为文本的不良二次取样会降低其易读性。 更锐利的边缘难以使用JPEG压缩，因为它旨在更好地处理具有更柔和过渡的摄影场景。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Screen_Shot_2017-08-25_at_11.06.27_AM-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Screen_Shot_2017-08-25_at_11.06.27_AM-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Screen_Shot_2017-08-25_at_11.06.27_AM-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/Screen_Shot_2017-08-25_at_11.06.27_AM-large.jpg"
         alt="Be careful when using heavy subsampling with images containing text" />
-<noscript>
-  <img src="images/book-images/Screen_Shot_2017-08-25_at_11.06.27_AM-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>[Understanding JPEG](http://compress-or-die.com/Understanding-JPG/) 一文中建议在处理包含文本的图像时，使用4:4:4(1×1) 的子采样</figcaption>
-</figure>
+
+
+
+> [Understanding JPEG](http://compress-or-die.com/Understanding-JPG/) 一文中建议在处理包含文本的图像时，使用4:4:4(1×1) 的子采样
+
+
 
 备注：JPEG规范中未指定色度子采样的确切方法，因此不同的解码器处理它的方式不同。 MozJPEG和libjpeg-turbo使用相同的缩放方法。 较旧版本的libjpeg使用不同的方法来添加颜色中的铃声伪像。（TODO）
 
@@ -513,6 +452,8 @@ Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG sp
 
 （TODO，该章节涉及了好多图像显示方面的专业数据，翻译粗略的参考谷歌翻译以及部分博客，还需要对术语等进行校对调整）
 
+
+
 ### <a id="how-far-have-we-come-from-the-jpeg" href="#how-far-have-we-come-from-the-jpeg">我们举例JPEG有多遥远？</a>
 
 **以下是当前网络上图像格式的分布状态：**
@@ -521,28 +462,14 @@ Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG sp
 
 
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/format-comparison-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/format-comparison-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/format-comparison-large.jpg" />
-
 <img
         class="lazyload"
         data-src="images/book-images/format-comparison-large.jpg"
         alt="modern image formats compared based on quality." />
-<noscript>
-  <img src="images/book-images/format-comparison-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>不同的现代图像格式（和优化器）用于演示目标文件大小在26KB的可能处理方式。 我们可以使用[SSIM](https://en.wikipedia.org/wiki/Structural_similarity) （结构相似性）或 [Butteraugli](https://github.com/google/butteraugli)来比较图像质量，我们将在后面详细介绍。</figcaption>
-</figure>
+
+> 不同的现代图像格式（和优化器）用于演示目标文件大小在26KB的可能处理方式。 我们可以使用[SSIM](https://en.wikipedia.org/wiki/Structural_similarity) （结构相似性）或 [Butteraugli](https://github.com/google/butteraugli)来比较图像质量，我们将在后面详细介绍。
+
+
 
 （译者注：Butteraugli 是 Google 的一个开源工具，用来评判两个图像之间的相似度。通过识别图像之间一些最受关注的差异点并给出相似度分值。）
 
@@ -562,6 +489,8 @@ Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG sp
 
 接下来，让我们谈谈当您无法有条件地提供不同图像格式时的可选方案：**优化JPEG编码器**。
 
+
+
 ### <a id="optimizing-jpeg-encoders" href="#optimizing-jpeg-encoders">优化JPEG编码器s</a>
 
 现代JPEG编码器尝试生成更小，更高保真度的JPEG文件，同时保持与现有浏览器和图像处理应用程序的兼容性。 它们避免了在生态系统中引入新的图像格式或更改，来实现压缩增益。。 两个这样的编码器分别是是MozJPEG和Guetzli。
@@ -574,6 +503,8 @@ Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG sp
  * [JPEGRecompress](https://github.com/danielgtaylor/jpeg-archive) (在MozJPEG的技术长构建) 注：该项目编译时需要引入MozJPEG依赖。
  * [JPEGMini](http://www.jpegmini.com/)。它类似于Guetzli——自动选择最佳质量。虽然技术上不如Guetzli复杂，但速度更快，而且目标是质量范围更适合网络使用。
  * [ImageOptim API](https://imageoptim.com/api) (带有免费的在线界面](https://imageoptim.com/online)) 。它在颜色处理方面是独一无二的。您可以单独选择颜色质量和整体质量。它自动选择色度次采样级别，以保持屏幕截图中的高分辨率颜色，但与此同时还能避免在自然照片中的平滑颜色上浪费字节。
+
+
 
 
 ### <a id="what-is-mozjpeg" href="#what-is-mozjpeg">什么是MozJPEG？</a>
@@ -596,58 +527,35 @@ gulp.task('mozjpeg', () =>
 );
 ```
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image10-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image10-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image10-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/Modern-Image10-large.jpg"
         alt="mozjpeg being run from the command-line" />
-<noscript>
-  <img src="images/book-images/Modern-Image10-large.jpg"/>
-</noscript>
-</picture>
-</figure>
 
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image11-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image11-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/Modern-Image11-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/Modern-Image11-large.jpg"
         alt="mozjpeg compression at different qualities. At q=90, 841KB. At q=85, 562KB. At q=75, 324KB. Similarly, Butteraugli and SSIM scores get slightly worse as we lower quality." />
-<noscript>
-  <img src="images/book-images/Modern-Image11-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>MozJPEG：不同质量的文件大小和视觉相似度得分的比较。</figcaption>
-</figure>
+
+
+
+> MozJPEG：不同质量的文件大小和视觉相似度得分的比较。
+
+
 
 我使用 [jpeg-archive](https://github.com/danielgtaylor/jpeg-archive) 项目中的 [jpeg-compress](https://github.com/imagemin/imagemin-jpeg-recompress) 来计算源图像的SSIM（结构相似度）分数。 SSIM是一种用于测量两个图像之间的相似性的方法，其中SSIM得分是相对于另一个给定的被认为是“完美的”图像的质量度量。
 
 
 根据我的经验，MozJPEG是一个很好的选择，可以在高视觉效果的情况下压缩网络图像来减少文件大小。 对于中小尺寸的图像，我发现MozJPEG（质量= 80-85）可以节省30-40％的文件大小，同时保持可接受的SSIM，在jpeg-turbo上提供5-6％的提升。 它确实具有比基线JPEG具有[更高的编码成本](http://www.libjpeg-turbo.org/About/Mozjpeg)，但你可能不会发现显式的阻塞。（注：show stopper可理解为严重程度极高的硬件或[软件错误](https://en.wikipedia.org/wiki/Software_bug)，需要立即修复）
 
-<aside class="note"><b>Note:</b>如果您需要一个支持MozJPEG的工具以及一些额外的配置支持和一些免费的图像比较工具，请查看 [jpeg-recompress](https://github.com/danielgtaylor/jpeg-archive)。 Web Performance in Action的作者Jeremy Wagner在使用[此配置](https://twitter.com/malchata/status/884836650563579904) 时取得了一些成功。</aside>
+**Note：**如果您需要一个支持MozJPEG的工具以及一些额外的配置支持和一些免费的图像比较工具，请查看 [jpeg-recompress](https://github.com/danielgtaylor/jpeg-archive)。 Web Performance in Action的作者Jeremy Wagner在使用[此配置](https://twitter.com/malchata/status/884836650563579904) 时取得了一些成功。
+
+
+
 ### <a id="what-is-guetzli" href="#what-is-guetzli">什么是Guetzli？</a>
 
 [Guetzli](https://github.com/google/guetzli) 是一款很有发展情景的慢速可感知的JPEG编码器，谷歌尝试找到最小的JPEG，使得它在感知上与人眼无法区分。 它执行一系列测试，产生最终JPEG的方案，解释每个方案中心理视觉偏差。最终它选择得分最高的方案作为最终输出。
@@ -677,57 +585,35 @@ gulp.task('guetzli', () =>
 );
 ```
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image12-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image12-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image12-large.jpg" />
 
 <img
         class="small lazyload"
         data-src="images/book-images/Modern-Image12-large.jpg"
         alt="guetzli being run from gulp for optimisation" />
-<noscript>
-  <img src="images/book-images/Modern-Image12-large.jpg"/>
-</noscript>
-</picture>
-</figure>
+
+
 
 使用Guetzli编码3 x 3MP图像来节省存储空间需要差不多7分钟（以及高CPU使用率）。 为了存档更高分辨率的照片，我能看出它有很重要的价值。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image13-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image13-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image13-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/Modern-Image13-large.jpg"
         alt="comparison of guetzli at different qualities. q=100, 945KB. q=90, 687KB. q=85, 542KB." />
-<noscript>
-  <img src="images/book-images/Modern-Image13-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>Guetzli：不同质量的文件大小和视觉相似度得分的比较。</figcaption>
-</figure>
 
-<aside class="note"><b>Note:</b>建议在高质量图像上运行Guetzli（例如，未压缩的输入图像，PNG源或100％质量或接近的JPEG）。虽然它也可以用于其他图像（例如质量为84或更低的JPEG），但结果可能更差。</aside>
+> Guetzli：不同质量的文件大小和视觉相似度得分的比较。
+
+
+
+**Note：**建议在高质量图像上运行Guetzli（例如，未压缩的输入图像，PNG源或100％质量或接近的JPEG）。虽然它也可以用于其他图像（例如质量为84或更低的JPEG），但结果可能更差。
+
 虽然使用Guetzli压缩图像非常（非常）耗时并且会使您的风扇疯狂旋转，但对于较大的图像，这是值得的。 我已经看到了许多例子，在保持视觉逼真度的同时，它可以在任何地方保存高达40%的文件大小。 这使其非常适合存档照片。 在中小尺寸的图像上，我仍然看到了一些节省（在10-15KB范围内），但它们并没有那么明显。 Guetzli可以在压缩时在较小的图像上引入更多的液化扭曲。
 
 您可能还对Eric Portis研究感兴趣，将Guetzli与Cloudinary的自动压缩进行[比较](https://cloudinary.com/blog/a_closer_look_at_guetzli) ，以获得有效的不同数据点。
+
+
 
 ### <a id="mozjpeg-vs-guetzli" href="#mozjpeg-vs-guetzli">MozJPEG与Guetzli相比如何？</a>
 
@@ -741,56 +627,35 @@ Guetzli与MozJPEG相比如何？  -  Kornel的观点：
 
 存在许多方法用于确定压缩图像在视觉上是否与其图像源相似或可视效果相似。 图像质量研究通常使用 [SSIM](https://en.wikipedia.org/wiki/Structural_similarity)（结构相似性）等方法。 然而，Guetzli对Butteraugli进行了优化。
 
+
+
 ### <a id="butteraugli" href="#butteraugli">Butteraugli</a>
 
 [Butteraugli](https://github.com/google/butteraugli) 是Google的一个项目，它估计一个人可能注意到两个图像的视觉图像退化（心理视觉相似性）的时间点。它为那些在几乎看不到差异的领域中可靠的图像打分。Butteraugli不仅给出了一个标量分数，而且还计算了一个不同级别的空间地图。当ssim查看来自图像的错误集合时，Butteraugli查看的是最糟糕的部分。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image14-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image14-large.jpg"
-        media="(max-width: 1024px)" />
-<source
-        data-srcset="images/book-images/Modern-Image14-medium.jpg" />
+
 
 <img
         class="lazyload small"
         data-src="images/book-images/Modern-Image14-medium.jpg"
         alt="butteraugli validating an image of a parrot" />
-<noscript>
-  <img src="images/book-images/Modern-Image14-medium.jpg"/>
-</noscript>
-</picture>
-<figcaption>上图是一个使用Butteraugli找到JPEG最小质量阈值的示例，处理之后视觉降低非常严重，用户甚至可以注意到某些区域并不太清楚。但是它使得文件总大小减少了65％。</figcaption>
-</figure>
+
+
+
+> 上图是一个使用Butteraugli找到JPEG最小质量阈值的示例，处理之后视觉降低非常严重，用户甚至可以注意到某些区域并不太清楚。但是它使得文件总大小减少了65％。</figcaption>
+
+
 
 在实践中，您需要为视觉质量定义一个目标，然后运行一系列不同的图像优化策略，查看您的Butteraugli分数，然后选择最适合文件大小和质量级别之间的平衡。
-
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image15-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image15-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/Modern-Image15-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/Modern-Image15-large.jpg"
         alt="butteraugli being run from the command line" />
-<noscript>
-  <img src="images/book-images/Modern-Image15-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>总而言之，安装Bazel后，大约花费了我30分钟，在本地安装了ButoGLI，并获得了一个C++源用于构建，以便在我的Mac上能正确编译。使用它是非常直接的：指定要比较的两个图像（源和压缩版本），它会给你一个分数。</figcaption>
-</figure>
+
+> 总而言之，安装Bazel后，大约花费了我30分钟，在本地安装了ButoGLI，并获得了一个C++源用于构建，以便在我的Mac上能正确编译。使用它是非常直接的：指定要比较的两个图像（源和压缩版本），它会给你一个分数。
+
+
 
 **Butteraugli与其他比较视觉相似性的方法有何不同？**
 
