@@ -1,5 +1,3 @@
-
-
 必要的图像优化
 
 
@@ -1140,16 +1138,8 @@ image/webp webp;
 
 保持SVG精简意味着剥离任何不必要的东西。 使用编辑器创建的SVG文件通常包含大量冗余信息（元数据，注释，隐藏层等）。 通常可以安全地删除此内容或将其转换为更小的形式，而不会影响正在呈现的最终SVG。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image26-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image26-medium.jpg"
-        media="(max-width: 1024px)" />
-<source
-        data-srcset="images/book-images/Modern-Image26-large.jpg" />
+
+
 
 <img
         class="lazyload small"
@@ -1157,12 +1147,11 @@ image/webp webp;
         alt="svgo"
          />
 
-<noscript>
-  <img src="images/book-images/Modern-Image26-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>[SVGOMG](https://jakearchibald.github.io/svgomg/), by Jake Archibald, 是一个GUI界面，通过选择优化，并输出实时预览状态，您可以根据自己的喜好优化SVG </figcaption>
-</figure>
+
+
+> [SVGOMG](https://jakearchibald.github.io/svgomg/), by Jake Archibald, 是一个GUI界面，通过选择优化，并输出实时预览状态，您可以根据自己的喜好优化SVG 。
+
+
 
 **SVG优化的一些一般规则（SVGO）：**
 
@@ -1173,45 +1162,26 @@ image/webp webp;
 *   删除不可见的图层。
 *   避免任何Photoshop或Illustrator效果。 它们可以转换为大型光栅图像。
 *   仔细检查任何不支持SVG的嵌入式光栅图像
-* Use a tool to optimize your SVGs. [SVGOMG](https://jakearchibald.github.io/svgomg/) is a super handy web-based GUI for [SVGO](https://github.com/svg/svgo) by Jake Archibald that I’ve found invaluable. If you use Sketch, the [Sketch plugin for running SVGO](https://www.sketchapp.com/extensions/plugins/svgo-compressor/) can be used when exporting to shrink the file size.
 * 使用工具优化SVG。  [SVGOMG](https://jakearchibald.github.io/svgomg/)是Jake Archibald为[SVGO](https://github.com/svg/svgo)提供的一个非常方便的基于Web的GUI，我发现它非常好用。 如果使用Sketch，则可以在导出时使用[SVGO的Sketch插件](https://www.sketchapp.com/extensions/plugins/svgo-compressor/)来缩小文件大小。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/svgo-precision-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/svgo-precision-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/svgo-precision-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/svgo-precision-large.jpg"
         alt="svgo precision reduction can sometimes have a positive impact on size"
          />
-<noscript>
-  <img src="images/book-images/svgo-precision-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>通过SVGO以高质量模式运行SVG源（尺寸减少29％）与低质量模式（尺寸减少38％）的示例。</figcaption>
-</figure>
+
+
+
+> 通过SVGO以高质量模式运行SVG源（尺寸减少29％）与低质量模式（尺寸减少38％）的示例。
+
+
 
 [SVGO](https://github.com/svg/svgo) 是一种基于节点的SVG优化工具。 SVGO可以通过降低`<path>`定义中数字的精度来减小文件大小。 小数点后的每一个数字都会增加一个字节，这就是为什么*更改精度*（位数）会严重影响文件大小的原因。 要非常小心地改变精度，因为它可以很直观的看到你的形状受到影响。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image28-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image28-medium.jpg"
-        media="(max-width: 1024px)" />
-<source
-        data-srcset="images/book-images/Modern-Image28-large.jpg" />
+
+
 
 <img
         class="lazyload"
@@ -1219,12 +1189,11 @@ image/webp webp;
         alt="where svgo can go wrong, oversimplifying paths and artwork"
          />
 
-<noscript>
-  <img src="images/book-images/Modern-Image28-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>重要的是要注意虽然SVGO在前面的示例中表现良好而没有过度简化路径和形状，但是在很多情况下可能并非如此。 观察上述火箭上的灯条，在较低的精度下出现了扭曲。</figcaption>
-</figure>
+
+
+> 重要的是要注意虽然SVGO在前面的示例中表现良好而没有过度简化路径和形状，但是在很多情况下可能并非如此。 观察上述火箭上的灯条，在较低的精度下出现了扭曲。
+
+
 
 **在命令行使用SVGO：**
 
@@ -1250,28 +1219,15 @@ svgo input.svg --precision=1 -o output.svg
 
 **别忘了压缩SVG！**
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/before-after-svgo-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/before-after-svgo-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/before-after-svgo-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/before-after-svgo-large.jpg"
         alt="before and after running an image through svgo"
          />
-<noscript>
-  <img src="images/book-images/before-after-svgo-large.jpg"/>
-</noscript>
-</picture>
-</figure>
+
+
 
 另外，不要忘记[使用Gzip压缩](https://calendar.perfplanet.com/2014/tips-for-optimising-svg-delivery-for-the-web/)您的SVG资源或使用Brotli提供服务。 由于它们是基于文本的，因此它们的压缩效果非常好（约占原始来源的50％）。
 
@@ -1279,28 +1235,15 @@ svgo input.svg --precision=1 -o output.svg
 
 （译者注：Brotli也是Google提供的一种新的压缩工具，比Gzip压缩效率更高，可以在Nginx代理的时候替换gzip模块使用，具体如何配置可以看我的另一篇文章）
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image30-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image30-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image30-large.jpg" />
 
 <img
         class="lazyload very-small"
         data-src="images/book-images/Modern-Image30-large.jpg"
         alt="the smallest version of the new google logo was only 305 bytes in size"
          />
-<noscript>
-  <img src="images/book-images/Modern-Image30-large.jpg"/>
-</noscript>
-</picture>
-</figure>
+
+
 
 有许多[高级SVG技巧](https://www.clicktorelease.com/blog/svg-google-logo-in-305-bytes/)可以用来进一步减少（一直到146字节）！ 可以说，无论是通过工具还是通过手动，你可以多花一些东西来精简你的SVG。
 
@@ -1318,6 +1261,8 @@ Tools like [svg-sprite](https://github.com/jkphl/svg-sprite) and [IcoMoon](https
 
 Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/2014/tips-for-optimising-svg-delivery-for-the-web/)和Chris Coyier的[实用SVG书](https://abookapart.com/products/practical-svg)非常好。 我还发现Andreas Larsen的优化SVG帖子很有启发性[第1部分](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-1-67e8f2d4035)，[部分 2](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-2-6711cc15df46)。[在Sketch中准备和导出SVG图标](https：// medium .com / sketch-app-sources / preparation-and-exports-svg-icons-in-sketch-1a3d65b239bb)也是一本很棒的读物。
 
+
+
 ## <a id="avoid-recompressing-images-lossy-codecs" href="#avoid-recompressing-images-lossy-codecs">避免使用有损编解码器重新压缩图像</a>
 
 建议始终从原始图像压缩。 重新压缩图像会产生影响。 假设您拍摄的质量为60的JPEG已被压缩。如果使用有损编码重新压缩此图像，则会显得更糟。 每一轮额外的压缩都将引入代际损失 - 信息将丢失，压缩冗余将开始积累。 即使您在高质量设置下重新压缩。
@@ -1328,145 +1273,96 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 重新编码有损文件几乎总会给你一个较小的文件，但这并不意味着你可以从中获得尽可能多的质量。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/generational-loss-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/generational-loss-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/generational-loss-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/generational-loss-large.jpg"
         alt="generational loss when re-encoding an image multiple times"
          />
-<noscript>
-  <img src="images/book-images/generational-loss-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>上面，根据Jon Sneyers的精彩[视频](https://www.youtube.com/watch?v=w7vXJbLhTyI) 和后续[文章](http://cloudinary.com/blog/why_jpeg_is_like_a_photocopier) ，我们可以看到使用多种格式重新压缩的代际损失影响。 如果从社交网络保存（已压缩）图像并重新上传它们（导致重新压缩），则可能遇到此问题。 质量损失将会增加。</figcaption>
-</figure>
+
+
+
+> 上面，根据Jon Sneyers的精彩[视频](https://www.youtube.com/watch?v=w7vXJbLhTyI) 和后续[文章](http://cloudinary.com/blog/why_jpeg_is_like_a_photocopier) ，我们可以看到使用多种格式重新压缩的代际损失影响。 如果从社交网络保存（已压缩）图像并重新上传它们（导致重新压缩），则可能遇到此问题。 质量损失将会增加。
+
+
 
 由于网格量化，MozJPEG（可能是偶然的）对再压缩降级具有更好的抵抗力。 它不是精确地压缩所有DCT值，而是检查+ 1 / -1范围内的接近值，以查看相似的值是否压缩到更少的位。有损flif有一个类似于有损png的黑客程序，在（重新）压缩之前，它可以查看数据并决定丢弃什么。 重新压缩的PNG具有可以检测到的“漏洞”，以避免进一步改变数据。
 
 **编辑源文件时，请以PNG或TIFF等无损格式存储它们**，这样您就可以保留尽可能多的质量。 您的构建工具或图像压缩服务处理输出您向用户提供的压缩版本，而质量损失最小。
 
+
+
 ## <a id="reduce-unnecessary-image-decode-costs" href="#reduce-unnecessary-image-decode-costs">减少不必要的图像解码并裁剪消耗</a>
 
 我们之前已经为我们的用户提供了比我们用户所需的大、更高分辨率的图像。 这需要付出代价。 对于平均水平的移动硬件上的浏览器来说，解码和调整图像大小是高消耗的操作。 如果使用CSS或width/height属性发送大型图像并重新缩放，您可能会看到这种情况发生，并且可能会非常影响性能。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/image-pipeline-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/image-pipeline-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/image-pipeline-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/image-pipeline-large.jpg"
         alt="There are many steps involved in a browser grabbing an image specified in a tag and displaying it on a screen. These include request, decode, resize, copy to GPU and display."
          />
-<noscript>
-  <img src="images/book-images/image-pipeline-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>
-当浏览器加载图像时，它必须将图像从原始源格式（例如JPEG）解码为存储器中的BitMap（位图）。 通常需要调整图像的大小（例如，宽度已设置为其容器的百分比）。 解码和调整图像大小非常消耗资源，并且可能会延迟显示图像所需的时间。
 
-（译者注：BitMap在安卓中也是一种数据类型）
 
-</figcaption>
-</figure>
+
+> 当浏览器加载图像时，它必须将图像从原始源格式（例如JPEG）解码为存储器中的BitMap（位图）。 通常需要调整图像的大小（例如，宽度已设置为其容器的百分比）。 解码和调整图像大小非常消耗资源，并且可能会延迟显示图像所需的时间。
+>
+> （译者注：BitMap在安卓中也是一种数据类型）
+
+
 
 发送浏览器可以渲染的图像，而无需调整大小是理想的选择。因此，利用 [`srcset`和 `sizes`](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) ，为目标屏幕尺寸和分辨率提供最小的图像 - 我们将很快介绍`srcset`。
 
 忽略图像上的`width`或`height`属性也会对性能产生负面影响。 如果没有它们，浏览器会为图像指定一个较小的占位符区域，直到有足够的字节到达它以便知道正确的尺寸。 此时，文档布局必须在回调中进行更新。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/devtools-decode-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/devtools-decode-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/devtools-decode-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/devtools-decode-large.jpg"
         alt="image decode costs shown in the chrome devtools"
          />
-<noscript>
-  <img src="images/book-images/devtools-decode-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>浏览器必须经过许多步骤才能在屏幕上绘制图像。 除了获取它们之外，还需要解码图像并经常调整大小。 这些事件可以在Chrome DevTools的中 [Timeline](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference)的进行审计。</figcaption>
-</figure>
+
+
+
+> 浏览器必须经过许多步骤才能在屏幕上绘制图像。 除了获取它们之外，还需要解码图像并经常调整大小。 这些事件可以在Chrome DevTools的中 [Timeline](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference)的进行审计。
+
+
 
 较大的图像也会增加内存大小的成本。 解码图像是每像素约4个字节。 稍不注意就会使得浏览器崩溃; 在低端设备上，开始内存交换并不需要那么多。 因此，请密切关注图像解码，调整大小和内存成本。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/image-decoding-mobile-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/image-decoding-mobile-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/image-decoding-mobile-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/image-decoding-mobile-large.jpg"
         alt="Decoding images can be incredibly costly on average and lower-end mobile hardware"
          />
-<noscript>
-  <img src="images/book-images/image-decoding-mobile-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>在普通以及低端手机上解码图像的成本非常高。 在某些情况下，解码速度可能会慢5倍（如果不会更长的话）。</figcaption>
-</figure>
+
+
+
+> 在普通以及低端手机上解码图像的成本非常高。 在某些情况下，解码速度可能会慢5倍（如果不会更长的话）。
+
+
 
 在构建新的[移动网络体验](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3)时，Twitter通过确保为用户提供适当大小的图像来提高图像解码性能。 Twitter的timeline上显示大量图像的解码时间从大约400毫秒降低到约19毫秒！
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/image-decoding-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/image-decoding-medium.jpg"
-        media="(max-width: 1024px)" />
-<source
-        data-srcset="images/book-images/image-decoding-large.jpg" />
+
+
 
 <img
         class="lazyload"
         data-src="images/book-images/image-decoding-large.jpg"
         alt="Chrome DevTools Timeline/Performance panel highlighting image decode times before and after Twitter Lite optimized their image pipeline. Before was higher."
          />
-<noscript>
-  <img src="images/book-images/image-decoding-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>Chrome DevTools Timeline/Performance 面板使用绿色突出显示Twitter Lite优化其图像通道之前和之后的图像解码时间对比。</figcaption>
-</figure>
+
+
+
+> Chrome DevTools Timeline/Performance 面板使用绿色突出显示Twitter Lite优化其图像通道之前和之后的图像解码时间对比。
+
+
 
 ### <a id="delivering-hidpi-with-srcset" href="#delivering-hidpi-with-srcset">使用`srcset`提供HiDPI图像</a>
 
@@ -1474,30 +1370,18 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 为了匹配用户可能期望的图像质量，请向其设备提供最合适的分辨率图像。 可以将锐化的高DPR图像（例如2×，3×）提供给支持它们的设备。 低级或标准DPR图像应该在没有高分辨率屏幕的情况下提供给用户，因为这样的2× 图像通常会产生更多的字节。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/device-pixel-ratio-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/device-pixel-ratio-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/device-pixel-ratio-large.jpg" />
-
 <img
         class="lazyload"
         data-src="images/book-images/device-pixel-ratio-large.jpg"
         alt="A diagram of the device pixel ratio at 1×, 2× and 3×. Image quality appears to sharpen
         as DPR increases and a visual is shown comparing device pixels to CSS pixels."
          />
-<noscript>
-  <img src="images/book-images/device-pixel-ratio-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>设备像素比率：许多网站都会跟踪常用设备的DPR，包括[material.io](https://material.io/devices/)和[mydevice.io](https://mydevice.io/devices/).</figcaption>
-</figure>
+
+
+
+> 设备像素比率：许多网站都会跟踪常用设备的DPR，包括[material.io](https://material.io/devices/)和[mydevice.io](https://mydevice.io/devices/).
+
+
 
 [srcset](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) 允许浏览器为每个设备选择最佳可用图像，例如 为2×移动显示器选择2×图像。 没有`srcset`支持的浏览器可以降级到`<img>`标签中指定的默认`src`。
 
@@ -1517,33 +1401,25 @@ density to users from a single canonical source.
 
 一个友好的提示， [Client Hints](https://www.smashingmagazine.com/2016/01/leaner-responsive-images-client-hints/) 还可以提供一种替代方法，在响应式图像标记中指定每个可能的像素密度和格式。 相反他们会将此信息附加到HTTP请求，以便Web服务器可以选择最适合当前设备的屏幕密度。
 
+
+
 ### <a id="art-direction" href="#art-direction">艺术方向</a>
 
 虽然向用户提供正确的解决方案很重要，但有些网站还需要从**[艺术方向](http://usecases.responsiveimages.org/#art-direction)**考虑这一点。 如果用户位于较小的屏幕上，您可能需要裁剪或放大并显示主题以充分利用可用空间。 尽管艺术方向超出了本文的范围，但像[Cloudinary](http://cloudinary.com/blog/automatically_art_directed_responsive_images%20) 这样的服务提供的API可以尽可能地尝试自动化。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/responsive-art-direction-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/responsive-art-direction-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/responsive-art-direction-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/responsive-art-direction-large.jpg"
         alt="responsive art direction in action, adapting to show more or less of an image in a cropped manner depending on device"
          />
-<noscript>
-  <img src="images/book-images/responsive-art-direction-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>艺术指导：埃里克·波蒂斯（Eric Portis）整理了一幅优秀的[样本](https://ericportis.com/etc/cloudinary/)，展示了如何将响应式图像用于艺术指导。 此示例调整主要根据图像在不同断点处的视觉特征，以充分利用可用空间。</figcaption>
-</figure>
+
+
+
+> 艺术指导：埃里克·波蒂斯（Eric Portis）整理了一幅优秀的[样本](https://ericportis.com/etc/cloudinary/)，展示了如何将响应式图像用于艺术指导。 此示例调整主要根据图像在不同断点处的视觉特征，以充分利用可用空间。
+
+
 
 ## <a id="color-management" href="#color-management">色彩管理</a>
 
