@@ -1,3 +1,5 @@
+
+
 必要的图像优化
 
 
@@ -675,29 +677,15 @@ Mozjpeg是一个初学者友好的Web资产编码器，速度相对较快，生�
 
 在过去的一年中，webp在有损和无损模式下压缩比提高了几个百分点，在速度方面，算法的速度提高了两倍，在解压方面提高了10%。WebP并不是一个全能的工具，但它在图像压缩社区中有一定的地位和不断增长的用户基础。我们来研究一下原因。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image16-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image16-medium.jpg
-        media="(max-width: 1024px)" />
 
-
-<source
-        data-srcset="images/book-images/Modern-Image16-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/Modern-Image16-large.jpg"
         alt="comparison of webp at different quality settings. q=90, 646KB. q=80= 290KB. q=75, 219KB. q=70, 199KB" />
-<noscript>
-  <img src="images/book-images/Modern-Image16-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>WebP：不同质量的文件大小和视觉相似性得分的比较。</figcaption>
-</figure>
+> WebP：不同质量的文件大小和视觉相似性得分的比较。</figcaption>
+
+
 
 ### <a id="how-does-webp-perform" href="#how-does-webp-perform">WebP的表现如何？</a>
 
@@ -723,7 +711,10 @@ WebP 文件格式支持EXIF 照片元数据和XMP 数字文档元数据。它还
 
 WebP 以占用更多 CPU 的成本提供更好的压缩。早在 2013 年，WebP 的压缩速度比 JPEG 慢约10倍，但现在可以忽略不计（某些图像可能慢 2倍）。对于作为生成一部分处理的静态图像，这应该不是大问题。动态生成的图像可能会出现可感知的 CPU 开销，并且需要评估。
 
-<aside class="note"><b>备注:</b> WebP有损质量设置与JPEG无法直接比较。 “70％质量”的JPEG与“70％质量”的WebP图像完全不同，因为WebP通过丢弃更多数据来实现更小的文件大小。</aside>
+**备注：**WebP有损质量设置与JPEG无法直接比较。 “70％质量”的JPEG与“70％质量”的WebP图像完全不同，因为WebP通过丢弃更多数据来实现更小的文件大小。
+
+
+
 ### <a id="whos-using-webp-in-production" href="#whos-using-webp-in-production">谁在生产中使用WebP？</a>
 
 许多大公司在生产中使用WebP来降低成本并减少网页加载时间。
@@ -734,27 +725,18 @@ Netflix、Amazon、Quora、Yahoo、Walmart、eBay、Guardian、Fortune和USA Tod
 
 除了这个样本列表中指出的还有不少公司。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/webp-conversion-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/webp-conversion-medium.jpg"
-        media="(max-width: 1024px)" />
-<source
-        data-srcset="images/book-images/webp-conversion-large.jpg" />
+
 
 <img
         class="small lazyload"
         data-src="images/book-images/webp-conversion-large.jpg"
         alt="WebP stats at Google: over 43B image requests a day" />
-<noscript>
-  <img src="images/book-images/webp-conversion-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>Google的WebP使用：每天在YouTube，Google Play，Chrome数据保护程序和G +上提供每天430亿次WebP图像请求。</figcaption>
-</figure>
+
+
+
+> Google的WebP使用：每天在YouTube，Google Play，Chrome数据保护程序和G +上提供每天430亿次WebP图像请求。
+
+
 
 ### <a id="how-does-webp-encoding-work" href="#how-does-webp-encoding-work">WebP编码如何工作？</a>
 
@@ -764,58 +746,31 @@ WebP的有损编码旨在与JPEG静止图像竞争。 WebP的有损编码有三�
 
 //todo  注：这里的Macro-blocking暂时没想好一个比较专业的术语，就先按原样写下来，
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image18-small.png"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image18-large.png"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image18-medium.png" />
 
 <img
         class="small lazyload"
         data-src="images/book-images/Modern-Image18-medium.png"
         alt="Macro-blocking example of a Google Doodle where we break a range of pixels down into luma and chroma blocks."/>
-<noscript>
-  <img src="images/book-images/Modern-Image18-medium.png"/>
-</noscript>
-</picture>
 
-</figure>
+
 
 **预测** - 宏块（Macro-blocking）的每个4×4子块都应用了一个有效进行筛选的预测模型。 这定义了一个块周围的两组像素 -  A（它正上方的行）和L（它左边的列）。 使用这两个编码器填充具有4×4像素的测试块并确定哪个创建最接近原始块的值。 Colt McAnlis在[WebP有损模式的工作原理](https://medium.com/@duhroach/how-webp-works-lossly-mode-33bd2b1d0670)中更深入地讨论了这一点
 
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image19-medium.png"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image19-large.png"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/Modern-Image19-small.png" />
 
 <img
         class="lazyload very-small"
         data-src="images/book-images/Modern-Image19-small.png"
         alt="Google Doodle example of a segment displaying the row, target block and column L when considering a prediction model."/>
-<noscript>
-  <img src="images/book-images/Modern-Image19-small.png"/>
-</noscript>
-</picture>
 
-</figure>
+
 
 应用离散余弦变换（DCT），其步骤类似于JPEG编码。 关键的区别在于使用[算术压缩器](https://www.youtube.com/watch?v=FdMoL3PzmSA&index=7&list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H) 和 JPEG的Huffman编码。
 
 如果您想深入了解，Google Developer的文章 [WebP 压缩技术](https://developers.google.com/speed/webp/docs/compression)将深入探讨这一主题。
+
+
 
 ### <a id="webp-browser-support" href="#webp-browser-support">WebP 浏览器支持</a>
 
@@ -835,39 +790,31 @@ WebP的有损编码旨在与JPEG静止图像竞争。 WebP的有损编码有三�
 
 WebP并非没有缺点。 它缺乏全分辨率色彩空间选项，不支持渐进式解码。 也就是说，WebP是不错的浏览器支持工具，但在撰写本文时仅限于Chrome和Opera，可能会覆盖足够多的用户，因此它值得考虑作为备选方案。
 
+
+
 ### <a id="how-do-i-convert-to-webp" href="#how-do-i-convert-to-webp">我如何将图像转为WebP?</a>
 
 一些商业和开源图像编辑处理包支持WebP。 其中一个特别有用的应用是XnConvert：一个免费的，跨平台的批量图像处理转换器。
 
-<aside class="note"><b>备注:</b> 避免将低质量或普通质量的JPEG转换为WebP这一点非常重要。使用 JPEG压缩工具生成WebP图像是一个常见的错误。 这可能导致WebP效率降低，因为它必须保存图像和JPEG添加的失真，从而导致两次损失质量。适合 Feed转换应用程序的是高质量源文件，最好是原始文件。</aside>
+**备注：**避免将低质量或普通质量的JPEG转换为WebP这一点非常重要。使用 JPEG压缩工具生成WebP图像是一个常见的错误。 这可能导致WebP效率降低，因为它必须保存图像和JPEG添加的失真，从而导致两次损失质量。适合 Feed转换应用程序的是高质量源文件，最好是原始文件。
+
 **[XnConvert](http://www.xnview.com/en/xnconvert/)**
 
 XnConvert支持批量图像处理，兼容500多种图像格式。 您可以组合80多个单独的操作，以多种方式转换或编辑图像。
 
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image20-small.png"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image20-medium.png"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/Modern-Image20-large.png" />
 
 <img
         class="small lazyload"
         data-src="images/book-images/Modern-Image20-large.png"
         alt="XNConvert app on Mac where a number of images have been converted to WebP"
          />
-<noscript>
-  <img src="images/book-images/Modern-Image20-large.png"/>
-</noscript>
-</picture>
-<figcaption>XnConvert支持批量图像优化，支持从源文件到WebP和其他格式的直接转换。 除压缩外，XnConvert还可以帮助进行元数据分离，裁剪，颜色深度定制和其他变换。</figcaption>
-</figure>
+
+
+
+> XnConvert支持批量图像优化，支持从源文件到WebP和其他格式的直接转换。 除压缩外，XnConvert还可以帮助进行元数据分离，裁剪，颜色深度定制和其他变换。</figcaption>
+
+
 
 xnview网站上列出的一些选项包括：
 
@@ -1005,17 +952,7 @@ Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk
 
 在Mac上，尝试WebP的[快速查看插件](https://github.com/Nyx0uf/qlImageSize) （qlImageSize）。 它工作得很好：
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image22-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image22-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image22-large.jpg" />
 
 <img
         class="small lazyload"
@@ -1023,65 +960,41 @@ Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk
         alt="Desktop on a mac showing a WebP file previewed using the Quick Look plugin for WebP files"
          />
 
-<noscript>
-  <img src="images/book-images/Modern-Image22-large.jpg"/>
-</noscript>
-</picture>
-</figure>
+
 
 在Windows上，您还可以下载[WebP编解码器软件包](https://storage.googleapis.com/downloads.webmproject.org/releases/webp/WebpCodecSetup.exe) ，以便在文件资源管理器和Windows照片查看器中预览WebP图像。
+
+
 
 ### <a id="how-do-i-serve-webp" href="#how-do-i-serve-webp">我如何提供WebP服务？</a>
 
 没有WebP支持的浏览器最终可能根本不显示图像，这并不理想。 为了避免这种情况，我们可以使用一些策略来基于浏览器支持有条件地提供WebP服务。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/play-format-webp-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/play-format-webp-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/play-format-webp-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/play-format-webp-large.jpg"
         alt="The Chrome DevTools Network panel displaying the waterfall for the Play Store in Chrome, where WebP is served."
          />
-<noscript>
-  <img src="images/book-images/play-format-webp-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>Chrome的开发者工具网络面板在“teype”列下突出显示提供给基于Blink的浏览器的WebP文件。</figcaption>
-</figure>
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/play-format-type-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/play-format-type-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/play-format-type-large.jpg" />
+
+> Chrome的开发者工具网络面板在“teype”列下突出显示提供给基于Blink的浏览器的WebP文件。
+
+
 
 <img
         class="lazyload small"
         data-src="images/book-images/play-format-type-large.jpg"
         alt="While the Play store delivers WebP to Blink, it falls back to JPEGs for browsers like Firefox."
          />
-<noscript>
-  <img src="images/book-images/play-format-type-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>虽然Play商店向Blink传送WebP，但对于像Firefox这样的浏览器，它会回归到JPEG。</figcaption>
-</figure>
+
+
+
+> 虽然Play商店向Blink传送WebP，但对于像Firefox这样的浏览器，它会回归到JPEG。
+
+
 
 
 以下是从服务器向用户提供WebP图像的一些选项：
@@ -1178,35 +1091,23 @@ image/webp webp;
 
 **Short Pixel** — 与Cache Enabler一起使用的另一个选项（也需付费）是Short Pixel。Short Pixel功能与上文描述的Optimizer非常类似。您每月可以免费优化多达 100 个图像。
 
-**压缩动画GIF以及为什么`<video>`更好**
 
-Animated GIFs continue to enjoy widespread use, despite being a very limited format. Although everything from social networks to popular media sites embed animated GIFs heavily, the format was *never* designed for video storage or animation. In fact, the [GIF89a spec](https://www.w3.org/Graphics/GIF/spec-gif89a.txt) notes ‘the GIF is not intended as a platform for animation’. The [number of colors, number of frames and dimensions](http://gifbrewery.tumblr.com/post/39564982268/can-you-recommend-a-good-length-of-clip-to-keep-gifs) all impact animated GIF size. Switching to video offers the largest savings.  
+
+**压缩动画GIF以及为什么`<video>`更好**
 
 动画GIF继续广泛使用，尽管格式非常有限。 虽然从社交网络到流行媒体网站的所有内容都大量嵌入动画GIF，但格式*从未*专为视频存储或动画而设计。 事实上，[GIF89a规范](https://www.w3.org/Graphics/GIF/spec-gif89a.txt) 指出GIF并不打算作为动画的平台。 [颜色数量，帧数和尺寸](http://gifbrewery.tumblr.com/post/39564982268/can-you-recommend-a-good-length-of-clip-to-keep-gifs) 都会影响动画GIF大小。 切换到视频节省了最多。
 
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/animated-gif-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/animated-gif-medium.jpg"
-        media="(max-width: 1024px)" />
-<source
-        data-srcset="images/book-images/animated-gif-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/animated-gif-large.jpg"
         alt="Animated GIF vs. Video: a comparison of file sizes at ~equivalent quality for different formats."
          />
-<noscript>
-  <img src="images/book-images/animated-gif-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>动画GIF vs. Video: 不同格式的等效质量的文件大小比较。</figcaption>
-</figure>
+
+> 动画GIF vs. Video: 不同格式的等效质量的文件大小比较。
+
+
 
 **提供与MP4视频相同的文件通常可以减少文件大小80％及以上**。 GIF不仅经常浪费大量带宽，而且加载时间更长，包含更少的颜色，并且通常提供不完整的用户体验。 您可能已经注意到上传到Twitter的动画GIF在Twitter上比在其他网站上表现更好。 [Twitter上的动画GIF实际上不是GIF](http://mashable.com/2014/06/20/twitter-gifs-mp4/#fiiFE85eQZqW)。为了改善用户体验并减少带宽消耗，上传到Twitter的动画GIF实际上转换为视频。 同样，[Imgur会在上传时将GIF转换为视频](https://thenextweb.com/insider/2014/10/09/imgur-begins-converting-gif-uploads-mp4-videos-new-gifv-format/)，然后将其静默转换为MP4。
 
@@ -1232,6 +1133,8 @@ Animated GIFs continue to enjoy widespread use, despite being a very limited for
 *   考虑有损GIF编码器。 fork于Gifsicle 的 [Giflossy](https://github.com/kornelski/giflossy)支持用`-lossy`标志，可以减少约60-65％的尺寸。 还有一个很好的基于它的工具，叫做 [Gifify](https://github.com/vvo/gifify)。 对于非动画GIF，请将它们转换为PNG或WebP。
 
 有关更多信息，请查看Rigor的[Book of GIF](https://rigor.com/wp-content/uploads/2017/03/TheBookofGIFPDF.pdf)。
+
+
 
 ## <a id="svg-optimization" href="#svg-optimization">SVG优化</a>
 
