@@ -1,4 +1,4 @@
-必要的图像优化
+# 必要的图像优化
 
 
 
@@ -23,8 +23,6 @@
 （译者注：关于Save-Data的介绍可参考这篇文章[Help Your Users 'Save-Data'](https://css-tricks.com/help-users-save-data/)）
 
 你生成的图像文件大小越小，对用户提供的网络使用体验就越好，尤其是使用移动设备的用户。在这篇文章中，我们将探讨通过现代压缩技术减少图像尺寸的方法，同时将对图像质量的影响降至最低。
-
-
 
 
 
@@ -83,6 +81,8 @@
 </ul>
 </p>
 </details>
+
+
 
 ## <a id="introduction" href="#introduction">简介</a>
 
@@ -1437,30 +1437,20 @@ density to users from a single canonical source.
 
 （译者注：CMYK常用于喷绘打印，其中包括黑色或金色等由于制备工艺原因等无法由其他颜色很好的配比而成，因而需要单独配置，也被称为专色。）
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/colors_ept6f2-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/colors_ept6f2-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/colors_ept6f2-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/colors_ept6f2-large.jpg"
         alt="sRGB, Adobe RGB and ProPhoto RGB" />
-<noscript>
-  <img src="images/book-images/colors_ept6f2-small.jpg"/>
-</noscript>
-</picture>
-<figcaption>在RGB红色，绿色和蓝色光以不同的组合添加，以产生广泛的颜色。 CYMK（青色，品红色，黄色和黑色）通过不同颜色的墨水从白纸中减去亮度。 </figcaption>
-</figure>
+
+> 在RGB红色，绿色和蓝色光以不同的组合添加，以产生广泛的颜色。 CYMK（青色，品红色，黄色和黑色）通过不同颜色的墨水从白纸中减去亮度。
+
+
 
 [了解颜色模型和专色系统](https://www.designersinsights.com/designer-resources/understanding-color-models/)可以很好地描述其他颜色模型和模式，例如HSL，HSV和LAB。
+
+
 
 #### 色彩空间
 
@@ -1468,55 +1458,38 @@ density to users from a single canonical source.
 
 [sRGB](https://en.wikipedia.org/wiki/SRGB) 旨在成为Web的[标准色彩空间](https://www.w3.org/Graphics/Color/sRGB.html)，基于RGB。 这是一个小的色彩空间，通常被认为是最低的共同点的集合，是跨浏览器色彩管理最安全的选择。 其他色彩空间（如 [Adobe RGB](https://en.wikipedia.org/wiki/Adobe_RGB_color_space)或 [ProPhoto RGB](https://en.wikipedia.org/wiki/ProPhoto_RGB_color_space)  - 用于Photoshop和Lightroom）可以代表比sRGB更鲜艳的色彩，但后者在大多数网络浏览器，游戏和显示器中更为普遍，它通常是需要被关注的。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/color-wheel_hazsbk-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/color-wheel_hazsbk-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/color-wheel_hazsbk-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/color-wheel_hazsbk-large.jpg"
         alt="sRGB, Adobe RGB and ProPhoto RGB" />
-<noscript>
-  <img src="images/book-images/color-wheel_hazsbk-small.jpg"/>
-</noscript>
-</picture>
-<figcaption>在上面我们可以看到色域的可视化 - 色彩空间可以定义的颜色范围。</figcaption>
-</figure>
+
+
+
+
+
+> 在上面我们可以看到色域的可视化 - 色彩空间可以定义的颜色范围。
+
+
 
 色彩空间有三个通道（红色，绿色和蓝色）。 在8位模式下，每个通道可以有255种颜色，使我们总共有1670万种颜色。 16位图像可以显示数万亿种颜色。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/srgb-rgb_ntuhi4-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/srgb-rgb_ntuhi4-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/srgb-rgb_ntuhi4-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/srgb-rgb_ntuhi4-large.jpg"
         alt="sRGB, Adobe RGB and ProPhoto RGB" />
-<noscript>
-  <img src="images/book-images/srgb-rgb_ntuhi4-small.jpg"/>
-</noscript>
-</picture>
-<figcaption>使用 [Yardstick](https://yardstick.pictures/tags/img%3Adci-p3)中的图像比较sRGB，Adobe RGB和ProPhoto RGB。 当您无法看到不能被显示的颜色时，在sRGB中显示此概念非常困难。 除了大多数饱和的丰富颜色外，sRGB与宽色域的常规照片应该具有相同的一切。（译者注：原文的juicy color，直白的翻译是多汁的颜色，应该是用于说明颜色种类非常丰富。todo）
 
-</figcaption>
-</figure>
+
+
+
+
+> 使用 [Yardstick](https://yardstick.pictures/tags/img%3Adci-p3)中的图像比较sRGB，Adobe RGB和ProPhoto RGB。 当您无法看到不能被显示的颜色时，在sRGB中显示此概念非常困难。 除了大多数饱和的丰富颜色外，sRGB与宽色域的常规照片应该具有相同的一切。（译者注：原文的juicy color，直白的翻译是多汁的颜色，应该是用于说明颜色种类非常丰富。todo）
+
+
+
 
 色彩空间之间的差异（如sRGB，Adobe RGB和ProPhoto RGB）是它们的色域（它们可以用阴影再现的颜色范围），光源和[伽玛曲线](http://blog.johnnovak.net/2016/09/21/what-every-coder-should-know-about-gamma/)。 sRGB比Adobe RGB小约20％，ProPhoto RGB比Adobe RGB大[约50％](http://www.petrvodnakphotography.com/Articles/ColorSpace.htm) 。 上面的图像源来自 [Clipping Path](http://clippingpathzone.com/blog/essential-photoshop-color-settings-for-photographers)
 
@@ -1524,11 +1497,15 @@ density to users from a single canonical source.
 
 **Note：**使用原始照片时，请避免使用sRGB作为主要色彩空间。 它比大多数相机支持的色彩空间小，并且可能导致剪裁。 相反，在导出Web时，可以在更大的色彩空间（如ProPhoto RGB）进行处理并输出到sRGB。
 
+
+
 **是否存在宽色域对Web上的内容有意义的情况？**
 
 是的。 如果图像包含非常饱和/丰富/鲜艳的颜色，并且您关心它在支持它的屏幕上同样的效果。 但是，在很少发生的真实照片中。 通常很容易调整颜色以使其看起来充满活力，而实际上并不超过sRGB色域。
 
 那是因为人类的颜色感知并不是绝对的，而是相对于我们周围的环境而且容易被欺骗。 如果您的图像包含高亮的荧光色，那么使用宽色域查看时会更容易。
+
+
 
 #### 伽马校正和压缩
 
@@ -1541,6 +1518,8 @@ density to users from a single canonical source.
 即使在两种情况下，物理上都添加了完全相同的光量。 因此，当光线明亮时，眼睛不那么敏感，伽马压缩会“压缩”明亮的值，因此在物理方面，亮度水平不太精确，但是人体调整了比例，因此从人的角度来看，所有值都同样精确。
 
 **Note：**此处的伽马压缩/校正与您在Photoshop中可能配置的图像伽玛曲线不同。当伽玛压缩按预期工作时，将看不错任何区别。
+
+
 
 #### 颜色配置文件
 
@@ -1556,11 +1535,15 @@ density to users from a single canonical source.
 
 如果您有兴趣了解有关配置文件的更多信息，那么[Nine Degrees Below](https://ninedegreesbelow.com/photography/articles.html) 拥有一套优秀的ICC配置文件颜色管理资源。
 
+
+
 #### 颜色配置文件和Web浏览器
 
 早期版本的Chrome对色彩管理没有很好的支持，但2017年使用 [Color Correct Rendering](https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/ptuKdRQwPAo)进行了改进。 不是sRGB（较新的MacBook Pro）的显示器会将sRGB中的颜色按照显示配置文件进行转换。 这意味着不同系统和浏览器的颜色看起来应该更相似。 Safari，Edge和Firefox现在也可以考虑ICC配置文件，因此具有不同颜色配置文件（例如ICC）的图像现在可以正确显示它们，无论您的屏幕是否具有宽色域。
 
 **Note：**有关色彩如何在网络上工作这方面的更广泛的意见，请参阅Sarah Drasner撰写的[网站色彩指南](https://css-tricks.com/nerds-guide-color-web/)。
+
+
 
 ## <a id="image-sprites" href="#image-sprites">Image spriting</a>
 
@@ -1568,33 +1551,25 @@ density to users from a single canonical source.
 
 （译者注：Image spriting最好不需要翻译，直译就是图像精灵，反而不好懂，是一种图像切片技术。可参考[知乎回答](https://www.zhihu.com/question/51438507)）
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/i2_2ec824b0_1-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/i2_2ec824b0_1-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/i2_2ec824b0_1-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/i2_2ec824b0_1-large.jpg"
         alt="Image sprites are still widely used in large, production sites, including the Google homepage."
          />
-<noscript>
-  <img src="images/book-images/i2_2ec824b0_1-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>Image sprites技术仍然广泛用于大型生产网站，包括谷歌主页。</figcaption>
-</figure>
+
+
+
+> mage sprites技术仍然广泛用于大型生产网站，包括谷歌主页。
+
+
 
 在HTTP/1.x下，一些开发人员使用spriting来减少HTTP请求。 这带来了许多好处，但是当你突然遇到缓存失效的异常时需要小心 - 对Image sprites的任何一小部分的更改都会使用户缓存中的整个图像无效。
 
 然而，Spriting现在可以是 [HTTP/2](https://hpbn.co/http2/) 下的一个反模式。 使用HTTP/2，最好[加载单个图像](https://deliciousbrains.com/performance-best-practices-http2/)，因为现在可以在单个连接中进行多个请求。 衡量这样做是否适用于您自己的网络设置。
+
+
 
 ## <a id="lazy-load-non-critical-images" href="#lazy-load-non-critical-images">延迟加载非关键图像</a>
 
@@ -1603,32 +1578,20 @@ density to users from a single canonical source.
 （译者注：避免了非必要的图像加载以节省带宽，尤其是在大量图像场景下性能提升明显，例如图片直播等。）
 
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/scrolling-viewport-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/scrolling-viewport-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/scrolling-viewport-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/scrolling-viewport-large.jpg"
         alt="lazy-loading images"
          />
-<noscript>
-  <img src="images/book-images/scrolling-viewport-large.jpg"/>
-</noscript>
-</picture>
-</figure>
+
+
 
 必须出现在“首屏”上方或首次出现网页的图像需要立即加载。 然而，屏幕下方的图像对于用户来说是不可见的。 它们不必立即加载到浏览器中。 它们可以在以后加载 - 或者延迟加载 - 只有当用户向下滚动并且有必要显示它们时才可以加载它们。
 
 浏览器本身尚未支持延迟加载（尽管过去曾有过[讨论](https://discourse.wicg.io/t/a-standard-way-to-lazy-load-images/1153/10)）。 相反，我们可以使用JavaScript来添加此功能。
+
+
 
 **为什么延迟加载如此有效？**
 
@@ -1650,29 +1613,17 @@ density to users from a single canonical source.
 
 有关延迟加载的示例，请查看承载大量图像的大多数主要站点。 一些值得注意的网站是[Medium](https://medium.com/)和[Pinterest](https://www.pinterest.com/)。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image35-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image35-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image35-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/Modern-Image35-large.jpg"
         alt="inline previews for images on medium.com"
          />
-<noscript>
-  <img src="images/book-images/Modern-Image35-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>Medium.com上图像的高斯模糊内联预览的示例</figcaption>
-</figure>
+
+> Medium.com上图像的高斯模糊内联预览的示例
+
+
 
 许多站点（例如Medium）显示一个小的高斯模糊的内联预览（几个100字节），一旦获取后它就会转换（延迟加载）到一个完整质量的图像。
 
@@ -1683,6 +1634,8 @@ JoséM.Pérez撰写了关于如何使用[CSS过滤器](https://jmperezperez.com/
 最近一直在进行的一项技术是*基于矢量*而非基于像素的低质量图像预览，由Tobias Baldauf在他的工具 [SQIP](https://github.com/technopagan/sqip)中进行试验。 这种方法利用实用程序[Primitive](https://github.com/fogleman/primitive)生成SVG预览，该预览由几个简单的形状组成，这些形状近似于目标图像中可见的主要特征，使用 [SVGO](https://github.com/svg/svgo)优化SVG，最后为其添加高斯模糊滤波器; 生成SVG占位符，大小仅为800-1000字节，在所有屏幕上看起来都很清晰，并提供了图像内容的视觉提示。延迟加载和低质量图像预览都可以明显地[结合](https://calendar.perfplanet.com/2017/progressive-image-loading-using-intersection-observer-and-sqip/)起来。
 
 （译者注：crisp原意为脆，结合文章表示图像看起来清晰锐利。）
+
+
 
 **如何将延迟加载应用到我的页面？**
 
@@ -1721,28 +1674,11 @@ Lazysizes是一个JavaScript库。 它不需要配置。 下载压缩的js文件
 
 对于本书的Web版本，我将Lazysizes（尽管您可以使用任何替代方案）与Cloudinary配对，以实现按需响应式图像。 这使我可以自由地尝试不同的尺度，质量，格式值以及是否以最小的努力逐步加载：
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/cloudinary-responsive-images-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/cloudinary-responsive-images-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/cloudinary-responsive-images-large.jpg" />
-
 <img
         class="lazyload"
         data-src="images/book-images/cloudinary-responsive-images-large.jpg"
         alt="Cloudinary supports on-demand control of image quality, format and several other features."
          />
-<noscript>
-  <img src="images/book-images/cloudinary-responsive-images-large.jpg"/>
-</noscript>
-</picture>
-</figure>
 
 **Lazysizes功能包括：**
 
@@ -1769,6 +1705,8 @@ Lazysizes 不是你唯一的选项，这里还有更多延迟加载的类库：
 *   滚动侦听器（例如用于确定何时加载延迟加载的图像）可能会对浏览器滚动性能产生负面影响。 它们可能会导致浏览器重绘多次，从而减慢页面进程的滚动速度 - 但是，智能延迟加载库将通过限制来缓解此问题。 一种可能的解决方案是Intersection Observer,，它由lazysizes支持。
 
 延迟加载图像是一种用于减少带宽，降低成本和改善用户体验的普适模式。 评估您的体验是否合理。 有关进一步阅读，请参阅[延迟加载图像](https://jmperezperez.com/lazy-loading-images/)和[实现Medium的渐进式加载](https://jmperezperez.com/medium-image-progressive-loading-placeholder/)。
+
+
 
 
 ## <a id="display-none-trap" href="#display-none-trap">避免display:none陷阱</a>
@@ -1804,28 +1742,15 @@ A quick check against the Chrome DevTools network panel will verify that images 
 
 对Chrome DevTools的network面板进行快速检查，将验证使用这些方法隐藏的图像是否仍会被取出？即使我们预计不会这样。 根据嵌入式资源规范，此行为实际上是正确的。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/display-none-images-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/display-none-images-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/display-none-images-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/display-none-images-large.jpg"
         alt="Images hidden with display:none still get fetched"
          />
-<noscript>
-  <img src="images/book-images/display-none-images-large.jpg"/>
-</noscript>
-</picture>
-</figure>
+
+
 
 **`display：none`是否会触发对图像`src`的请求？**
 
@@ -1848,6 +1773,8 @@ A quick check against the Chrome DevTools network panel will verify that images 
 Jake Archibald的[Request Quest](https://jakearchibald.github.io/request-quest/) 对于使用`display：none`进行响应式图像加载的缺陷进行了很好的测验。 如果对特定浏览器如何处理图像请求加载有疑问，请打开他们的DevTools并自行验证。
 
 同样，尽可能使用`<picture>`和`<img srcset>`而不是依赖于`display：none`。
+
+
 
 ## <a id="image-processing-cdns" href="#image-processing-cdns">图像处理CDN对您有意义吗？</a>
 
@@ -1881,31 +1808,25 @@ Third, API access is provided by both services. Developers can access the CDN pr
 
 现在，让我们将讨论局限于静态图像。 Cloudinary和Imgix都提供了一系列图像处理方法，并且在标准和免费计划中都支持压缩，调整大小，裁剪和缩略图创建等主要功能。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image36-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image36-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/Modern-Image36-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/Modern-Image36-large.jpg"
         alt="cloudinary media library"
          />
-<noscript>
-  <img src="images/book-images/Modern-Image36-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>Cloudinary Media Library：默认情况下，Cloudinary对[非渐进式JPEG](http://cloudinary.com/blog/progressive_jpegs_and_green_martians)进行编码。 要选择生成它们，请选中“更多选项”中的“渐进式”选项或传递“fl_progressive”标记。</figcaption>
-</figure>
+
+
+
+
+
+> Cloudinary Media Library：默认情况下，Cloudinary对[非渐进式JPEG](http://cloudinary.com/blog/progressive_jpegs_and_green_martians)进行编码。 要选择生成它们，请选中“更多选项”中的“渐进式”选项或传递“fl_progressive”标记。
+
+
 
 Cloudinary列出了[七个常用的图像转换类别](http://cloudinary.com/documentation/image_transformations)，其中共有48个子类别。 Imgix宣传支持[100多个图像处理操作](https://docs.imgix.com/apis/url?_ga=2.52377449.1538976134.1501179780-2118608066.1501179780)s。
+
+
 
 **默认情况会发生什么？**
 
@@ -1934,6 +1855,8 @@ Imgix支持以下图像格式：JPEG，JPEG2000，PNG，GIF，动画GIF，TIFF�
 
 Cloudinary支持以下图像格式：JPEG，JPEG 2000，JPEG XR，PNG，GIF，动画GIF，WebP，动画WebP，BMP，TIFF，ICO，PDF，EPS，PSD，SVG，AI，DjVu，FLIF，TARGA。
 
+
+
 **性能如何？**
 
 CDN分发性能主要是关于[延迟](https://docs.google.com/a/chromium.org/viewer?a=v&pid=sites&srcid=Y2hyb21pdW0ub3JnfGRldnxneDoxMzcyOWI1N2I4YzI3NzE2) 和速度。
@@ -1943,6 +1866,8 @@ CDN分发性能主要是关于[延迟](https://docs.google.com/a/chromium.org/vi
 （译者注：hop 是网络请求查询路由表的下一个就近节点，俗称下一跳，此处翻译为节点比较合适。）
 
 这两种服务商都使用快速和分布广泛的CDN。 此配置可减少延迟并提高下载速度。 下载速度会影响页面加载时间，这是用户体验和转换的最重要指标之一。
+
+
 
 **那么他们如何比较？**
 
@@ -1956,9 +1881,13 @@ CDN需要花钱。 拥有大量流量的图像繁重的网站每月可能需要�
 
 但是，如果您不习惯使用图像处理工具或API，那么您正在考虑一些学习途径。 为了容纳CDN服务器位置，您需要更改本地链接中的某些URL。 请尽职做好正确的调查。:)
 
+
+
 **结论**
 
 如果您目前正在提供自己的图像或有这方面的计划，也许您也应该考虑CDN。
+
+
 
 ## <a id="caching-image-assets" href="#caching-image-assets">缓存图像资源</a>
 
@@ -1969,6 +1898,8 @@ CDN需要花钱。 拥有大量流量的图像繁重的网站每月可能需要�
 设置HTTP缓存标头时，将Cache-Control设置为max-age为一年（例如`Cache-Control:public; max-age = 31536000`）。 这种类型的较为激进的缓存策略适用于大多数类型的图像，特别是那些像头像和图像标题一样长久不变的图像。
 
 **注：**如果您使用PHP提供图像，则由于默认的[session_cache_limiter](http://php.net/manual/en/function.session-cache-limiter.php)设置，它可以破坏缓存。 这可能是图像缓存的灾难，您可能希望通过设置session_cache_limiter（'public'）来[解决此问题](https://stackoverflow.com/a/3905468)，该会话将设置为`public, max-age =`。 禁用和设置自定义缓存控制标头也可以。
+
+
 
 ## <a id="preload-critical-image-assets" href="#preload-critical-image-assets">预加载关键图像资产</a>
 
@@ -1990,28 +1921,13 @@ CDN需要花钱。 拥有大量流量的图像繁重的网站每月可能需要�
 
 [Philips](https://www.usa.philips.com/)，[Flipkart](https://www.flipkart.com/) 和[Xerox](https://www.xerox.com/) 等网站使用`<link rel = preload>`来预加载其主要LOGO（通常在文档的早期使用）。 [Kayak](https://kayak.com/) 还使用预加载来确保尽快加载其标题页的主页横幅。
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/preload-philips-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/preload-philips-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/preload-philips-large.jpg" />
-
 <img
         class="lazyload"
         data-src="images/book-images/preload-philips-large.jpg"
         alt="Philips use link rel=preload to preload their logo image"
          />
-<noscript>
-  <img src="images/book-images/preload-philips-large.jpg"/>
-</noscript>
-</picture>
-</figure>
+
+
 
 **什么是链接预加载头？**
 
@@ -2025,31 +1941,22 @@ Link: <https://example.com/logo-hires.jpg>; rel=preload; as=image
 
 当英国“金融时报”向其网站引入了链接预加载标题时，他们将显示其标题图像所花费的时间[缩短了1秒](https://twitter.com/wheresrhys/status/843252599902167040)：
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/preload-financial-times-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/preload-financial-times-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/preload-financial-times-large.jpg" />
 
 <img
         class="lazyload"
         data-src="images/book-images/preload-financial-times-large.jpg"
         alt="The FT using preload. Displayed are the WebPageTest before and after traces showing improvements."
          />
-<noscript>
-  <img src="images/book-images/preload-financial-times-large.jpg"/>
-</noscript>
-</picture>
-<figcaption>下方: 使用 `<link rel=preload>`, 上方: 并未。在WebPageTest 上Moto G4 在3G情况下的[之前](https://www.webpagetest.org/result/170319_Z2_GFR/)和[之后](https://www.webpagetest.org/result/170319_R8_G4Q/)的对比。</figcaption>
-</figure>
+
+
+
+> 下方: 使用 `<link rel=preload>`, 上方: 并未。在WebPageTest 上Moto G4 在3G情况下的[之前](https://www.webpagetest.org/result/170319_Z2_GFR/)和[之后](https://www.webpagetest.org/result/170319_R8_G4Q/)的对比。
+
+
 
 同样，维基百科通过全方位[研究](https://phabricator.wikimedia.org/phame/post/view/19/improving_time-to-logo_performance_with_preload_links/)其他案例中的链接预加载标头，显著提升了实时加载Logo的性能。
+
+
 
 **使用此优化时应考虑哪些注意事项？**
 
@@ -2058,6 +1965,8 @@ Link: <https://example.com/logo-hires.jpg>; rel=preload; as=image
 在没有广泛的浏览器支持（例如WebP）的情况下，避免使用`rel = preload`来预加载某种图像格式是很重要的。 避免将它用于`srcset`中定义的响应式图像也是很重要的，因为其检索到的图像源可能根据设备条件而变化。
 
 要了解有关预加载的更多信息，请参阅文章[《在Chrome中预加载，预取和优先级》](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)和[《预加载：它有什么用？》](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/)
+
+
 
 ## <a id="performance-budgets" href="#performance-budgets">图像的Web性能指标</a>
 
@@ -2073,57 +1982,27 @@ Link: <https://example.com/logo-hires.jpg>; rel=preload; as=image
 
 一旦定义了图像大小的性能预算，SpeedCurve就会开始监控并在超出预算时提醒您：
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/F2BCD61B-85C5-4E82-88CF-9E39CB75C9C0-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/F2BCD61B-85C5-4E82-88CF-9E39CB75C9C0-medium.jpg"
-        media="(max-width: 1024px)" />
 
-<source
-        data-srcset="images/book-images/F2BCD61B-85C5-4E82-88CF-9E39CB75C9C0-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/F2BCD61B-85C5-4E82-88CF-9E39CB75C9C0-large.jpg"
         alt="SpeedCurve image size monitoring."
          />
-<noscript>
-  <img src="images/book-images/F2BCD61B-85C5-4E82-88CF-9E39CB75C9C0-large.jpg"/>
-</noscript>
-</picture>
-</figure>
+
+
 
 Calibre提供了类似的功能，支持为您定位的每个设备级别设置指标。 这非常有用，因为您通过WiFi在个人PC桌面上调整图片大小的指标可能会因移动设备的指标而有很大差异。
-
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/budgets-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/budgets-medium.jpg"
-        media="(max-width: 1024px)" />
-
-<source
-        data-srcset="images/book-images/budgets-large.jpg" />
 
 <img
         class="lazyload small"
         data-src="images/book-images/budgets-large.jpg"
         alt="Calibre supports budgets for image sizes."
          />
-<noscript>
-  <img src="images/book-images/budgets-large.jpg"/>
-</noscript>
-</picture>
-</figure>
 
-## <a id="closing-recommendations" href="#closing-recommendations">Closing recommendations</a>
 
-Ultimately, choosing an image optimization strategy will come down to the types of images you’re serving down to your users and what you decide is a reasonable set of evaluation criteria. It might be using SSIM or Butteraugli or, if it’s a small enough set of images, going off of human perception for what makes the most sense.
+
+## <a id="closing-recommendations" href="#closing-recommendations">最后的建议</a>
 
 最终，选择图像优化策略将归结为您向用户提供的图像类型，以及您决定的一组合理的评估标准。 它可能正在使用SSIM或Butteraugli或其他，如果它是一组足够小的图像，那这么做影响到人们对图像的感知。
 
@@ -2151,14 +2030,15 @@ Ultimately, choosing an image optimization strategy will come down to the types 
 
 **Note：** 有关优化图像更实用的指导，我强烈推荐Jeremy Wagner的《[Web 高性能实战](https://www.manning.com/books/web-performance-in-action)》。《[高性能图像](http://shop.oreilly.com/product/0636920039730.do) 》也包含很多关于这个主题的优秀、精彩的建议。
 
+
+
 ## <a id="trivia" href="#trivia">后记</a>
 
 * [JPEG XT](https://jpeg.org/jpegxt/)定义了1992 JPEG规范的扩展。 对于旧JPEG上具有像素完美渲染的扩展，规范必须澄清旧的1992规范，并选择[libjpeg-turbo](https://libjpeg-turbo.org/)作为其参考实现（基于 受欢迎程度）。
 * [PIK](https://github.com/google/pik)是值得关注的新图像编解码器。 它与JPEG兼容，具有更高效的色彩空间，并利用Guetzli中的类似优势。 它的解码速度是JPEG的2/3，比libjpeg节省了54％的文件。 解码和压缩比Guetzli-ified JPEG更快。 关于现代图像代码的心理视觉相似性的[研究](https://encode.ru/threads/2814-Psychovisual-analysis-on-modern-lossy-image-codecs)显示PIK不到替代品的一半。 不幸的是，目前编解码器和编码仍处于初期阶段（2017年8月）非常缓慢。
 * [ImageMagick](https://www.imagemagick.org/script/index.php)通常被推荐用于图像优化。 这篇文章认为它是一个很好的工具，但它的输出通常需要更多的优化调整，其他工具也可以提供更好的输出。 我们建议尝试[libvips](https://github.com/jcupitt/libvips)，但它的优先级更低，需要更多技术技能才能使用。 ImageMagick还可以在社区上有[注意](https://imagetragick.com/#moreinfo)您可能想要了解的安全漏洞。
-* Blink (the rendering engine used by Chrome) decodes images off the main thread. Moving the decode work to the compositor thread frees-up the main thread to work on other tasks. We call this deferred decoding. With deferred decoding, the decode work remains on the critical path for presenting a frame to the display, so it can still cause animation jank. The [`img.decode()`](https://html.spec.whatwg.org/multipage/embedded-content.html#dom-img-decode) API should help with the jank problem.
 * Blink（Chrome使用的渲染引擎）从主线程解码图像。 将解码工作移动到合成器线程可以释放主线程以处理其他任务。 我们称之为延迟解码。 通过延迟解码，在用于向显示器呈现帧上解码工作仍然是关键任务，因此它仍然可以导致动画抖动。 [`img.decode()`](https://html.spec.whatwg.org/multipage/embedded-content.html#dom-img-decode)API应该有助于解决该问题。
 
-The content of this book is licensed under the  Creative Commons [Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)](https://creativecommons.org/licenses/by-nc-nd/2.0/) license, and code samples are licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0). Copyright Google, 2018.
 
-本书的内容是在Creative Commons[Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)](https://creativecommons.org/licenses/by-nc-nd/2.0/)许可下授权的，代码样本是在[Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)。谷歌版权所有，2018年。
+
+本书的内容是在Creative Commons 下的 [Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)](https://creativecommons.org/licenses/by-nc-nd/2.0/)许可下授权的，代码样本是在[Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)。谷歌版权所有，2018年。
