@@ -231,6 +231,8 @@
 
 Jeremy Wagner 在他的图像优化演讲中谈到了评估使用格式时值得考虑的权重（[示例](http://jlwagner.net/talks/these-images/#/2/2) ）。
 
+
+
 ## <a id="the-humble-jpeg" href="#the-humble-jpeg">精简的JPEG</a>
 
 JPEG应该是世界上使用最广泛的图像格式。 如前文所述，HTTP Archive在抓取网站上的图像的 [统计结果](http://httparchive.org/interesting.php) 可以看到其中有45％是JPEG。你的手机，数码单反相机，老式网络摄像头等这些设备都支持这种编解码方式。 这种格式也很久远，可以追溯到1992年时首次发布。 在那段时间里，它被已经被进行了大量的研究来尝试改进它的编码方式。
@@ -257,7 +259,10 @@ JPEG等格式最适合具有多个颜色区域的照片或图像。 大多数优
 
 接下来，让我们将讨论一下JPEG的压缩模式，因为这些模式对体验性能变化有很大的影响。
 
-<aside class="note"><b>Note:</b> 有时我们可能高估了用户对图像质量的需求。图像质量可以被视为与未压缩前理想的图像的偏差，这种偏差具有主观性。（100%图像质量可被理解为无偏差）</aside>
+**Note：**有时我们可能高估了用户对图像质量的需求。图像质量可以被视为与未压缩前理想的图像的偏差，这种偏差具有主观性。（100%图像质量可被理解为无偏差）
+
+
+
 ## <a id="jpeg-compression-modes" href="#jpeg-compression-modes">JPEG 压缩模式</a>
 
 JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimrod/Compression/JPEG/J5mods2007.pdf)。 三种流行的模式是基线方式（顺序），渐进式（PJPEG）和无损方式。
@@ -338,10 +343,11 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 
 这意味着在决定是否传输渐进式JPEG时，您需要尝试取得文件大小、网络延迟和CPU周期使用之间的正确平衡。
 
+**Note：**渐进式JPEG（和所有JPEG）有时可以在移动设备上进行硬解码。 它无法改善对内存占用的影响，但它可以消除一些CPU占用问题。但 并非所有Android设备都支持硬件加速，但高端设备以及所有iOS设备是支持的。
 
-
-注意：渐进式JPEG（和所有JPEG）有时可以在移动设备上进行硬解码。 它无法改善对内存占用的影响，但它可以消除一些CPU占用问题。但 并非所有Android设备都支持硬件加速，但高端设备以及所有iOS设备是支持的。
 一些用户可能认为渐进式的加载方式是一个缺陷，因为很难判断图像是否已经加载完成。 由于每不同用户之间可能会有很大差异，因此需要您对您的用户的体验进行评估。
+
+
 
 ### <a id="how-to-create-progressive-jpegs" href="#how-to-create-progressive-jpegs">如何创建渐进式JPEG？</a>
 
@@ -447,8 +453,9 @@ There are a number of common samples discussed when talking about subsampling. G
 
 Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG specification, so different decoders handle it differently. MozJPEG and libjpeg-turbo use the same scaling method. Older versions of libjpeg use a different method that adds ringing artifacts in colors.
 
-<aside class="note"><b>Note:</b> 使用“保存为网络图像”的功能时，Photoshop会自动设置色度子采样。 当图像质量设置在51-100之间时，不会使用子采样（`4:4:4`）。 当质量低于此值时，将使用`4:2:0`子采样。 这是当质量从51切换到50时可以显著观察到的文件大小降低的一个原因。</aside>
-<aside class="note"><b>Note:</b>在二次抽样讨论中，经常提到术语 [YCbCr](https://en.wikipedia.org/wiki/YCbCr)。 这是一个可以表示伽马校正的 [RGB](https://en.wikipedia.org/wiki/RGB_color_model) 色彩空间的模型。 Y是伽马校正的亮度，Cb是蓝色的色度分量，Cr是红色的色度分量。 当你观察ExifData时，你会看到YCbCr接近采样水平。</aside>
+**Note：**使用“保存为网络图像”的功能时，Photoshop会自动设置色度子采样。 当图像质量设置在51-100之间时，不会使用子采样（`4:4:4`）。 当质量低于此值时，将使用`4:2:0`子采样。 这是当质量从51切换到50时可以显著观察到的文件大小降低的一个原因。
+**Note：**在二次抽样讨论中，经常提到术语 [YCbCr](https://en.wikipedia.org/wiki/YCbCr)。 这是一个可以表示伽马校正的 [RGB](https://en.wikipedia.org/wiki/RGB_color_model) 色彩空间的模型。 Y是伽马校正的亮度，Cb是蓝色的色度分量，Cr是红色的色度分量。 当你观察ExifData时，你会看到YCbCr接近采样水平。
+
 有关色度子采样的进一步阅读，请参考[为什么您的图像不使用色度子采样？](https://calendar.perfplanet.com/2015/why-arent-your-images-using-chroma-subsampling/)
 
 （TODO，该章节涉及了好多图像显示方面的专业数据，翻译粗略的参考谷歌翻译以及部分博客，还需要对术语等进行校对调整）
@@ -553,7 +560,7 @@ gulp.task('mozjpeg', () =>
 
 根据我的经验，MozJPEG是一个很好的选择，可以在高视觉效果的情况下压缩网络图像来减少文件大小。 对于中小尺寸的图像，我发现MozJPEG（质量= 80-85）可以节省30-40％的文件大小，同时保持可接受的SSIM，在jpeg-turbo上提供5-6％的提升。 它确实具有比基线JPEG具有[更高的编码成本](http://www.libjpeg-turbo.org/About/Mozjpeg)，但你可能不会发现显式的阻塞。（注：show stopper可理解为严重程度极高的硬件或[软件错误](https://en.wikipedia.org/wiki/Software_bug)，需要立即修复）
 
-**Note：**如果您需要一个支持MozJPEG的工具以及一些额外的配置支持和一些免费的图像比较工具，请查看 [jpeg-recompress](https://github.com/danielgtaylor/jpeg-archive)。 Web Performance in Action的作者Jeremy Wagner在使用[此配置](https://twitter.com/malchata/status/884836650563579904) 时取得了一些成功。
+**Note：**如果您需要一个支持MozJPEG的工具以及一些额外的配置支持和一些免费的图像比较工具，请查看 [jpeg-recompress](https://github.com/danielgtaylor/jpeg-archive)。 《Web Performance in Action》的作者Jeremy Wagner在使用[此配置](https://twitter.com/malchata/status/884836650563579904) 时取得了一些成功。
 
 
 
@@ -563,10 +570,12 @@ gulp.task('mozjpeg', () =>
 
 为了测量图像之间的差异，Guetzli使用[Butteraugli](https://github.com/google/butteraugli)，一种基于人类感知测量图像差异的模型（下面讨论）。 Guetzli可以考虑其他JPEG编码器没有的一些视觉属性。 例如，在所看到的绿光量和对蓝色的敏感度之间存在关系，因此可以稍微不那么精确地编码绿色附近的蓝色变化。
 
-<aside class="note"><b>Note:</b>图像文件大小**更多地取决于质量**的选择而不是**编解码器**的选择。与通过切换编解码器实现的文件大小节省相比，最低和最高质量JPEG之间的文件大小差异要大得多。 使用最低的可接受质量非常重要。 如果非必要，请避免将质量设置得过高。 </aside>
+**Note：**图像文件大小**更多地取决于质量**的选择而不是**编解码器**的选择。与通过切换编解码器实现的文件大小节省相比，最低和最高质量JPEG之间的文件大小差异要大得多。 使用最低的可接受质量非常重要。 如果非必要，请避免将质量设置得过高。
+
 与其他压缩方式相比，Guetzli[宣称](https://research.googleblog.com/2017/03/announcing-guetzli-new-open-source-jpeg.html ) 对于给定的Butteraugli分数，图像的数据大小减少了20-30％。 对于使用Guetzli的一个严重的警告是它非常非常慢，目前仅适用于静态内容。 从README，我们可以注意到Guetzli需要大量内存 - 每百万像素可能需要1分钟+ 200MB RAM。 在这个GitHub的一个[issue](https://github.com/google/guetzli/issues/50)中，有一个关于Guetzli实际体验的准确描述。 当您在静态站点的构建过程中对图像进行优化时，它是理想的选择，但在按需执行时则不太理想。
 
-<aside class="note"><b>Note:</b>作为静态站点的构建过程中优化图像时，Guetzli可能更适合。或者不用按需执行图像优化的情况。 </aside>
+**Note：**作为静态站点的构建过程中优化图像时，Guetzli可能更适合。或者不用按需执行图像优化的情况。
+
 像ImageOptim这样的工具支持Guetzli优化（在[最新版本](https://imageoptim.com/)中）。
 
 ```js
@@ -937,6 +946,8 @@ Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk
 * Photoshop的WebP插件 - 来自谷歌的可免费使用图像导入和导出插件。
 
 **Android**：您可以使用Android Studio将现有的BMP，JPG，PNG或静态GIF图像转换为WebP格式。 有关更多信息，请参阅[使用Android Studio创建WebP图像](https://developer.android.com/studio/write/convert-webp.html)。
+
+
 
 ### <a id="how-do-i-view-webp-on-my-os" href="#how-do-i-view-webp-on-my-os">如何在我的操作系统上查看WebP图像？</a>
 
@@ -1393,9 +1404,6 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
      src="paul-irish-960w.jpg" alt="Paul Irish cameo">
 ```
 
-Image CDNs like [Cloudinary](http://cloudinary.com/blog/how_to_automatically_adapt_website_images_to_retina_and_hidpi_devices) and [Imgix](https://docs.imgix.com/apis/url/dpr) both support controlling image density to serve the best
-density to users from a single canonical source.
-
 像[Cloudinary](http://cloudinary.com/blog/how_to_automatically_adapt_website_images_to_retina_and_hidpi_devices)和[Imgix](https://docs.imgix.com/apis/url/dpr)这样的图像CDN都支持控制图像密度，以提供最佳密度给来源符合规范的用户。
 
 **Note**：您可以在此免费的 [Udacity](https://www.udacity.com/course/responsive-images--ud882) 课程和Web基础知识的[图像指南](https://developers.google.com/web/fundamentals/design-and-ui/responsive/images)中了解有关设备像素比率和响应式图像的更多信息。
@@ -1825,7 +1833,7 @@ Third, API access is provided by both services. Developers can access the CDN pr
 
 
 
-Cloudinary列出了[七个常用的图像转换类别](http://cloudinary.com/documentation/image_transformations)，其中共有48个子类别。 Imgix宣传支持[100多个图像处理操作](https://docs.imgix.com/apis/url?_ga=2.52377449.1538976134.1501179780-2118608066.1501179780)s。
+Cloudinary列出了[七个常用的图像转换类别](http://cloudinary.com/documentation/image_transformations)，其中共有48个子类别。 Imgix宣传支持[100多个图像处理操作](https://docs.imgix.com/apis/url?_ga=2.52377449.1538976134.1501179780-2118608066.1501179780)。
 
 
 
