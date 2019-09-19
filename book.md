@@ -6,7 +6,7 @@
 
 应该自动优化图像。当最佳方案改变时，这点很容易被以往，尤其是在未进行**流水线式构建**时这一步很容易丢失。进行自动化：在你的构建过程中使用[imagemin](https://github.com/imagemin/imagemin) 或 [libvips](https://github.com/jcupitt/libvips) 工具，也存在着更多的替代方案。
 
-大多数CDN(例如：[Akamai](https://www.akamai.com/us/en/solutions/why-akamai/image-management.jsp)) 和第三方解决方案，例如 [Cloudinary](https://cloudinary.com), [imgix](https://imgix.com), [Fastly’s Image Optimizer](https://www.fastly.com/io/), [Instart Logic’s SmartVision](https://www.instartlogic.com/technology/machine-learning/smartvision)或[ImageOptim API](https://imageoptim.com/api) 都提供有全面的图像自动优化方法。
+大多数CDN(例如：[Akamai](https://www.akamai.com/us/en/solutions/why-akamai/image-management.jsp)) 和第三方解决方案，例如 [Cloudinary](https://cloudinary.com)、[imgix](https://imgix.com)、[Fastly’s Image Optimizer](https://www.fastly.com/io/)、[Instart Logic’s SmartVision](https://www.instartlogic.com/technology/machine-learning/smartvision)或[ImageOptim API](https://imageoptim.com/api) 都提供有全面的图像自动优化方法。
 
 你在阅读博客并调整配置文件上花的时间要大于使用第三方包月服务（Cloudinary有免费套餐）。如果你因为成本或延迟问题而不想将这项工作外包出去，那么上面提到的这些开源方案也是可靠的。像 [Imageflow](https://github.com/imazen/imageflow) 或 [Thumbor](https://github.com/thumbor/thumbor) 提供可选的自动托管方案。
 
@@ -92,12 +92,7 @@
 
 据[Tammy Everts](https://www.linkedin.com/in/tammyeverts)所言，向页面添加图像或使现有图像变大已被证明可以提高[转换率](https://calendar.perfplanet.com/2014/images-are-king-an-image-optimization-checklist-for-everyone-in-your-organization/)（译者注：此处的转换率指的是网站的访问者转换为活跃用户）。图像不太可能消失，因此在有效的最小化图像压缩策略上的投资就变得非常重要。
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/Modern-Image00-large.jpg"
-        alt="Fewer images per page create more conversions. 19 images per page on average converted better than 31 images per page on average." />
-
-
+![](images/book-images/Modern-Image00-large.jpg)
 
 
 
