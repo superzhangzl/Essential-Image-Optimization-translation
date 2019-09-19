@@ -92,7 +92,7 @@
 
 据[Tammy Everts](https://www.linkedin.com/in/tammyeverts)所言，向页面添加图像或使现有图像变大已被证明可以提高[转换率](https://calendar.perfplanet.com/2014/images-are-king-an-image-optimization-checklist-for-everyone-in-your-organization/)（译者注：此处的转换率指的是网站的访问者转换为活跃用户）。图像不太可能消失，因此在有效的最小化图像压缩策略上的投资就变得非常重要。
 
-![](images/book-images/Modern-Image00-large.jpg)
+![Fewer images per page create more conversions. 19 images per page on average converted better than 31 images per page on average.](images/book-images/Modern-Image00-large.jpg)
 
 
 
@@ -102,10 +102,7 @@
 
 图像优化包含多种方式来减小图像大小，最终取决于你想要达到什么程度的视觉效果。
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/image-optimisation-large.jpeg"
-        alt="Image optimization covers a number of different techniques" />
+![Image optimization covers a number of different techniques](images/book-images/image-optimisation-large.jpeg)
 
 > **图像优化：** 选择正确的格式，合理的压缩，相较于可以懒加载的图像优先加载关键图像。
 
@@ -116,14 +113,7 @@
 
 
 
-
-
-<img
-        class="lazyload small"
-        data-src="images/book-images/chart_naedwl-large.jpg"
-        alt="A histogram of potential image savings from the HTTP Archive validating the 30KB of potential image savings at the 95th percentile." />
-
-
+![A histogram of potential image savings from the HTTP Archive validating the 30KB of potential image savings at the 95th percentile.](images/book-images/chart_naedwl-large.jpg)
 
 
 
@@ -135,10 +125,7 @@
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/image-optim-large.jpg"
-        alt="ImageOptim in use on Mac with a number of images that have been compressed with savings over 50%" />
+![ImageOptim in use on Mac with a number of images that have been compressed with savings over 50%](images/book-images/image-optim-large.jpg)
 
 > ImageOptim是免费的，通过现代压缩技术和剔除不必要的EXIF元数据来减少图像大小。
 
@@ -148,29 +135,14 @@
 
 
 
-
-
 ## <a id="do-my-images-need-optimization" href="#do-my-images-need-optimization">如何判断图像是否需要优化？</a>
 
 通过[WebPageTest.org](https://www.webpagetest.org/)站点进行审计，它会高亮显示可优化图像的机会。（详见“图像压缩”部分）
 
-<figure>
-<picture>
-<source
-        data-srcset="images/book-images/Modern-Image1-small.jpg"
-        media="(max-width: 640px)" />
-<source
-        data-srcset="images/book-images/Modern-Image1-medium.jpg"
-        media="(max-width: 1024px)" />
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/Modern-Image1-large.jpg"
-        alt="WebPage test supports auditing for image compression via the compress images section" />
-
-
+![WebPage test supports auditing for image compression via the compress images section](images/book-images/Modern-Image1-large.jpg)
 
 
 
@@ -178,10 +150,7 @@
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/Modern-Image2-medium.jpg"
-        alt="image compression recommendations from webpagetest" />
+![image compression recommendations from webpagetest](images/book-images/Modern-Image2-medium.jpg)
 
 
 
@@ -191,10 +160,7 @@
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/hbo-large.jpg"
-        alt="Lighthouse audit for HBO.com, displaying image optimisation recommendations" />
+![Lighthouse audit for HBO.com, displaying image optimisation recommendations](images/book-images/hbo-large.jpg)
 
 
 
@@ -210,11 +176,7 @@
 
 正如Ilya Grigorik在他的杰作 [图像优化指南](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)中所指出的，“合适的”图像格式是视觉效果和功能要求的均衡（注：combination相比组合翻译成均衡更通顺些）。 你在使用位图还是矢量图形呢？
 
-<img
-        class="lazyload very-small"
-        data-src="images/book-images/rastervvector-small.png"
-        alt="vector vs raster images"
-         />
+![vector vs raster images](images/book-images/rastervvector-small.png)
 
 [位图](https://en.wikipedia.org/wiki/Raster_graphics)通过对像素矩阵内的每一个像素的值进行编码来表示图像，与分辨率或缩放无关。WebP或者应用广泛的格式（例如PNG，JPEG）都可以很好的在保持图像内容的情况下处理这些图像。我们讨论过的Guetzli，MozJPEG或其他格式也同样适用于位图。
 
@@ -238,12 +200,15 @@ JPEG是一种有损压缩算法，它丢弃部分信息来节省存储空间，�
 
 JPEG等格式最适合具有多个颜色区域的照片或图像。 大多数优化工具允许你设置期望的压缩级别; 较高的压缩级别会减小文件大小，但会产生引入伪像，光晕等额外噪声。（译者注：[artifacts](https://en.wikipedia.org/wiki/Compression_artifact#Artistic_use) 指的是过度锐化或细节丢失等影响视觉显示效果的瑕疵，由于JPEG的DTC压缩导致出现方块现象，可以参考论坛的[讨论](http://forum.xitek.com/forum.php?mod=viewthread&tid=1605692&page=1&ordertype=1) 。后续该词翻译为伪像)。
 
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image5-large.jpg"
-        alt="JPEG compression artifacts can be increasingly perceived as we shift from best quality to lowest" />
+
+
+![JPEG compression artifacts can be increasingly perceived as we shift from best quality to lowest](images/book-images/Modern-Image5-large.jpg)
+
+
 
 > JPEG：可感知的JPEG压缩伪影会随着我们从最佳质量到最低质量的转变而显著增加。请注意，一个工具中的图像质量分数可能与另一个工具中的质量分数有所不同。
+
+
 
 当选择需要设置图像的质量时，请考虑您的图像属于哪个范畴：
 
@@ -266,12 +231,9 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 
 基线JPEG（大多数图像编辑和优化工具的默认值）以相对简单的方式进行编码和解码：从上到下。在缓慢或不稳定的连接上以基线方式加载JPEG时，用户会先看到图像的顶部，随着图像的加载会逐行显示更多的内容。无损JPEG类似，但压缩比较小。
 
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image6-large.jpg"
-        alt="baseline JPEGs load top to bottom" />
 
 
+![baseline JPEGs load top to bottom](images/book-images/Modern-Image6-large.jpg)
 
 
 
@@ -281,14 +243,19 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 
 渐进式jpeg将图像分成若干个扫描阶段。第一次扫描显示位于模糊或低质量的图像区域，随后的扫描再提高图像质量。把这看作是“逐步”加载。图像的每次“扫描”都会增加细节级别。合并后，将创建显示完整质量的图像。
 
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image7-large.jpg"
-        alt="progressive JPEGs load from low-resolution to high-resolution" />
+
+
+![progressive JPEGs load from low-resolution to high-resolution](images/book-images/Modern-Image7-large.jpg)
+
+
 
 > 基线JPEG从上到下加载图像。渐进式JPEG从低分辨率（模糊）加载到高分辨率。 Pat Meenan编写了一个[交互式工具](http://www.patrickmeenan.com/progressive/view.php?img=https%3A%2F%2Fwww.nps.gov%2Fplanyourvisit%2Fimages%2FGrandCanyonSunset_960w.jpg) 来测试和了解渐进式JPEG加载方式。
 
+
+
 通过删除数码相机或编辑器添加的[EXIF数据](http://www.verexif.com/en/)，优化图像的[Huffman表](https://en.wikipedia.org/wiki/Huffman_coding)或重新扫描图像，可以实现无损的JPEG优化。 像[jpegtran](http://jpegclub.org/jpegtran/) 这样的工具通过重新排列压缩数据而不会降低图像质量来实现图像的无损压缩。 [jpegrescan](https://github.com/kud/jpegrescan), [jpegoptim](https://github.com/tjko/jpegoptim) 和 [mozjpeg](https://github.com/mozilla/mozjpeg)（我们将在稍后介绍）也支持无损JPEG压缩。
+
+
 
 ### <a id="the-advantages-of-progressive-jpegs" href="#the-advantages-of-progressive-jpegs">渐进式JPEG的优点</a>
 
@@ -296,10 +263,9 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 
 在较慢的3G连接上，这种方式允许用户在仅接收到部分文件时（粗略地）查看图像中的内容，并决定是否等待其完全加载。 这比基线JPEG提供的图像从上到下显示方式更令人愉快。
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/pjpeg-graph-large.png"
-        alt="impact to wait time of switching to progressive jpeg" />
+![impact to wait time of switching to progressive jpeg](images/book-images/pjpeg-graph-large.png)
+
+
 
 > 2015年，Facebook转向了使用渐进式JPEG（[用于iOS应用程序](https://code.facebook.com/posts/857662304298232/faster-photos-in-facebook-for-ios/)），数据使用量减少了10%。他们能够以比以前快15%的速度显示高质量的图像，优化图像的加载时间，如上图所示。
 
@@ -321,10 +287,11 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 
 许多图像占比很高的网站，例如 [Pinterest](https://pinterest.com) ，也在产品中使用了渐进式JPEG。
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/pinterest-loading-large.png"
-        alt="Pinterests JPEGs are all progressively encoded. This optimizes the user experience by loading them each scan-by-scan." />
+
+
+![Pinterests JPEGs are all progressively encoded. This optimizes the user experience by loading them each scan-by-scan.](images/book-images/pinterest-loading-large.png)
+
+
 
 > Pinterest的JPEG都是渐进式编码的。 这通过逐个扫描加载它们来优化用户体验。
 
@@ -363,10 +330,11 @@ gulp.task('images', function () {
 
 大多数图像编辑工具默认将图像保存为基线JPEG文件。
 
-<img
-        class="lazyload"
-        data-src="images/book-images/photoshop-large.jpg"
-        alt="photoshop supports exporting to progressive jpeg from the file export menu" />
+
+
+![photoshop supports exporting to progressive jpeg from the file export menu](images/book-images/photoshop-large.jpg)
+
+
 
 > 大多数图像编辑工具默认将图像保存为基线JPEG文件。 您可以通过转到文件 - >导出 - >保存为Web（旧版），然后单击渐进式选项，将您在Photoshop中创建的任何图像保存为渐进式JPEG。 Sketch还支持直接导出渐进式JPEG  - 导出为JPG并在保存图像时选中“渐进式”复选框。</figcaption>
 
@@ -380,21 +348,15 @@ gulp.task('images', function () {
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/luma-signal-large.jpg"
-        alt="signal = chroma + luma" />
-
-
+![signal = chroma + luma](images/book-images/luma-signal-large.jpg)
 
 由于对比度负责形成我们在图像中看到的形状，因此定义它的亮度非常重要。 老式的旧照片或黑白照片不包含颜色，但由于亮度的原因，它们的显示效果可以像它们的颜色一样细腻。 色度（颜色）对视觉感知的影响较小。
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/no-subsampling-large.jpg"
-        alt="JPEG includes support for numerous subsampling types: none, horizontal and horizontal and vertical." />
+![JPEG includes support for numerous subsampling types: none, horizontal and horizontal and vertical.](images/book-images/no-subsampling-large.jpg)
+
+
 
 > JPEG支持许多不同的子采样类型：无，水平和水平以及垂直。 该图来自FrédéricKayser的[马蹄蟹的JPEG](http://frdx.free.fr/JPEG_for_the_horseshoe_crabs.pdf) 。
 
@@ -418,10 +380,9 @@ There are a number of common samples discussed when talking about subsampling. G
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/subsampling-large.jpg"
-        alt="Chrome subsampling configurations for a JPEG at quality 80." />
+![Chrome subsampling configurations for a JPEG at quality 80.](images/book-images/subsampling-large.jpg)
+
+
 
 > 质量为80的JPEG的色度子采样配置。
 
@@ -433,10 +394,7 @@ There are a number of common samples discussed when talking about subsampling. G
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/Screen_Shot_2017-08-25_at_11.06.27_AM-large.jpg"
-        alt="Be careful when using heavy subsampling with images containing text" />
+![Be careful when using heavy subsampling with images containing text](images/book-images/Screen_Shot_2017-08-25_at_11.06.27_AM-large.jpg)
 
 
 
@@ -465,10 +423,9 @@ Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG sp
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/format-comparison-large.jpg"
-        alt="modern image formats compared based on quality." />
+![modern image formats compared based on quality.](images/book-images/format-comparison-large.jpg)
+
+
 
 > 不同的现代图像格式（和优化器）用于演示目标文件大小在26KB的可能处理方式。 我们可以使用[SSIM](https://en.wikipedia.org/wiki/Structural_similarity) （结构相似性）或 [Butteraugli](https://github.com/google/butteraugli)来比较图像质量，我们将在后面详细介绍。
 
@@ -532,17 +489,11 @@ gulp.task('mozjpeg', () =>
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image10-large.jpg"
-        alt="mozjpeg being run from the command-line" />
+![mozjpeg being run from the command-line](images/book-images/Modern-Image10-large.jpg)
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image11-large.jpg"
-        alt="mozjpeg compression at different qualities. At q=90, 841KB. At q=85, 562KB. At q=75, 324KB. Similarly, Butteraugli and SSIM scores get slightly worse as we lower quality." />
+![mozjpeg compression at different qualities. At q=90, 841KB. At q=85, 562KB. At q=75, 324KB. Similarly, Butteraugli and SSIM scores get slightly worse as we lower quality.](images/book-images/Modern-Image11-large.jpg)
 
 
 
@@ -592,21 +543,15 @@ gulp.task('guetzli', () =>
 
 
 
-<img
-        class="small lazyload"
-        data-src="images/book-images/Modern-Image12-large.jpg"
-        alt="guetzli being run from gulp for optimisation" />
+![guetzli being run from gulp for optimisation](images/book-images/Modern-Image12-large.jpg)
 
 
 
 使用Guetzli编码3 x 3MP图像来节省存储空间需要差不多7分钟（以及高CPU使用率）。 为了存档更高分辨率的照片，我能看出它有很重要的价值。
 
+![comparison of guetzli at different qualities. q=100, 945KB. q=90, 687KB. q=85, 542KB.](images/book-images/Modern-Image13-large.jpg)
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image13-large.jpg"
-        alt="comparison of guetzli at different qualities. q=100, 945KB. q=90, 687KB. q=85, 542KB." />
 
 > Guetzli：不同质量的文件大小和视觉相似度得分的比较。
 
@@ -640,10 +585,7 @@ Guetzli与MozJPEG相比如何？  -  Kornel的观点：
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/Modern-Image14-medium.jpg"
-        alt="butteraugli validating an image of a parrot" />
+![butteraugli validating an image of a parrot](images/book-images/Modern-Image14-medium.jpg)
 
 
 
@@ -653,10 +595,7 @@ Guetzli与MozJPEG相比如何？  -  Kornel的观点：
 
 在实践中，您需要为视觉质量定义一个目标，然后运行一系列不同的图像优化策略，查看您的Butteraugli分数，然后选择最适合文件大小和质量级别之间的平衡。
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/Modern-Image15-large.jpg"
-        alt="butteraugli being run from the command line" />
+![butteraugli being run from the command line](images/book-images/Modern-Image15-large.jpg)
 
 > 总而言之，安装Bazel后，大约花费了我30分钟，在本地安装了ButoGLI，并获得了一个C++源用于构建，以便在我的Mac上能正确编译。使用它是非常直接的：指定要比较的两个图像（源和压缩版本），它会给你一个分数。
 
@@ -682,10 +621,8 @@ Mozjpeg是一个初学者友好的Web资产编码器，速度相对较快，生�
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image16-large.jpg"
-        alt="comparison of webp at different quality settings. q=90, 646KB. q=80= 290KB. q=75, 219KB. q=70, 199KB" />
+![comparison of webp at different quality settings. q=90, 646KB. q=80= 290KB. q=75, 219KB. q=70, 199KB](images/book-images/Modern-Image16-large.jpg)
+
 > WebP：不同质量的文件大小和视觉相似性得分的比较。</figcaption>
 
 
@@ -730,10 +667,7 @@ Netflix、Amazon、Quora、Yahoo、Walmart、eBay、Guardian、Fortune和USA Tod
 
 
 
-<img
-        class="small lazyload"
-        data-src="images/book-images/webp-conversion-large.jpg"
-        alt="WebP stats at Google: over 43B image requests a day" />
+![WebP stats at Google: over 43B image requests a day](images/book-images/webp-conversion-large.jpg)
 
 
 
@@ -751,10 +685,7 @@ WebP的有损编码旨在与JPEG静止图像竞争。 WebP的有损编码有三�
 
 
 
-<img
-        class="small lazyload"
-        data-src="images/book-images/Modern-Image18-medium.png"
-        alt="Macro-blocking example of a Google Doodle where we break a range of pixels down into luma and chroma blocks."/>
+![Macro-blocking example of a Google Doodle where we break a range of pixels down into luma and chroma blocks.](images/book-images/Modern-Image18-medium.png)
 
 
 
@@ -762,10 +693,7 @@ WebP的有损编码旨在与JPEG静止图像竞争。 WebP的有损编码有三�
 
 
 
-<img
-        class="lazyload very-small"
-        data-src="images/book-images/Modern-Image19-small.png"
-        alt="Google Doodle example of a segment displaying the row, target block and column L when considering a prediction model."/>
+![Google Doodle example of a segment displaying the row, target block and column L when considering a prediction model.](images/book-images/Modern-Image19-small.png)
 
 
 
@@ -807,11 +735,7 @@ XnConvert支持批量图像处理，兼容500多种图像格式。 您可以组�
 
 
 
-<img
-        class="small lazyload"
-        data-src="images/book-images/Modern-Image20-large.png"
-        alt="XNConvert app on Mac where a number of images have been converted to WebP"
-         />
+![XNConvert app on Mac where a number of images have been converted to WebP](images/book-images/Modern-Image20-large.png)
 
 
 
@@ -959,11 +883,7 @@ Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk
 
 
 
-<img
-        class="small lazyload"
-        data-src="images/book-images/Modern-Image22-large.jpg"
-        alt="Desktop on a mac showing a WebP file previewed using the Quick Look plugin for WebP files"
-         />
+![Desktop on a mac showing a WebP file previewed using the Quick Look plugin for WebP files](images/book-images/Modern-Image22-large.jpg)
 
 
 
@@ -977,11 +897,7 @@ Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/play-format-webp-large.jpg"
-        alt="The Chrome DevTools Network panel displaying the waterfall for the Play Store in Chrome, where WebP is served."
-         />
+![The Chrome DevTools Network panel displaying the waterfall for the Play Store in Chrome, where WebP is served.](images/book-images/play-format-webp-large.jpg)
 
 
 
@@ -1104,11 +1020,9 @@ image/webp webp;
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/animated-gif-large.jpg"
-        alt="Animated GIF vs. Video: a comparison of file sizes at ~equivalent quality for different formats."
-         />
+![Animated GIF vs. Video: a comparison of file sizes at ~equivalent quality for different formats.](images/book-images/animated-gif-large.jpg)
+
+
 
 > 动画GIF vs. Video: 不同格式的等效质量的文件大小比较。
 
