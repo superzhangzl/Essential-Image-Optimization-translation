@@ -1061,12 +1061,7 @@ image/webp webp;
 
 
 
-
-<img
-        class="lazyload small"
-        data-src="images/book-images/Modern-Image26-large.jpg"
-        alt="svgo"
-         />
+![svgo](images/book-images/Modern-Image26-large.jpg)
 
 
 
@@ -1087,11 +1082,7 @@ image/webp webp;
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/svgo-precision-large.jpg"
-        alt="svgo precision reduction can sometimes have a positive impact on size"
-         />
+![svgo precision reduction can sometimes have a positive impact on size](images/book-images/svgo-precision-large.jpg)
 
 
 
@@ -1103,12 +1094,7 @@ image/webp webp;
 
 
 
-
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image28-large.jpg"
-        alt="where svgo can go wrong, oversimplifying paths and artwork"
-         />
+![where svgo can go wrong, oversimplifying paths and artwork](images/book-images/Modern-Image28-large.jpg)
 
 
 
@@ -1142,11 +1128,7 @@ svgo input.svg --precision=1 -o output.svg
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/before-after-svgo-large.jpg"
-        alt="before and after running an image through svgo"
-         />
+![before and after running an image through svgo](images/book-images/before-after-svgo-large.jpg)
 
 
 
@@ -1158,11 +1140,7 @@ svgo input.svg --precision=1 -o output.svg
 
 
 
-<img
-        class="lazyload very-small"
-        data-src="images/book-images/Modern-Image30-large.jpg"
-        alt="the smallest version of the new google logo was only 305 bytes in size"
-         />
+![the smallest version of the new google logo was only 305 bytes in size](images/book-images/Modern-Image30-large.jpg)
 
 
 
@@ -1196,11 +1174,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/generational-loss-large.jpg"
-        alt="generational loss when re-encoding an image multiple times"
-         />
+![generational loss when re-encoding an image multiple times](images/book-images/generational-loss-large.jpg)
 
 
 
@@ -1220,11 +1194,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/image-pipeline-large.jpg"
-        alt="There are many steps involved in a browser grabbing an image specified in a tag and displaying it on a screen. These include request, decode, resize, copy to GPU and display."
-         />
+![There are many steps involved in a browser grabbing an image specified in a tag and displaying it on a screen. These include request, decode, resize, copy to GPU and display.](images/book-images/image-pipeline-large.jpg)
 
 
 
@@ -1240,11 +1210,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/devtools-decode-large.jpg"
-        alt="image decode costs shown in the chrome devtools"
-         />
+![image decode costs shown in the chrome devtools](images/book-images/devtools-decode-large.jpg)
 
 
 
@@ -1256,11 +1222,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/image-decoding-mobile-large.jpg"
-        alt="Decoding images can be incredibly costly on average and lower-end mobile hardware"
-         />
+![Decoding images can be incredibly costly on average and lower-end mobile hardware](images/book-images/image-decoding-mobile-large.jpg)
 
 
 
@@ -1272,12 +1234,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-
-<img
-        class="lazyload"
-        data-src="images/book-images/image-decoding-large.jpg"
-        alt="Chrome DevTools Timeline/Performance panel highlighting image decode times before and after Twitter Lite optimized their image pipeline. Before was higher."
-         />
+![Chrome DevTools Timeline/Performance panel highlighting image decode times before and after Twitter Lite optimized their image pipeline. Before was higher.](images/book-images/image-decoding-large.jpg)
 
 
 
@@ -1291,12 +1248,8 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 为了匹配用户可能期望的图像质量，请向其设备提供最合适的分辨率图像。 可以将锐化的高DPR图像（例如2×，3×）提供给支持它们的设备。 低级或标准DPR图像应该在没有高分辨率屏幕的情况下提供给用户，因为这样的2× 图像通常会产生更多的字节。
 
-<img
-        class="lazyload"
-        data-src="images/book-images/device-pixel-ratio-large.jpg"
-        alt="A diagram of the device pixel ratio at 1×, 2× and 3×. Image quality appears to sharpen
-        as DPR increases and a visual is shown comparing device pixels to CSS pixels."
-         />
+![A diagram of the device pixel ratio at 1×, 2× and 3×. Image quality appears to sharpen
+        as DPR increases and a visual is shown comparing device pixels to CSS pixels.](images/book-images/device-pixel-ratio-large.jpg)
 
 
 
@@ -1327,11 +1280,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/responsive-art-direction-large.jpg"
-        alt="responsive art direction in action, adapting to show more or less of an image in a cropped manner depending on device"
-         />
+![responsive art direction in action, adapting to show more or less of an image in a cropped manner depending on device](images/book-images/responsive-art-direction-large.jpg)
 
 
 
@@ -1357,10 +1306,9 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/colors_ept6f2-large.jpg"
-        alt="sRGB, Adobe RGB and ProPhoto RGB" />
+![sRGB, Adobe RGB and ProPhoto RGB](images/book-images/colors_ept6f2-large.jpg)
+
+
 
 > 在RGB红色，绿色和蓝色光以不同的组合添加，以产生广泛的颜色。 CYMK（青色，品红色，黄色和黑色）通过不同颜色的墨水从白纸中减去亮度。
 
@@ -1378,12 +1326,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/color-wheel_hazsbk-large.jpg"
-        alt="sRGB, Adobe RGB and ProPhoto RGB" />
-
-
+![sRGB, Adobe RGB and ProPhoto RGB](images/book-images/color-wheel_hazsbk-large.jpg)
 
 
 
@@ -1395,12 +1338,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/srgb-rgb_ntuhi4-large.jpg"
-        alt="sRGB, Adobe RGB and ProPhoto RGB" />
-
-
+![sRGB, Adobe RGB and ProPhoto RGB](images/book-images/srgb-rgb_ntuhi4-large.jpg)
 
 
 
@@ -1471,11 +1409,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/i2_2ec824b0_1-large.jpg"
-        alt="Image sprites are still widely used in large, production sites, including the Google homepage."
-         />
+![Image sprites are still widely used in large, production sites, including the Google homepage.](images/book-images/i2_2ec824b0_1-large.jpg)
 
 
 
@@ -1497,11 +1431,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/scrolling-viewport-large.jpg"
-        alt="lazy-loading images"
-         />
+![lazy-loading images](images/book-images/scrolling-viewport-large.jpg)
 
 
 
@@ -1533,11 +1463,9 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image35-large.jpg"
-        alt="inline previews for images on medium.com"
-         />
+![inline previews for images on medium.com](images/book-images/Modern-Image35-large.jpg)
+
+
 
 > Medium.com上图像的高斯模糊内联预览的示例
 
@@ -1592,11 +1520,11 @@ Lazysizes是一个JavaScript库。 它不需要配置。 下载压缩的js文件
 
 对于本书的Web版本，我将Lazysizes（尽管您可以使用任何替代方案）与Cloudinary配对，以实现按需响应式图像。 这使我可以自由地尝试不同的尺度，质量，格式值以及是否以最小的努力逐步加载：
 
-<img
-        class="lazyload"
-        data-src="images/book-images/cloudinary-responsive-images-large.jpg"
-        alt="Cloudinary supports on-demand control of image quality, format and several other features."
-         />
+
+
+![Cloudinary supports on-demand control of image quality, format and several other features.](images/book-images/cloudinary-responsive-images-large.jpg)
+
+
 
 **Lazysizes功能包括：**
 
@@ -1662,11 +1590,7 @@ A quick check against the Chrome DevTools network panel will verify that images 
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/display-none-images-large.jpg"
-        alt="Images hidden with display:none still get fetched"
-         />
+![Images hidden with display:none still get fetched](images/book-images/display-none-images-large.jpg)
 
 
 
@@ -1728,13 +1652,7 @@ Third, API access is provided by both services. Developers can access the CDN pr
 
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/Modern-Image36-large.jpg"
-        alt="cloudinary media library"
-         />
-
-
+![cloudinary media library](images/book-images/Modern-Image36-large.jpg)
 
 
 
@@ -1839,11 +1757,9 @@ CDN需要花钱。 拥有大量流量的图像繁重的网站每月可能需要�
 
 [Philips](https://www.usa.philips.com/)，[Flipkart](https://www.flipkart.com/) 和[Xerox](https://www.xerox.com/) 等网站使用`<link rel = preload>`来预加载其主要LOGO（通常在文档的早期使用）。 [Kayak](https://kayak.com/) 还使用预加载来确保尽快加载其标题页的主页横幅。
 
-<img
-        class="lazyload"
-        data-src="images/book-images/preload-philips-large.jpg"
-        alt="Philips use link rel=preload to preload their logo image"
-         />
+
+
+![Philips use link rel=preload to preload their logo image](images/book-images/preload-philips-large.jpg)
 
 
 
@@ -1860,11 +1776,8 @@ Link: <https://example.com/logo-hires.jpg>; rel=preload; as=image
 当英国“金融时报”向其网站引入了链接预加载标题时，他们将显示其标题图像所花费的时间[缩短了1秒](https://twitter.com/wheresrhys/status/843252599902167040)：
 
 
-<img
-        class="lazyload"
-        data-src="images/book-images/preload-financial-times-large.jpg"
-        alt="The FT using preload. Displayed are the WebPageTest before and after traces showing improvements."
-         />
+
+![The FT using preload. Displayed are the WebPageTest before and after traces showing improvements.](images/book-images/preload-financial-times-large.jpg)
 
 
 
@@ -1902,21 +1815,15 @@ Link: <https://example.com/logo-hires.jpg>; rel=preload; as=image
 
 
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/F2BCD61B-85C5-4E82-88CF-9E39CB75C9C0-large.jpg"
-        alt="SpeedCurve image size monitoring."
-         />
+![SpeedCurve image size monitoring.](images/book-images/F2BCD61B-85C5-4E82-88CF-9E39CB75C9C0-large.jpg)
 
 
 
 Calibre提供了类似的功能，支持为您定位的每个设备级别设置指标。 这非常有用，因为您通过WiFi在个人PC桌面上调整图片大小的指标可能会因移动设备的指标而有很大差异。
 
-<img
-        class="lazyload small"
-        data-src="images/book-images/budgets-large.jpg"
-        alt="Calibre supports budgets for image sizes."
-         />
+
+
+![Calibre supports budgets for image sizes.](images/book-images/budgets-large.jpg)
 
 
 
