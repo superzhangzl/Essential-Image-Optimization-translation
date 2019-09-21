@@ -273,7 +273,7 @@ JPEG图像格式具有许多不同的[压缩模式](http://cs.haifa.ac.il/~nimro
 
 对于超过10KB的图像，渐进式JPEG可以改善压缩能力，与基线/简单JPEG相比，带宽减少 [2-10%](http://www.bookofspeed.com/chapter5.html) 。 它们的压缩比更高，这要归功于JPEG中的每次扫描都能够使用自己专用的可选[Huffman 表](https://en.wikipedia.org/wiki/Huffman_coding)。 现代JPEG编码器（例如：[libjpeg-turbo](http://libjpeg-turbo.virtualgl.org/)，MozJPEG等）利用PJPEG的灵活性来更好地打包数据。
 
-**Note：**为什么渐进式JPEG压缩得更好？ 基线JPEG的数据库块一次编码一个。 利用渐进式JPEG，可以将多个数据块的类似[离散余弦变换](https://en.wikipedia.org/wiki/Discrete_cosine_transform) 系数编码在一起，从而实现更好的压缩。
+**Note：** 为什么渐进式JPEG压缩得更好？ 基线JPEG的数据库块一次编码一个。 利用渐进式JPEG，可以将多个数据块的类似[离散余弦变换](https://en.wikipedia.org/wiki/Discrete_cosine_transform) 系数编码在一起，从而实现更好的压缩。
 
 渐进式JPEG的另一个优点是在HTTP2上，页面和第一个扫描层同时加载，这[提高了用户查看初始图像内容的速度](https://calendar.perfplanet.com/2016/even-faster-images-using-http2-and-progressive-jpegs/) ，并使浏览器能够更快地布局页面元素。 将其与渐进式JPEG的定制扫描层相结合，例如：通过[向mozjpeg提供自定义扫描文件](https://calendar.perfplanet.com/wp-content/uploads/2016/12/scans.txt) 或使用[Cloudinary的自定义PJPEG选项](http://cloudinary.com/blog/progressive_jpegs_and_green_martians) ，可以更快地为用户呈现真正有意义的图像内容。
 
@@ -370,7 +370,8 @@ There are a number of common samples discussed when talking about subsampling. G
  -  `4:2:2` 水平半采样，垂直全采样。
  -  `4:2:0` 从第一行像素的一半中采样颜色，忽略第二行。
 
-<aside class="note"><b>Note:</b> jpegtran和cjpeg支持单独的亮度和色度质量配置。 这可以通过添加`-sample`标志来完成（例如`-sample 2x1`）。
+**Note：** jpegtran和cjpeg支持单独的亮度和色度质量配置。 这可以通过添加`-sample`标志来完成（例如`-sample 2x1`）。
+
 
 一些好的一般规则：子采样（`-sample 2x2`）非常适合照片。 无子采样（`-sample 1x1`）最适用于屏幕截图、横幅和按钮。 最后（`2x1`）在你不确定要使用什么的时候使用。
 
@@ -408,7 +409,7 @@ Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG sp
 
 **Note：** 使用“保存为网络图像”的功能时，Photoshop会自动设置色度子采样。 当图像质量设置在51-100之间时，不会使用子采样（`4:4:4`）。 当质量低于此值时，将使用`4:2:0`子采样。 这是当质量从51切换到50时可以显著观察到的文件大小降低的一个原因。
 
-**Note： **在二次抽样讨论中，经常提到术语 [YCbCr](https://en.wikipedia.org/wiki/YCbCr)。 这是一个可以表示伽马校正的 [RGB](https://en.wikipedia.org/wiki/RGB_color_model) 色彩空间的模型。 Y是伽马校正的亮度，Cb是蓝色的色度分量，Cr是红色的色度分量。 当你观察ExifData时，你会看到YCbCr接近采样水平。
+**Note：** 在二次抽样讨论中，经常提到术语 [YCbCr](https://en.wikipedia.org/wiki/YCbCr)。 这是一个可以表示伽马校正的 [RGB](https://en.wikipedia.org/wiki/RGB_color_model) 色彩空间的模型。 Y是伽马校正的亮度，Cb是蓝色的色度分量，Cr是红色的色度分量。 当你观察ExifData时，你会看到YCbCr接近采样水平。
 
 有关色度子采样的进一步阅读，请参考[为什么您的图像不使用色度子采样？](https://calendar.perfplanet.com/2015/why-arent-your-images-using-chroma-subsampling/)
 
@@ -521,7 +522,7 @@ gulp.task('mozjpeg', () =>
 
 与其他压缩方式相比，Guetzli[宣称](https://research.googleblog.com/2017/03/announcing-guetzli-new-open-source-jpeg.html ) 对于给定的Butteraugli分数，图像的数据大小减少了20-30％。 对于使用Guetzli的一个严重的警告是它非常非常慢，目前仅适用于静态内容。 从README，我们可以注意到Guetzli需要大量内存 - 每百万像素可能需要1分钟+ 200MB RAM。 在这个GitHub的一个[issue](https://github.com/google/guetzli/issues/50)中，有一个关于Guetzli实际体验的准确描述。 当您在静态站点的构建过程中对图像进行优化时，它是理想的选择，但在按需执行时则不太理想。
 
-**Note： **作为静态站点的构建过程中优化图像时，Guetzli可能更适合。或者不用按需执行图像优化的情况。
+**Note： ** 作为静态站点的构建过程中优化图像时，Guetzli可能更适合。或者不用按需执行图像优化的情况。
 
 像ImageOptim这样的工具支持Guetzli优化（在[最新版本](https://imageoptim.com/)中）。
 
@@ -558,7 +559,7 @@ gulp.task('guetzli', () =>
 
 
 
-**Note： **建议在高质量图像上运行Guetzli（例如，未压缩的输入图像，PNG源或100％质量或接近的JPEG）。虽然它也可以用于其他图像（例如质量为84或更低的JPEG），但结果可能更差。
+**Note： ** 建议在高质量图像上运行Guetzli（例如，未压缩的输入图像，PNG源或100％质量或接近的JPEG）。虽然它也可以用于其他图像（例如质量为84或更低的JPEG），但结果可能更差。
 
 虽然使用Guetzli压缩图像非常（非常）耗时并且会使您的风扇疯狂旋转，但对于较大的图像，这是值得的。 我已经看到了许多例子，在保持视觉逼真度的同时，它可以在任何地方保存高达40%的文件大小。 这使其非常适合存档照片。 在中小尺寸的图像上，我仍然看到了一些节省（在10-15KB范围内），但它们并没有那么明显。 Guetzli可以在压缩时在较小的图像上引入更多的液化扭曲。
 
@@ -652,7 +653,7 @@ WebP 文件格式支持EXIF 照片元数据和XMP 数字文档元数据。它还
 
 WebP 以占用更多 CPU 的成本提供更好的压缩。早在 2013 年，WebP 的压缩速度比 JPEG 慢约10倍，但现在可以忽略不计（某些图像可能慢 2倍）。对于作为生成一部分处理的静态图像，这应该不是大问题。动态生成的图像可能会出现可感知的 CPU 开销，并且需要评估。
 
-**备注：**WebP有损质量设置与JPEG无法直接比较。 “70％质量”的JPEG与“70％质量”的WebP图像完全不同，因为WebP通过丢弃更多数据来实现更小的文件大小。
+**Note：** WebP有损质量设置与JPEG无法直接比较。 “70％质量”的JPEG与“70％质量”的WebP图像完全不同，因为WebP通过丢弃更多数据来实现更小的文件大小。
 
 
 
@@ -728,7 +729,7 @@ WebP并非没有缺点。 它缺乏全分辨率色彩空间选项，不支持渐
 
 一些商业和开源图像编辑处理包支持WebP。 其中一个特别有用的应用是XnConvert：一个免费的，跨平台的批量图像处理转换器。
 
-**备注：** 避免将低质量或普通质量的JPEG转换为WebP这一点非常重要。使用 JPEG压缩工具生成WebP图像是一个常见的错误。 这可能导致WebP效率降低，因为它必须保存图像和JPEG添加的失真，从而导致两次损失质量。适合 Feed转换应用程序的是高质量源文件，最好是原始文件。
+**Note：** 避免将低质量或普通质量的JPEG转换为WebP这一点非常重要。使用 JPEG压缩工具生成WebP图像是一个常见的错误。 这可能导致WebP效率降低，因为它必须保存图像和JPEG添加的失真，从而导致两次损失质量。适合 Feed转换应用程序的是高质量源文件，最好是原始文件。
 
 **[XnConvert](http://www.xnview.com/en/xnconvert/)**
 
@@ -1155,7 +1156,7 @@ Tools like [svg-sprite](https://github.com/jkphl/svg-sprite) and [IcoMoon](https
 
 **更多阅读**
 
-Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/2014/tips-for-optimising-svg-delivery-for-the-web/)和Chris Coyier的[实用SVG书](https://abookapart.com/products/practical-svg)非常好。 我还发现Andreas Larsen的优化SVG帖子很有启发性[第1部分](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-1-67e8f2d4035)，[部分 2](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-2-6711cc15df46)。[在Sketch中准备和导出SVG图标](https：// medium .com / sketch-app-sources / preparation-and-exports-svg-icons-in-sketch-1a3d65b239bb)也是一本很棒的读物。
+Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/2014/tips-for-optimising-svg-delivery-for-the-web/)和Chris Coyier的[实用SVG书](https://abookapart.com/products/practical-svg)非常好。 我还发现Andreas Larsen的优化SVG帖子很有启发性[第1部分](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-1-67e8f2d4035)，[部分 2](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-2-6711cc15df46)。[在Sketch中准备和导出SVG图标](https://medium.com/sketch-app-sources/preparation-and-exports-svg-icons-in-sketch-1a3d65b239bb) 也是一本很棒的读物。
 
 
 
@@ -1348,7 +1349,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 [宽色域](http://www.astramael.com/) 是描述色域大于sRGB的色域的术语。 这些类型的显示器正变得越来越普遍。 也就是说，许多数字显示器仍然无法显示明显优于sRGB的颜色配置文件。 在Photoshop中保存网页图像时，请考虑使用“转换为sRGB”选项，除非定位具有高端宽色域屏幕的用户。
 
-**Note：**使用原始照片时，请避免使用sRGB作为主要色彩空间。 它比大多数相机支持的色彩空间小，并且可能导致剪裁。 相反，在导出Web时，可以在更大的色彩空间（如ProPhoto RGB）进行处理并输出到sRGB。
+**Note：** 使用原始照片时，请避免使用sRGB作为主要色彩空间。 它比大多数相机支持的色彩空间小，并且可能导致剪裁。 相反，在导出Web时，可以在更大的色彩空间（如ProPhoto RGB）进行处理并输出到sRGB。
 
 
 
@@ -1370,7 +1371,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 即使在两种情况下，物理上都添加了完全相同的光量。 因此，当光线明亮时，眼睛不那么敏感，伽马压缩会“压缩”明亮的值，因此在物理方面，亮度水平不太精确，但是人体调整了比例，因此从人的角度来看，所有值都同样精确。
 
-**Note：**此处的伽马压缩/校正与您在Photoshop中可能配置的图像伽玛曲线不同。当伽玛压缩按预期工作时，将看不错任何区别。
+**Note：** 此处的伽马压缩/校正与您在Photoshop中可能配置的图像伽玛曲线不同。当伽玛压缩按预期工作时，将看不错任何区别。
 
 
 
@@ -1382,7 +1383,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 （译者注：JPEG在使用CMYK色彩模式作为喷绘打印的图像时，ICC配置文件就非常重要，尤其是使用代码生成时，否则会导致目标文件色彩显示错误（就是能显示，但是颜色偏差非常大）导致无法打印。以JAVA为例：需要先解析MetaTree，将ICC配置文件嵌入进去，再进行合并。）
 
-**Note：**某些显示器具有与sRGB类似的颜色配置文件，并且无法显示更好的配置文件，因此根据您目标用户的显示设备，嵌入它们的价值可能有限。 确定目标用户是哪些。
+**Note：** 某些显示器具有与sRGB类似的颜色配置文件，并且无法显示更好的配置文件，因此根据您目标用户的显示设备，嵌入它们的价值可能有限。 确定目标用户是哪些。
 
 嵌入的颜色配置文件也会大大增加图像的大小（偶尔会增加100KB），因此请小心嵌入。 像ImageOptim这样的工具实际上会在找到它们时[自动](https://imageoptim.com/color-profiles.html)删除颜色配置文件。 相反，在缩小尺寸名称中删除ICC配置文件时，浏览器将被迫在显示器的色彩空间中显示图像，这可能导致预期饱和度和对比度的差异。 评估这之间的权衡对您的用例很有意义。
 
@@ -1394,7 +1395,7 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 早期版本的Chrome对色彩管理没有很好的支持，但2017年使用 [Color Correct Rendering](https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/ptuKdRQwPAo)进行了改进。 不是sRGB（较新的MacBook Pro）的显示器会将sRGB中的颜色按照显示配置文件进行转换。 这意味着不同系统和浏览器的颜色看起来应该更相似。 Safari，Edge和Firefox现在也可以考虑ICC配置文件，因此具有不同颜色配置文件（例如ICC）的图像现在可以正确显示它们，无论您的屏幕是否具有宽色域。
 
-**Note：**有关色彩如何在网络上工作这方面的更广泛的意见，请参阅Sarah Drasner撰写的[网站色彩指南](https://css-tricks.com/nerds-guide-color-web/)。
+**Note：** 有关色彩如何在网络上工作这方面的更广泛的意见，请参阅Sarah Drasner撰写的[网站色彩指南](https://css-tricks.com/nerds-guide-color-web/)。
 
 
 
@@ -1442,17 +1443,17 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 这种只在必要时加载图像的“延迟”方式有很多好处：
 
-* **减少数据消耗：**由于您没有假设用户需要提前获取所有图像，因此您只需加载最少量的资源。 这总是一件好事，特别是在具获取数据又限制的移动设备上。
-* **减少电池消耗**：减少用户浏览器的工作量，从而节省电池寿命。
-* **提高下载速度**：将图像繁重的网站上的整个页面加载时间从几秒减少到几乎没有，这对用户体验起到了巨大的推动作用。 事实上，这可能是用户留下来享受您的网站或离开您的网站之间的统计数据区别。
+* **减少数据消耗：** 由于您没有假设用户需要提前获取所有图像，因此您只需加载最少量的资源。 这总是一件好事，特别是在具获取数据又限制的移动设备上。
+* **减少电池消耗：** 减少用户浏览器的工作量，从而节省电池寿命。
+* **提高下载速度：** 将图像繁重的网站上的整个页面加载时间从几秒减少到几乎没有，这对用户体验起到了巨大的推动作用。 事实上，这可能是用户留下来享受您的网站或离开您的网站之间的统计数据区别。
 
 **但是像所有工具一样，强大的功能带来了巨大的责任。**
 
-**避免在首屏上方加载延迟图像。**将其用于长图像列表（例如产品列表）或用户头像列表。 不要将它用作主页横幅。 从技术上和对人的感知上来说，延迟加载fold上方的图像会使加载明显变慢。 它会杀死浏览器的预加载器，渐进式加载和JavaScript会为浏览器带来额外的开销。
+**避免在首屏上方加载延迟图像。** 将其用于长图像列表（例如产品列表）或用户头像列表。 不要将它用作主页横幅。 从技术上和对人的感知上来说，延迟加载fold上方的图像会使加载明显变慢。 它会杀死浏览器的预加载器，渐进式加载和JavaScript会为浏览器带来额外的开销。
 
 （译者注： hero image意为主页横幅）
 
-**滚动时要非常小心延迟加载图像。**如果你等到用户滚动可能会先看到占位符，并且最终会获得图像，如果它们还没有滚过它们的话。 一个建议是在fold上方图像加载后就开始延迟加载，这样加载所有图像而不依赖于用户交互。
+**滚动时要非常小心延迟加载图像。** 如果你等到用户滚动可能会先看到占位符，并且最终会获得图像，如果它们还没有滚过它们的话。 一个建议是在fold上方图像加载后就开始延迟加载，这样加载所有图像而不依赖于用户交互。
 
 **谁在使用延迟加载？**
 
@@ -1581,7 +1582,7 @@ Lazysizes 不是你唯一的选项，这里还有更多延迟加载的类库：
 <img src=“img-hidden.jpg" class="hidden">
 ```
 
-A quick check against the Chrome DevTools network panel will verify that images hidden using these approaches still get fetched, even when we expect them not to be. This behavior is actually correct per the embedded resources spec.、
+
 
 对Chrome DevTools的network面板进行快速检查，将验证使用这些方法隐藏的图像是否仍会被取出？即使我们预计不会这样。 根据嵌入式资源规范，此行为实际上是正确的。
 
@@ -1640,8 +1641,6 @@ Cloudinary和[imgix](https://www.imgix.com/)是两个已创建的图像处理CDN
 其次，每个服务都有分层定价计划，与高容量溢价计划相比，Cloudinary 提供[免费](http://cloudinary.com/pricing)的定价，imgix 以低廉的价格为其标准级别定价。Imgix 提供免费[试用版](https://www.imgix.com/pricing)，并享有服务积分，因此几乎相当于免费级别。
 
 第三，API 访问由两个服务提供。开发人员可以以编程方式访问 CDN 并自动处理。还提供客户端库、框架插件和 API 文档，某些功能仅限于较高付费级别。
-
-Third, API access is provided by both services. Developers can access the CDN programmatically and automate their processing. Client libraries, framework plugins, and API documentation are also available, with some features restricted to higher paid levels.
 
 **让我们开始图像处理**
 
@@ -1730,7 +1729,7 @@ CDN需要花钱。 拥有大量流量的图像繁重的网站每月可能需要�
 
 设置HTTP缓存标头时，将Cache-Control设置为max-age为一年（例如`Cache-Control:public; max-age = 31536000`）。 这种类型的较为激进的缓存策略适用于大多数类型的图像，特别是那些像头像和图像标题一样长久不变的图像。
 
-**注：**如果您使用PHP提供图像，则由于默认的[session_cache_limiter](http://php.net/manual/en/function.session-cache-limiter.php)设置，它可以破坏缓存。 这可能是图像缓存的灾难，您可能希望通过设置session_cache_limiter（'public'）来[解决此问题](https://stackoverflow.com/a/3905468)，该会话将设置为`public, max-age =`。 禁用和设置自定义缓存控制标头也可以。
+**Note：** 如果您使用PHP提供图像，则由于默认的[session_cache_limiter](http://php.net/manual/en/function.session-cache-limiter.php)设置，它可以破坏缓存。 这可能是图像缓存的灾难，您可能希望通过设置session_cache_limiter（'public'）来[解决此问题](https://stackoverflow.com/a/3905468)，该会话将设置为`public, max-age =`。 禁用和设置自定义缓存控制标头也可以。
 
 
 
