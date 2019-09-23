@@ -182,7 +182,7 @@
 
 [矢量图形](https://en.wikipedia.org/wiki/Vector_graphics) 使用点、线和多边形来表示图像和格式，使用简单的几何形状（例如logo）提供高分辨率和缩放，像SVG在处理这种情况会更好。（TODO）
 
-[矢量图形](https://en.wikipedia.org/wiki/Vector_graphics) use points, lines and polygons to represent images and formats using simple geometric shapes (e.g. logos) offering a high-resolution and zoom like SVG handle this use case better.
+
 
 错误的格式会让你付出代价，选择使用正确格式的逻辑流程可能充满风险，因此使用其他格式保存图像进行实验可以规避这些风险。（TODO）
 
@@ -364,8 +364,6 @@ gulp.task('images', function () {
 
 在谈论子采样时，讨论了许多常见的样本。 通常为`4:4:4`，`4:2:2`和`4:2:0`。 但这些代表什么呢？ 假设子样本采用格式A:B:C。 A是一行中的像素数，对于JPEG，这通常是4. B表示第一行中的颜色量，C表示第二行中的颜色。
 
-There are a number of common samples discussed when talking about subsampling. Generally, `4:4:4`, `4:2:2` and `4:2:0`. But what do these represent? Let’s say a subsample takes the format A:B:C. A is the number of pixels in a row and for JPEGs this is usually 4. B represents the amount of color in the first row and C the color in the second.
-
  -  `4:4:4` 没有压缩，因此颜色和亮度完全被传输。
  -  `4:2:2` 水平半采样，垂直全采样。
  -  `4:2:0` 从第一行像素的一半中采样颜色，忽略第二行。
@@ -405,7 +403,7 @@ There are a number of common samples discussed when talking about subsampling. G
 
 备注：JPEG规范中未指定色度子采样的确切方法，因此不同的解码器处理它的方式不同。 MozJPEG和libjpeg-turbo使用相同的缩放方法。 较旧版本的libjpeg使用不同的方法来添加颜色中的铃声伪像。（TODO）
 
-Trivia: The exact method of Chroma subsampling wasn’t specified in the JPEG specification, so different decoders handle it differently. MozJPEG and libjpeg-turbo use the same scaling method. Older versions of libjpeg use a different method that adds ringing artifacts in colors.
+
 
 **Note：** 使用“保存为网络图像”的功能时，Photoshop会自动设置色度子采样。 当图像质量设置在51-100之间时，不会使用子采样（`4:4:4`）。 当质量低于此值时，将使用`4:2:0`子采样。 这是当质量从51切换到50时可以显著观察到的文件大小降低的一个原因。
 
@@ -920,7 +918,7 @@ Jeremy Wagner在[使用Bash进行图像优化](https://jeremywagner.me/blog/bulk
 
 **Using .htaccess to Serve WebP Copies**
 
-以下是当服务器上存在匹配的.webp版本的JPEG / PNG文件时，如何使用.htaccess文件向支持的浏览器提供WebP文件。
+以下是当服务器上存在匹配的.webp版本的JPEG/PNG文件时，如何使用.htaccess文件向支持的浏览器提供WebP文件。
 
 Vincent Orback推荐这种方法：
 
@@ -1046,7 +1044,6 @@ image/webp webp;
 **如果您必须使用动画GIF**
 
 *   像Gifsicle这样的工具可以剥离元数据、未使用的调色板条目，并最小化帧之间的变化
-*   Consider a lossy GIF encoder. The [Giflossy](https://github.com/kornelski/giflossy) fork of Gifsicle supports this with the `—lossy` flag and can shave ~60-65% off size. There’s also a nice tool based on it called [Gifify](https://github.com/vvo/gifify). For non-animated GIFs, convert them to PNG or WebP.
 *   考虑有损GIF编码器。 fork于Gifsicle 的 [Giflossy](https://github.com/kornelski/giflossy)支持用`-lossy`标志，可以减少约60-65％的尺寸。 还有一个很好的基于它的工具，叫做 [Gifify](https://github.com/vvo/gifify)。 对于非动画GIF，请将它们转换为PNG或WebP。
 
 有关更多信息，请查看Rigor的[Book of GIF](https://rigor.com/wp-content/uploads/2017/03/TheBookofGIFPDF.pdf)。
@@ -1246,6 +1243,8 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 
 为了匹配用户可能期望的图像质量，请向其设备提供最合适的分辨率图像。 可以将锐化的高DPR图像（例如2×，3×）提供给支持它们的设备。 低级或标准DPR图像应该在没有高分辨率屏幕的情况下提供给用户，因为这样的2× 图像通常会产生更多的字节。
 
+
+
 ![A diagram of the device pixel ratio at 1×, 2× and 3×. Image quality appears to sharpen
         as DPR increases and a visual is shown comparing device pixels to CSS pixels.](images/book-images/device-pixel-ratio-large.jpg)
 
@@ -1265,6 +1264,8 @@ Sara Soueidan的[优化网络SVG交付技巧](https://calendar.perfplanet.com/20
 ```
 
 像[Cloudinary](http://cloudinary.com/blog/how_to_automatically_adapt_website_images_to_retina_and_hidpi_devices)和[Imgix](https://docs.imgix.com/apis/url/dpr)这样的图像CDN都支持控制图像密度，以提供最佳密度给来源符合规范的用户。
+
+
 
 **Note**：您可以在此免费的 [Udacity](https://www.udacity.com/course/responsive-images--ud882) 课程和Web基础知识的[图像指南](https://developers.google.com/web/fundamentals/design-and-ui/responsive/images)中了解有关设备像素比率和响应式图像的更多信息。
 
@@ -1693,7 +1694,7 @@ Cloudinary支持以下图像格式：JPEG，JPEG 2000，JPEG XR，PNG，GIF，�
 
 CDN分发性能主要是关于[延迟](https://docs.google.com/a/chromium.org/viewer?a=v&pid=sites&srcid=Y2hyb21pdW0ub3JnfGRldnxneDoxMzcyOWI1N2I4YzI3NzE2) 和速度。
 
-对于完全未缓存的图像，延迟总是有所增加。 但是，一旦图像被缓存并在网络服务器之间分布，全局CDN可以找到最短的用户节点，加上正确处理的图像的字节节省，与图像处理不当的单机节点试图覆盖整个全球范围相比，几乎总能缓解延迟问题。
+对于完全未缓存的图像，延迟总是有所增加。 但是，一旦图像被缓存并在网络服务器之间分布，全局CDN可以找到距离最短的用户节点，加上正确处理的图像的字节节省，与图像处理不当的单机节点试图覆盖整个全球范围相比，几乎总能缓解延迟问题。
 
 （译者注：hop 是网络请求查询路由表的下一个就近节点，俗称下一跳，此处翻译为节点比较合适。）
 
@@ -1736,8 +1737,6 @@ CDN需要花钱。 拥有大量流量的图像繁重的网站每月可能需要�
 ## <a id="preload-critical-image-assets" href="#preload-critical-image-assets">预加载关键图像资产</a>
 
 可以使用[`<link rel = preload>`](https://www.w3.org/TR/preload/)预加载关键图像资源。
-
-`<link rel=preload>` is a declarative fetch, allowing you to force the browser to make a request for a resource without blocking the document’s `onload` event. It enables increasing the priority of requests for resources that might otherwise not be discovered until later in the document parsing process. 
 
 `<link rel = preload>`是一个声明性提取，允许您强制浏览器发出资源请求而不阻塞文档的`onload`事件。 它可以提高资源请求的优先级，否则在文档解析过程的后期才能发现这些资源。
 
