@@ -30,54 +30,54 @@
 <summary><h2>目录</h2></summary>
 <p>
 <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#do-my-images-need-optimization">How can I tell if my images need to be optimized?</a></li>
-        <li><a href="#choosing-an-image-format">How do I choose an image format?</a></li>
-        <li><a href="#the-humble-jpeg">The humble JPEG</a></li>
-        <li><a href="#jpeg-compression-modes">JPEG compression modes</a>
+        <li><a href="#introduction">简介</a></li>
+        <li><a href="#do-my-images-need-optimization">如何判断图像是否需要优化？</a></li>
+        <li><a href="#choosing-an-image-format">如何选择图像格式?</a></li>
+        <li><a href="#the-humble-jpeg">精简的JPEG</a></li>
+        <li><a href="#jpeg-compression-modes">JPEG 压缩模式</a>
                 <ul>
-                        <li><a href="#the-advantages-of-progressive-jpegs">The advantages of Progressive JPEGs</a></li>
-                        <li><a href="#whos-using-progressive-jpegs-in-production">Who’s using Progressive JPEGs in production?</a></li>
-                        <li><a href="#the-disadvantages-of-progressive-jpegs">The disadvantages of Progressive JPEGs</a></li>
-                        <li><a href="#how-to-create-progressive-jpegs">How do you create Progressive JPEGs?</a></li>
-                        <li><a href="#chroma-subsampling">Chroma (or Color) Subsampling</a></li>
-                        <li><a href="#how-far-have-we-come-from-the-jpeg">How far have we come from the JPEG?</a></li>
-                        <li><a href="#optimizing-jpeg-encoders">Optimizing JPEG Encoders</a></li>
-                        <li><a href="#what-is-mozjpeg">What is MozJPEG?</a></li>
-                        <li><a href="#what-is-guetzli">What is Guetzli?</a></li>
-                        <li><a href="#mozjpeg-vs-guetzli">How does MozJPEG compare to Guetzli?</a></li>
+                        <li><a href="#the-advantages-of-progressive-jpegs">渐进式JPEG的优点</a></li>
+                        <li><a href="#whos-using-progressive-jpegs-in-production">谁在产品中使用渐进式JPEG？</a></li>
+                        <li><a href="#the-disadvantages-of-progressive-jpegs">渐进式JPEG的缺点</a></li>
+                        <li><a href="#how-to-create-progressive-jpegs">如何创建渐进式JPEG？</a></li>
+                        <li><a href="#chroma-subsampling">色度（或色彩）子采样</a></li>
+                        <li><a href="#how-far-have-we-come-from-the-jpeg">我们举例JPEG有多遥远？</a></li>
+                        <li><a href="#optimizing-jpeg-encoders">优化JPEG编码器</a></li>
+                        <li><a href="#what-is-mozjpeg">什么是MozJPEG？</a></li>
+                        <li><a href="#what-is-guetzli">什么是Guetzli？</a></li>
+                        <li><a href="#mozjpeg-vs-guetzli">MozJPEG与Guetzli相比如何？</a></li>
                         <li><a href="#butteraugli">Butteraugli</a></li>
                 </ul>
         </li>
-        <li><a href="#what-is-webp">What is WebP?</a>
+        <li><a href="#what-is-webp">什么是WebP?</a>
                 <ul>
-                        <li><a href="#how-does-webp-perform">How does WebP perform?</a></li>
-                        <li><a href="#whos-using-webp-in-production">Who’s using WebP in production?</a></li>
-                        <li><a href="#how-does-webp-encoding-work">How does WebP encoding work?</a></li>
-                        <li><a href="#webp-browser-support">WebP browser support</a></li>
-                        <li><a href="#how-do-i-convert-to-webp">How do I convert my images to WebP?</a></li>
-                        <li><a href="#how-do-i-view-webp-on-my-os">How do I view WebP images on my OS?</a></li>
-                        <li><a href="#how-do-i-serve-webp">How do I serve WebP?</a></li>
+                        <li><a href="#how-does-webp-perform">WebP的表现如何？</a></li>
+                        <li><a href="#whos-using-webp-in-production">谁在生产中使用WebP？</a></li>
+                        <li><a href="#how-does-webp-encoding-work">WebP编码如何工作？</a></li>
+                        <li><a href="#webp-browser-support">WebP 浏览器支持</a></li>
+                        <li><a href="#how-do-i-convert-to-webp">我如何将图像转为WebP?</a></li>
+                        <li><a href="#how-do-i-view-webp-on-my-os">如何在我的操作系统上查看WebP图像？</a></li>
+                        <li><a href="#how-do-i-serve-webp">我如何提供WebP服务？</a></li>
                 </ul>
         </li>
-        <li><a href="#svg-optimization">SVG optimization</a></li>
-        <li><a href="#avoid-recompressing-images-lossy-codecs">Avoid recompressing images with lossy codecs</a></li>
-        <li><a href="#reduce-unnecessary-image-decode-costs">Reduce unnecessary image decode and resize costs</a>
+        <li><a href="#svg-optimization">SVG优化</a></li>
+        <li><a href="#avoid-recompressing-images-lossy-codecs">避免使用有损编解码器重新压缩图像</a></li>
+        <li><a href="#reduce-unnecessary-image-decode-costs">减少不必要的图像解码并裁剪消耗</a>
                 <ul>
-                        <li><a href="#delivering-hidpi-with-srcset">Delivering HiDPI images using <code>srcset</code></a></li>
-                        <li><a href="#art-direction">Art direction</a></li>
+                        <li><a href="#delivering-hidpi-with-srcset">使用<code>srcset</code>提供HiDPI图像 </a></li>
+                        <li><a href="#art-direction">艺术方向</a></li>
                 </ul>
         </li>
-        <li><a href="#color-management">Color management</a></li>
+        <li><a href="#color-management">色彩管理</a></li>
         <li><a href="#image-sprites">Image spriting</a></li>
-        <li><a href="#lazy-load-non-critical-images">Lazy-load non-critical images</a></li>
-        <li><a href="#display-none-trap">Avoiding the <code>display: none;</code> trap</a></li>
-        <li><a href="#image-processing-cdns">Does an image processing CDN make sense for you?</a></li>
-        <li><a href="#caching-image-assets">Caching image assets</a></li>
-        <li><a href="#preload-critical-image-assets">Preloading critical image assets</a></li>
-        <li><a href="#performance-budgets">Performance Budgets For Images</a></li>
-        <li><a href="#closing-recommendations">Closing recommendations</a></li>
-        <li><a href="#trivia">Trivia</a></li>
+        <li><a href="#lazy-load-non-critical-images">延迟加载非关键图像</a></li>
+        <li><a href="#display-none-trap">避免<code>display: none;</code>陷阱</a></li>
+        <li><a href="#image-processing-cdns">图像处理CDN对您有意义吗？</a></li>
+        <li><a href="#caching-image-assets">缓存图像资源</a></li>
+        <li><a href="#preload-critical-image-assets">预加载关键图像资产</a></li>
+        <li><a href="#performance-budgets">图像的Web性能指标</a></li>
+        <li><a href="#closing-recommendations">最后的建议</a></li>
+        <li><a href="#trivia">后记</a></li>
 </ul>
 </p>
 </details>
@@ -415,7 +415,7 @@ gulp.task('images', function () {
 
 
 
-### <a id="how-far-have-we-come-from-the-jpeg" href="#how-far-have-we-come-from-the-jpeg">我们举例JPEG有多遥远？</a>
+### <a id="how-far-have-we-come-from-the-jpeg" href="#how-far-have-we-come-from-the-jpeg">我们距离JPEG有多遥远？</a>
 
 **以下是当前网络上图像格式的分布状态：**
 
@@ -451,7 +451,7 @@ gulp.task('images', function () {
 
 
 
-### <a id="optimizing-jpeg-encoders" href="#optimizing-jpeg-encoders">优化JPEG编码器s</a>
+### <a id="optimizing-jpeg-encoders" href="#optimizing-jpeg-encoders">优化JPEG编码器</a>
 
 现代JPEG编码器尝试生成更小，更高保真度的JPEG文件，同时保持与现有浏览器和图像处理应用程序的兼容性。 它们避免了在生态系统中引入新的图像格式或更改，来实现压缩增益。。 两个这样的编码器分别是是MozJPEG和Guetzli。
 
@@ -1554,7 +1554,7 @@ Lazysizes 不是你唯一的选项，这里还有更多延迟加载的类库：
 
 
 
-## <a id="display-none-trap" href="#display-none-trap">避免display:none陷阱</a>
+## <a id="display-none-trap" href="#display-none-trap">避免`display:none`陷阱</a>
 
 较旧的响应式图像解决方案误解了浏览器在设置CSS的`display`属性时如何处理图像请求。 这可能导致请求的图像明显多于您可能期望的图像，而且另一个原因是`<picture>`和`<img srcset>`才是加载响应图像的首选。
 
