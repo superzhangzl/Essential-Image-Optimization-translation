@@ -46,6 +46,11 @@
 
 - 具体的注释或者标记的todo部分等了解了解再补充，本次先翻译工作先告一段落，要准备十一咯。略略略~
 
+12-08：
+                                                   
+- 更新博客，汉化目录
+- 修复错别字
+
 
 
 如有侵权，提[Issue](<https://github.com/xiaopangder/xiaopangder.github.io/issues>)我会第一时间删除。^_^
